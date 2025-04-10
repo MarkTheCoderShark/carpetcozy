@@ -27,7 +27,13 @@ export async function generateMetadata({ params }: { params: { slug: string } })
   };
 }
 
-export default function ServiceAreaPage({ params }: { params: { slug: string } }) {
+export default function ServiceAreaPage({
+  params,
+}: {
+  params: {
+    slug: string;
+  };
+}) {
   const area = serviceAreas.find((area: ServiceArea) => area.slug === params.slug);
   
   if (!area) {
