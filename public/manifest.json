@@ -4,8 +4,8 @@
   "description": "Professional carpet cleaning services in Roseville and surrounding areas",
   "start_url": "/",
   "display": "standalone",
-  "background_color": "#ffffff",
-  "theme_color": "#1e40af",
+  "background_color": "#F9F9F9",
+  "theme_color": "#008080",
   "icons": [
     {
       "src": "/carpetcozylogo.png",

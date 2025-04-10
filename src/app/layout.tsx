@@ -40,7 +40,7 @@ export const metadata: Metadata = {
     apple: '/apple-touch-icon.png',
   },
   manifest: '/manifest.json',
-  themeColor: '#1e40af',
+  themeColor: '#008080',
 };
 
 export default function RootLayout({
@@ -53,7 +53,7 @@ export default function RootLayout({
       <head>
         <link rel="manifest" href="/manifest.json" />
         <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
-        <meta name="theme-color" content="#1e40af" />
+        <meta name="theme-color" content="#008080" />
       </head>
       <body
         className={`${manrope.variable} antialiased min-h-screen flex flex-col`}

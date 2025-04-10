@@ -5,7 +5,7 @@ interface SectionProps {
   subtitle?: string;
   children: React.ReactNode;
   className?: string;
-  bgColor?: 'white' | 'gray' | 'blue' | 'dark';
+  bgColor?: 'white' | 'gray' | 'blue' | 'dark' | 'secondary' | 'primary';
   id?: string;
   textColor?: 'default' | 'light' | 'dark';
 }
@@ -25,6 +25,8 @@ const Section: React.FC<SectionProps> = ({
     gray: 'bg-gray-50',
     blue: 'bg-blue-100',
     dark: 'bg-blue-900',
+    secondary: 'bg-[var(--secondary)]',
+    primary: 'bg-[var(--primary)]',
   };
   
   // Text color classes
@@ -38,7 +40,8 @@ const Section: React.FC<SectionProps> = ({
   const subtitleColorClass = 
     textColor === 'light' ? 'text-blue-100' : 
     textColor === 'dark' ? 'text-gray-700' : 
-    bgColor === 'dark' ? 'text-blue-100' : 'text-gray-600';
+    bgColor === 'dark' ? 'text-blue-100' : 
+    bgColor === 'secondary' || bgColor === 'primary' ? 'text-gray-700' : 'text-gray-600';
   
   return (
     <section id={id} className={`py-16 ${bgClasses[bgColor]} ${textClasses[textColor]} ${className}`}>

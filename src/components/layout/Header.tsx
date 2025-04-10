@@ -30,37 +30,41 @@ const Header = () => {
           href="/" 
           className="flex items-center flex-shrink-0"
         >
-          <Image 
-            src="/carpetcozylogo.png" 
-            alt="CarpetCozy Logo" 
-            width={160} 
-            height={40} 
-            className="h-auto"
-            priority
-          />
+          <div className="flex items-center text-2xl font-bold">
+            <span className="carpet-text">Carpet</span>
+            <span className="cozy-text">Cozy</span>
+            <Image 
+              src="/carpetcozylogo.png" 
+              alt="CarpetCozy Icon" 
+              width={40} 
+              height={40} 
+              className="h-auto ml-2"
+              priority
+            />
+          </div>
         </Link>
 
         {/* Desktop Navigation */}
         <nav className="hidden md:flex items-center space-x-6 lg:space-x-8">
-          <Link href="/" className={`nav-item font-medium ${pathname === '/' ? 'text-blue-600 font-bold' : 'text-gray-700'}`}>
+          <Link href="/" className={`nav-item font-medium ${pathname === '/' ? 'text-accent font-bold' : 'text-gray-700'}`}>
             Home
           </Link>
-          <Link href="/about" className={`nav-item font-medium ${pathname === '/about' ? 'text-blue-600 font-bold' : 'text-gray-700'}`}>
+          <Link href="/about" className={`nav-item font-medium ${pathname === '/about' ? 'text-accent font-bold' : 'text-gray-700'}`}>
             About Us
           </Link>
-          <Link href="/services" className={`nav-item font-medium ${pathname === '/services' ? 'text-blue-600 font-bold' : 'text-gray-700'}`}>
+          <Link href="/services" className={`nav-item font-medium ${pathname === '/services' ? 'text-accent font-bold' : 'text-gray-700'}`}>
             Services
           </Link>
-          <Link href="/areas" className={`nav-item font-medium ${pathname === '/areas' ? 'text-blue-600 font-bold' : 'text-gray-700'}`}>
+          <Link href="/areas" className={`nav-item font-medium ${pathname === '/areas' ? 'text-accent font-bold' : 'text-gray-700'}`}>
             Service Areas
           </Link>
-          <Link href="/reviews" className={`nav-item font-medium ${pathname === '/reviews' ? 'text-blue-600 font-bold' : 'text-gray-700'}`}>
+          <Link href="/reviews" className={`nav-item font-medium ${pathname === '/reviews' ? 'text-accent font-bold' : 'text-gray-700'}`}>
             Reviews
           </Link>
-          <Link href="/gallery" className={`nav-item font-medium ${pathname === '/gallery' ? 'text-blue-600 font-bold' : 'text-gray-700'}`}>
+          <Link href="/gallery" className={`nav-item font-medium ${pathname === '/gallery' ? 'text-accent font-bold' : 'text-gray-700'}`}>
             Gallery
           </Link>
-          <Link href="/contact" className={`nav-item font-medium ${pathname === '/contact' ? 'text-blue-600 font-bold' : 'text-gray-700'}`}>
+          <Link href="/contact" className={`nav-item font-medium ${pathname === '/contact' ? 'text-accent font-bold' : 'text-gray-700'}`}>
             Contact
           </Link>
         </nav>
@@ -94,25 +98,25 @@ const Header = () => {
       {isMenuOpen && (
         <div className="md:hidden bg-white shadow-md">
           <div className="container mx-auto px-4 py-4 flex flex-col space-y-4">
-            <Link href="/" className={`nav-item font-medium ${pathname === '/' ? 'text-blue-600 font-bold' : 'text-gray-700'}`}>
+            <Link href="/" className={`nav-item font-medium ${pathname === '/' ? 'text-accent font-bold' : 'text-gray-700'}`}>
               Home
             </Link>
-            <Link href="/about" className={`nav-item font-medium ${pathname === '/about' ? 'text-blue-600 font-bold' : 'text-gray-700'}`}>
+            <Link href="/about" className={`nav-item font-medium ${pathname === '/about' ? 'text-accent font-bold' : 'text-gray-700'}`}>
               About Us
             </Link>
-            <Link href="/services" className={`nav-item font-medium ${pathname === '/services' ? 'text-blue-600 font-bold' : 'text-gray-700'}`}>
+            <Link href="/services" className={`nav-item font-medium ${pathname === '/services' ? 'text-accent font-bold' : 'text-gray-700'}`}>
               Services
             </Link>
-            <Link href="/areas" className={`nav-item font-medium ${pathname === '/areas' ? 'text-blue-600 font-bold' : 'text-gray-700'}`}>
+            <Link href="/areas" className={`nav-item font-medium ${pathname === '/areas' ? 'text-accent font-bold' : 'text-gray-700'}`}>
               Service Areas
             </Link>
-            <Link href="/reviews" className={`nav-item font-medium ${pathname === '/reviews' ? 'text-blue-600 font-bold' : 'text-gray-700'}`}>
+            <Link href="/reviews" className={`nav-item font-medium ${pathname === '/reviews' ? 'text-accent font-bold' : 'text-gray-700'}`}>
               Reviews
             </Link>
-            <Link href="/gallery" className={`nav-item font-medium ${pathname === '/gallery' ? 'text-blue-600 font-bold' : 'text-gray-700'}`}>
+            <Link href="/gallery" className={`nav-item font-medium ${pathname === '/gallery' ? 'text-accent font-bold' : 'text-gray-700'}`}>
               Gallery
             </Link>
-            <Link href="/contact" className={`nav-item font-medium ${pathname === '/contact' ? 'text-blue-600 font-bold' : 'text-gray-700'}`}>
+            <Link href="/contact" className={`nav-item font-medium ${pathname === '/contact' ? 'text-accent font-bold' : 'text-gray-700'}`}>
               Contact
             </Link>
             <Link href="/contact" className="button-primary text-center w-full">
