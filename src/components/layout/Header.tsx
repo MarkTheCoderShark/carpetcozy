@@ -30,14 +30,16 @@ const Header = () => {
           href="/" 
           className="flex items-center flex-shrink-0"
         >
-          <Image 
-            src="/carpetcozylogo.png" 
-            alt="CarpetCozy Logo" 
-            width={160} 
-            height={40} 
-            className="h-auto"
-            priority
-          />
+          <div className="relative w-[180px] h-[50px]">
+            <Image 
+              src="/carpetcozylogo.png" 
+              alt="CarpetCozy Logo" 
+              fill
+              sizes="180px"
+              style={{ objectFit: 'contain' }}
+              priority
+            />
+          </div>
         </Link>
 
         {/* Desktop Navigation */}
