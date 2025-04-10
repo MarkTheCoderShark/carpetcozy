@@ -39,7 +39,7 @@ export default function ContactPage() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
           {/* Contact Form */}
           <div>
-            <h2 className="text-2xl md:text-3xl font-bold mb-6">Send Us a Message</h2>
+            <h2 className="text-2xl md:text-3xl font-bold mb-6 text-blue-800 border-b-2 border-blue-600 pb-2">Send Us a Message</h2>
             <form className="space-y-6">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div>
@@ -139,8 +139,8 @@ export default function ContactPage() {
           </div>
           
           {/* Contact Information */}
-          <div className="bg-gray-50 p-8 rounded-lg">
-            <h2 className="text-2xl md:text-3xl font-bold mb-6">Contact Information</h2>
+          <div className="bg-gray-50 p-8 rounded-lg shadow-md">
+            <h2 className="text-2xl md:text-3xl font-bold mb-6 text-blue-800 border-b-2 border-blue-600 pb-2">Contact Information</h2>
             
             <div className="space-y-6">
               <div className="flex items-start">
@@ -150,8 +150,8 @@ export default function ContactPage() {
                   </svg>
                 </div>
                 <div className="ml-4">
-                  <h3 className="text-lg font-semibold mb-1">Phone</h3>
-                  <p className="text-gray-700">(555) 123-4567</p>
+                  <h3 className="text-lg font-semibold mb-1 text-blue-700">Phone</h3>
+                  <p className="text-gray-800">(555) 123-4567</p>
                 </div>
               </div>
               
@@ -162,8 +162,8 @@ export default function ContactPage() {
                   </svg>
                 </div>
                 <div className="ml-4">
-                  <h3 className="text-lg font-semibold mb-1">Email</h3>
-                  <p className="text-gray-700">info@carpetcozy.com</p>
+                  <h3 className="text-lg font-semibold mb-1 text-blue-700">Email</h3>
+                  <p className="text-gray-800">info@carpetcozy.com</p>
                 </div>
               </div>
               
@@ -175,8 +175,8 @@ export default function ContactPage() {
                   </svg>
                 </div>
                 <div className="ml-4">
-                  <h3 className="text-lg font-semibold mb-1">Address</h3>
-                  <p className="text-gray-700">
+                  <h3 className="text-lg font-semibold mb-1 text-blue-700">Address</h3>
+                  <p className="text-gray-800">
                     123 Carpet Way<br />
                     Roseville, CA 95678
                   </p>
@@ -190,8 +190,8 @@ export default function ContactPage() {
                   </svg>
                 </div>
                 <div className="ml-4">
-                  <h3 className="text-lg font-semibold mb-1">Business Hours</h3>
-                  <p className="text-gray-700">
+                  <h3 className="text-lg font-semibold mb-1 text-blue-700">Business Hours</h3>
+                  <p className="text-gray-800">
                     Monday - Friday: 8:00 AM - 6:00 PM<br />
                     Saturday: 9:00 AM - 3:00 PM<br />
                     Sunday: Closed
@@ -201,7 +201,7 @@ export default function ContactPage() {
             </div>
             
             <div className="mt-8">
-              <h3 className="text-lg font-semibold mb-4">Connect With Us</h3>
+              <h3 className="text-lg font-semibold mb-4 text-blue-700">Connect With Us</h3>
               <div className="flex space-x-4">
                 <a href="#" className="text-blue-600 hover:text-blue-800">
                   <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
