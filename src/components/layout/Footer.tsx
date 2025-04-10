@@ -13,11 +13,13 @@ const Footer = () => {
           {/* Company Info */}
           <div>
             <div className="mb-4">
-              {/* Styled logo text */}
-              <div className="flex items-center text-2xl font-bold">
-                <span className="carpet-text">Carpet</span>
-                <span className="cozy-text">Cozy</span>
-              </div>
+              <Image 
+                src="/carpetcozy.png" 
+                alt="CarpetCozy Logo" 
+                width={160} 
+                height={45} 
+                className="h-auto"
+              />
             </div>
             <p className="mb-4">Professional carpet cleaning services in Roseville and surrounding areas.</p>
             <div className="space-y-2">
@@ -48,37 +50,37 @@ const Footer = () => {
             <h3 className="text-xl font-bold mb-4">Quick Links</h3>
             <ul className="space-y-2">
               <li>
-                <Link href="/" className="hover:text-[var(--primary)] transition duration-300">
+                <Link href="/" className="hover:text-blue-400 transition duration-300">
                   Home
                 </Link>
               </li>
               <li>
-                <Link href="/about" className="hover:text-[var(--primary)] transition duration-300">
+                <Link href="/about" className="hover:text-blue-400 transition duration-300">
                   About Us
                 </Link>
               </li>
               <li>
-                <Link href="/services" className="hover:text-[var(--primary)] transition duration-300">
+                <Link href="/services" className="hover:text-blue-400 transition duration-300">
                   Services
                 </Link>
               </li>
               <li>
-                <Link href="/areas" className="hover:text-[var(--primary)] transition duration-300">
+                <Link href="/areas" className="hover:text-blue-400 transition duration-300">
                   Service Areas
                 </Link>
               </li>
               <li>
-                <Link href="/reviews" className="hover:text-[var(--primary)] transition duration-300">
+                <Link href="/reviews" className="hover:text-blue-400 transition duration-300">
                   Reviews
                 </Link>
               </li>
               <li>
-                <Link href="/gallery" className="hover:text-[var(--primary)] transition duration-300">
+                <Link href="/gallery" className="hover:text-blue-400 transition duration-300">
                   Gallery
                 </Link>
               </li>
               <li>
-                <Link href="/contact" className="hover:text-[var(--primary)] transition duration-300">
+                <Link href="/contact" className="hover:text-blue-400 transition duration-300">
                   Contact
                 </Link>
               </li>
@@ -89,28 +91,28 @@ const Footer = () => {
           <div>
             <h3 className="text-xl font-bold mb-4">Service Areas</h3>
             <div className="grid grid-cols-2 gap-2">
-              <Link href="/areas/roseville" className="hover:text-[var(--primary)] transition duration-300">
+              <Link href="/areas/roseville" className="hover:text-blue-400 transition duration-300">
                 Roseville
               </Link>
-              <Link href="/areas/rocklin" className="hover:text-[var(--primary)] transition duration-300">
+              <Link href="/areas/rocklin" className="hover:text-blue-400 transition duration-300">
                 Rocklin
               </Link>
-              <Link href="/areas/loomis" className="hover:text-[var(--primary)] transition duration-300">
+              <Link href="/areas/loomis" className="hover:text-blue-400 transition duration-300">
                 Loomis
               </Link>
-              <Link href="/areas/folsom" className="hover:text-[var(--primary)] transition duration-300">
+              <Link href="/areas/folsom" className="hover:text-blue-400 transition duration-300">
                 Folsom
               </Link>
-              <Link href="/areas/citrus-heights" className="hover:text-[var(--primary)] transition duration-300">
+              <Link href="/areas/citrus-heights" className="hover:text-blue-400 transition duration-300">
                 Citrus Heights
               </Link>
-              <Link href="/areas/granite-bay" className="hover:text-[var(--primary)] transition duration-300">
+              <Link href="/areas/granite-bay" className="hover:text-blue-400 transition duration-300">
                 Granite Bay
               </Link>
-              <Link href="/areas/auburn" className="hover:text-[var(--primary)] transition duration-300">
+              <Link href="/areas/auburn" className="hover:text-blue-400 transition duration-300">
                 Auburn
               </Link>
-              <Link href="/areas/grass-valley" className="hover:text-[var(--primary)] transition duration-300">
+              <Link href="/areas/grass-valley" className="hover:text-blue-400 transition duration-300">
                 Grass Valley
               </Link>
             </div>
@@ -119,7 +121,7 @@ const Footer = () => {
         
         {/* Copyright */}
         <div className="border-t border-gray-700 mt-8 pt-8 text-center">
-          <p>© {currentYear} <span className="carpet-text">Carpet</span><span className="cozy-text">Cozy</span>. All rights reserved.</p>
+          <p>© {currentYear} CarpetCozy. All rights reserved.</p>
         </div>
       </div>
     </footer>
