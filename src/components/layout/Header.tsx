@@ -30,14 +30,12 @@ const Header = () => {
           href="/" 
           className="flex items-center flex-shrink-0"
         >
-          <div className="relative w-[180px] h-[50px]">
-            <Image 
-              src="/carpetcozylogo.png" 
-              alt="CarpetCozy Logo" 
-              fill
-              sizes="180px"
-              style={{ objectFit: 'contain' }}
-              priority
+          <div className="relative w-[240px] h-[60px]">
+            {/* Using standard img tag for debugging */}
+            <img
+              src="/carpetcozylogo.png"
+              alt="CarpetCozy Logo"
+              className="w-full h-full" style={{ objectFit: 'contain' }}
             />
           </div>
         </Link>
