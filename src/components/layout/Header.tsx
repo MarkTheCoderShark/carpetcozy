@@ -25,8 +25,8 @@ const Header = () => {
 
   return (
     <header className={`${scrolled ? 'navbar bg-white/90' : 'bg-white'} sticky top-0 z-50 transition-all duration-300`}>
-      <div className="container mx-auto px-4 py-3 flex justify-between items-center">
-        <Link href="/" className="flex items-center">
+      <div className="container mx-auto px-4 py-3 flex items-center justify-between">
+        <Link href="/" className="flex items-center flex-shrink-0">
           <Image 
             src="/carpetcozybar.png" 
             alt="CarpetCozy Logo" 
@@ -38,7 +38,7 @@ const Header = () => {
         </Link>
 
         {/* Desktop Navigation */}
-        <nav className="hidden md:flex space-x-8">
+        <nav className="hidden md:flex items-center space-x-6 lg:space-x-8">
           <Link href="/" className={`nav-item font-medium ${pathname === '/' ? 'text-blue-600 font-bold' : 'text-gray-700'}`}>
             Home
           </Link>
@@ -64,7 +64,7 @@ const Header = () => {
 
         {/* CTA Button */}
         <div className="hidden md:block">
-          <Link href="/contact" className="button-primary">
+          <Link href="/contact" className="button-primary whitespace-nowrap">
             Get a Free Quote
             <svg className="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
@@ -112,7 +112,7 @@ const Header = () => {
             <Link href="/contact" className={`nav-item font-medium ${pathname === '/contact' ? 'text-blue-600 font-bold' : 'text-gray-700'}`}>
               Contact
             </Link>
-            <Link href="/contact" className="button-primary text-center">
+            <Link href="/contact" className="button-primary text-center w-full">
               Get a Free Quote
               <svg className="w-4 h-4 ml-1 inline" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
