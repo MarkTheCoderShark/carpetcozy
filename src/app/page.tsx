@@ -35,7 +35,7 @@ export default function Home() {
         <div className="container mx-auto px-4 z-10">
           <div className="max-w-3xl bg-black/20 p-8 rounded-lg backdrop-blur-sm">
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 text-shadow">
-              Professional Carpet Cleaning in Roseville
+              Professional Carpet Cleaning in Roseville & Surrounding Areas
             </h1>
             <p className="text-xl md:text-2xl mb-8 text-shadow">
               Bringing life back to your carpets with our professional, eco-friendly cleaning services.
@@ -100,7 +100,7 @@ export default function Home() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           <div>
             <p className="mb-6 text-gray-700">
-              At CarpetCozy, we believe that clean carpets make for a healthier, more comfortable home. Founded with a passion for cleanliness and customer satisfaction, we've been serving the Roseville area for years with professional carpet cleaning services.
+              At CarpetCozy, we believe that clean carpets make for a healthier, more comfortable home. Founded with a passion for cleanliness and customer satisfaction, we've been serving Roseville and surrounding communities for years with professional carpet cleaning services.
             </p>
             <p className="mb-6 text-gray-700">
               Our team of experienced technicians uses the latest equipment and eco-friendly cleaning solutions to remove deep-seated dirt, stains, allergens, and odors from your carpets, leaving them fresh, clean, and cozy.

@@ -11,11 +11,11 @@ const manrope = Manrope({
 });
 
 export const metadata: Metadata = {
-  title: "CarpetCozy | Professional Carpet Cleaning in Roseville, CA",
+  title: "CarpetCozy | Professional Carpet Cleaning in Roseville & Surrounding Areas",
   description: "Professional carpet cleaning services in Roseville and surrounding areas. Residential and commercial services, stain removal, pet odor treatment, and more.",
   keywords: "carpet cleaning, professional carpet cleaning, Roseville, Rocklin, Loomis, Folsom, stain removal, pet odor, upholstery cleaning",
   openGraph: {
-    title: "CarpetCozy | Professional Carpet Cleaning in Roseville, CA",
+    title: "CarpetCozy | Professional Carpet Cleaning in Roseville & Surrounding Areas",
     description: "Professional carpet cleaning services in Roseville and surrounding areas. Residential and commercial services, stain removal, pet odor treatment, and more.",
     images: [
       {
@@ -30,7 +30,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'CarpetCozy | Professional Carpet Cleaning in Roseville, CA',
+    title: 'CarpetCozy | Professional Carpet Cleaning in Roseville & Surrounding Areas',
     description: 'Professional carpet cleaning services in Roseville and surrounding areas.',
     images: ['/carpetcozy.png'],
   },
