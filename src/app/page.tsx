@@ -8,10 +8,19 @@ export default function Home() {
   return (
     <>
       {/* Hero Section */}
-      <section className="relative h-[80vh] min-h-[600px] bg-gradient-to-r from-blue-900 to-indigo-900 text-white flex items-center">
+      <section className="hero relative h-[80vh] min-h-[600px] flex items-center">
         <div className="absolute inset-0 z-0">
-          <div className="absolute inset-0 bg-black opacity-60"></div>
-          {/* Replace with actual carpet cleaning image */}
+          <div className="absolute inset-0 bg-black opacity-40"></div>
+          <div className="absolute inset-0 bg-gradient-to-r from-blue-900/60 to-indigo-900/60 mix-blend-multiply"></div>
+          {/* Pattern overlay */}
+          <div className="absolute inset-0 opacity-10" 
+            style={{ 
+              backgroundImage: 'url("/images/textures/pattern.png")', 
+              backgroundSize: '200px',
+              backgroundRepeat: 'repeat',
+            }}>
+          </div>
+          {/* Main background image */}
           <div className="relative h-full">
             <Image 
               src="/images/hero-carpet.jpg" 
@@ -24,15 +33,23 @@ export default function Home() {
         </div>
         
         <div className="container mx-auto px-4 z-10">
-          <div className="max-w-3xl bg-black/30 p-8 rounded-lg backdrop-blur-sm">
+          <div className="max-w-3xl bg-black/20 p-8 rounded-lg backdrop-blur-sm">
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 text-shadow">
               Professional Carpet Cleaning in Roseville
             </h1>
-            <p className="text-xl md:text-2xl mb-8">
+            <p className="text-xl md:text-2xl mb-8 text-shadow">
               Bringing life back to your carpets with our professional, eco-friendly cleaning services.
             </p>
             <div className="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
-              <Button href="/contact" size="lg">
+              <Button 
+                href="/contact" 
+                size="lg"
+                icon={
+                  <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                  </svg>
+                }
+              >
                 Get a Free Quote
               </Button>
               <Button href="/services" variant="outline" size="lg" className="bg-white/10 border-white text-white hover:bg-white/20">
@@ -88,14 +105,23 @@ export default function Home() {
             <p className="mb-6 text-gray-700">
               Our team of experienced technicians uses the latest equipment and eco-friendly cleaning solutions to remove deep-seated dirt, stains, allergens, and odors from your carpets, leaving them fresh, clean, and cozy.
             </p>
-            <Button href="/about">Learn More About Us</Button>
+            <Button 
+              href="/about" 
+              icon={
+                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                </svg>
+              }
+            >
+              Learn More About Us
+            </Button>
           </div>
-          <div className="relative h-80 lg:h-96">
+          <div className="relative h-80 lg:h-96 rounded-lg overflow-hidden shadow-lg transform transition-all duration-500 hover:scale-[1.02] hover:shadow-xl">
             <Image 
               src="/images/about-team.jpg" 
               alt="CarpetCozy team" 
               fill 
-              className="object-cover rounded-lg shadow-lg"
+              className="object-cover"
             />
           </div>
         </div>
@@ -171,6 +197,11 @@ export default function Home() {
             href="/contact" 
             className="bg-white text-blue-700 hover:bg-gray-100"
             size="lg"
+            icon={
+              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
+              </svg>
+            }
           >
             Get Your Free Quote
           </Button>

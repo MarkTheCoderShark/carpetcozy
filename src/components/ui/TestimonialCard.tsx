@@ -4,11 +4,10 @@ import Image from 'next/image';
 interface TestimonialCardProps {
   quote: string;
   author: string;
-  location?: string;
-  rating: 1 | 2 | 3 | 4 | 5;
-  image?: string;
-  className?: string;
+  location: string;
+  rating: number;
   variant?: 'light' | 'dark';
+  authorImage?: string;
 }
 
 const TestimonialCard: React.FC<TestimonialCardProps> = ({
@@ -16,22 +15,29 @@ const TestimonialCard: React.FC<TestimonialCardProps> = ({
   author,
   location,
   rating,
-  image,
-  className = '',
   variant = 'light',
+  authorImage,
 }) => {
-  const bgColorClass = variant === 'dark' ? 'bg-blue-800 text-white' : 'bg-white';
-  const quoteColorClass = variant === 'dark' ? 'text-blue-100' : 'text-gray-700';
-  const locationColorClass = variant === 'dark' ? 'text-blue-200' : 'text-gray-500';
+  const bgColor = variant === 'dark' ? 'bg-blue-800' : 'bg-white';
+  const textColor = variant === 'dark' ? 'text-blue-100' : 'text-gray-700';
+  const borderColor = variant === 'dark' ? 'border-blue-700' : 'border-gray-100';
+  const nameColor = variant === 'dark' ? 'text-white' : 'text-gray-900';
+  const locationColor = variant === 'dark' ? 'text-blue-200' : 'text-gray-500';
+
+  // Generate placeholder initials if no author image is provided
+  const initials = author
+    .split(' ')
+    .map((name) => name[0])
+    .join('')
+    .toUpperCase();
 
   return (
-    <div className={`${bgColorClass} rounded-lg shadow-md p-6 h-full border border-transparent ${variant === 'dark' ? 'border-blue-700' : 'border-gray-100'} card-hover ${className}`}>
-      {/* Star Rating */}
+    <div className={`p-6 ${bgColor} border ${borderColor} rounded-lg shadow-md transition-all duration-300 hover:shadow-xl hover:-translate-y-1`}>
       <div className="flex mb-4">
         {Array.from({ length: 5 }).map((_, i) => (
           <svg
             key={i}
-            className={`w-5 h-5 ${i < rating ? 'text-yellow-400' : variant === 'dark' ? 'text-blue-700' : 'text-gray-200'}`}
+            className={`w-5 h-5 ${i < rating ? 'text-yellow-400' : 'text-gray-300'}`}
             fill="currentColor"
             viewBox="0 0 20 20"
             xmlns="http://www.w3.org/2000/svg"
@@ -40,31 +46,25 @@ const TestimonialCard: React.FC<TestimonialCardProps> = ({
           </svg>
         ))}
       </div>
-
-      {/* Quote */}
-      <div className="relative">
-        <svg className="absolute -top-2 -left-2 w-8 h-8 opacity-10 text-blue-500" fill="currentColor" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
-          <path d="M9.352 4C4.456 7.456 1 13.12 1 19.36c0 5.088 3.072 8.064 6.624 8.064 3.36 0 5.856-2.688 5.856-5.856 0-3.168-2.208-5.472-5.088-5.472-.576 0-1.344.096-1.536.192.48-3.264 3.552-7.104 6.624-9.024L9.352 4zm16.512 0c-4.8 3.456-8.256 9.12-8.256 15.36 0 5.088 3.072 8.064 6.624 8.064 3.264 0 5.856-2.688 5.856-5.856 0-3.168-2.304-5.472-5.184-5.472-.576 0-1.248.096-1.44.192.48-3.264 3.456-7.104 6.528-9.024L25.864 4z" />
-        </svg>
-        <p className={`${quoteColorClass} mb-4 italic pl-1`}>"{quote}"</p>
-      </div>
-
-      {/* Author Info */}
-      <div className="flex items-center mt-6">
-        {image && (
-          <div className="mr-3">
+      <p className={`${textColor} mb-6 italic`}>"{quote}"</p>
+      <div className="flex items-center">
+        {authorImage ? (
+          <div className="w-12 h-12 mr-4 relative overflow-hidden rounded-full">
             <Image
-              src={image}
+              src={authorImage}
               alt={author}
-              width={40}
-              height={40}
-              className="rounded-full border-2 border-blue-100"
+              fill
+              className="object-cover"
             />
+          </div>
+        ) : (
+          <div className="w-12 h-12 mr-4 rounded-full bg-blue-600 flex items-center justify-center text-white font-bold">
+            {initials}
           </div>
         )}
         <div>
-          <p className="font-semibold">{author}</p>
-          {location && <p className={`${locationColorClass} text-sm`}>{location}</p>}
+          <p className={`font-semibold ${nameColor}`}>{author}</p>
+          <p className={`text-sm ${locationColor}`}>{location}</p>
         </div>
       </div>
     </div>
