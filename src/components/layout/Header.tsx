@@ -31,7 +31,7 @@ const Header = () => {
           className="flex items-center flex-shrink-0"
         >
           <Image 
-            src="/carpetcozybartransparent.png" 
+            src="/carpetcozylogo.png" 
             alt="CarpetCozy Logo" 
             width={160} 
             height={40} 
