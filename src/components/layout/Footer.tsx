@@ -14,11 +14,12 @@ const Footer = () => {
           <div>
             <div className="mb-4">
               <Image 
-                src="/carpetcozy.png" 
-                alt="CarpetCozy Logo" 
-                width={160} 
-                height={45} 
-                className="h-auto"
+                src="/logo.png" // Updated path
+                alt="CarpetCozy Logo"
+                width={160}
+                height={45}
+                priority // Added prop
+                unoptimized // Added prop
               />
             </div>
             <p className="mb-4 text-gray-400">Professional carpet cleaning services in Roseville and surrounding areas.</p> {/* Lighter text */}
