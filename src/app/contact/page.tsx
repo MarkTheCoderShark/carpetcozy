@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Section from "@/components/ui/Section";
-import Button from "@/components/ui/Button";
+import Button from "@/components/ui/Button"; // Keep Button if used elsewhere, otherwise remove
+import ContactForm from "@/components/ui/ContactForm"; // Import the new form component
 
 export const metadata = {
   title: "Contact Us | CarpetCozy - Professional Carpet Cleaning",
@@ -58,122 +59,8 @@ export default function ContactPage() {
           {/* Contact Form */}
           <div>
             <h2 className="text-2xl md:text-3xl font-bold mb-6 text-text-primary border-b-2 border-primary pb-2">Send Us a Message</h2> {/* Updated colors */}
-            <form
-              name="contact"
-              method="POST"
-              data-netlify="true"
-              data-netlify-honeypot="bot-field"
-              className="space-y-6"
-            >
-              {/* Netlify hidden inputs */}
-              <input type="hidden" name="form-name" value="contact" />
-              <p className="hidden"> {/* Honeypot field */}
-                <label>
-                  Don’t fill this out if you’re human: <input name="bot-field" />
-                </label>
-              </p>
-              {/* Netlify hidden inputs */}
-              <input type="hidden" name="form-name" value="contact" />
-              <p className="hidden"> {/* Honeypot field */}
-                <label>
-                  Don’t fill this out if you’re human: <input name="bot-field" />
-                </label>
-              </p>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <div>
-                  <label htmlFor="first-name" className="block text-text-primary/90 font-medium mb-2"> {/* Updated text color */}
-                    First Name *
-                  </label>
-                  <input
-                    type="text"
-                    id="first-name"
-                    name="first-name"
-                    className="w-full px-4 py-2 border border-primary/30 rounded-lg focus:outline-none focus:ring-2 focus:ring-accent bg-background-alt" // Updated styles
-                    required
-                  />
-                </div>
-                <div>
-                  <label htmlFor="last-name" className="block text-text-primary/90 font-medium mb-2"> {/* Updated text color */}
-                    Last Name *
-                  </label>
-                  <input
-                    type="text"
-                    id="last-name"
-                    name="last-name"
-                    className="w-full px-4 py-2 border border-primary/30 rounded-lg focus:outline-none focus:ring-2 focus:ring-accent bg-background-alt" // Updated styles
-                    required
-                  />
-                </div>
-              </div>
-              
-              <div>
-                <label htmlFor="email" className="block text-text-primary/90 font-medium mb-2"> {/* Updated text color */}
-                  Email Address *
-                </label>
-                <input
-                  type="email"
-                  id="email"
-                  name="email"
-                  className="w-full px-4 py-2 border border-primary/30 rounded-lg focus:outline-none focus:ring-2 focus:ring-accent bg-background-alt" // Updated styles
-                  required
-                />
-              </div>
-              
-              <div>
-                <label htmlFor="phone" className="block text-text-primary/90 font-medium mb-2"> {/* Updated text color */}
-                  Phone Number *
-                </label>
-                <input
-                  type="tel"
-                  id="phone"
-                  name="phone"
-                  className="w-full px-4 py-2 border border-primary/30 rounded-lg focus:outline-none focus:ring-2 focus:ring-accent bg-background-alt" // Updated styles
-                  required
-                />
-              </div>
-              
-              <div>
-                <label htmlFor="service" className="block text-text-primary/90 font-medium mb-2"> {/* Updated text color */}
-                  Service Interested In
-                </label>
-                <select
-                  id="service"
-                  name="service"
-                  className="w-full px-4 py-2 border border-primary/30 rounded-lg focus:outline-none focus:ring-2 focus:ring-accent bg-background-alt" // Updated styles
-                >
-                  <option value="">Select a Service</option>
-                  <option value="residential">Residential Carpet Cleaning</option>
-                  <option value="commercial">Commercial Carpet Cleaning</option>
-                  <option value="pet-stain">Pet Stain & Odor Removal</option>
-                  <option value="stain-treatment">Deep Stain Treatment</option>
-                  <option value="upholstery">Upholstery Cleaning</option>
-                  <option value="area-rug">Area Rug Cleaning</option>
-                  <option value="other">Other</option>
-                </select>
-              </div>
-              
-              <div>
-                <label htmlFor="message" className="block text-text-primary/90 font-medium mb-2"> {/* Updated text color */}
-                  Message
-                </label>
-                <textarea
-                  id="message"
-                  name="message"
-                  rows={5}
-                  className="w-full px-4 py-2 border border-primary/30 rounded-lg focus:outline-none focus:ring-2 focus:ring-accent bg-background-alt" // Updated styles
-                  placeholder="Tell us about your needs or ask any questions..."
-                ></textarea>
-              </div>
-              
-              <div>
-                <Button type="submit" variant="primary" size="lg"> {/* Use Button component */}
-                  Submit Message
-                </Button>
-
-
-
-              </div>
-            </form>
+            {/* Replace the old form with the new client component */}
+            <ContactForm />
           </div>
           
           {/* Contact Information */}

@@ -10,6 +10,7 @@ interface ButtonProps {
   children: React.ReactNode;
   icon?: React.ReactNode;
   type?: 'button' | 'submit' | 'reset'; // Added button type prop
+  disabled?: boolean; // Added disabled prop
 }
 
 const Button: React.FC<ButtonProps> = ({
@@ -21,6 +22,7 @@ const Button: React.FC<ButtonProps> = ({
   children,
   icon,
   type = 'button', // Default type
+  disabled = false, // Default disabled state
 }) => {
   // Base classes - Updated rounding and focus ring
   const baseClasses = 'inline-flex items-center justify-center rounded-lg font-bold transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed whitespace-nowrap'; // Changed to font-bold
@@ -51,10 +53,17 @@ const Button: React.FC<ButtonProps> = ({
 
   // Render as link or button
   if (href) {
-    // For links, ensure onClick doesn't interfere if passed
-    const linkProps = onClick ? { onClick: (e: React.MouseEvent<HTMLAnchorElement>) => { e.preventDefault(); onClick(e as any); } } : {};
+    // For links, disable via styles and prevent click if disabled
+    const linkProps = onClick && !disabled ? { onClick: (e: React.MouseEvent<HTMLAnchorElement>) => { e.preventDefault(); onClick(e as any); } } : {};
+    const linkDisabledClasses = disabled ? 'opacity-50 cursor-not-allowed' : '';
     return (
-      <Link href={href} className={allClasses} {...linkProps}>
+      <Link
+        href={disabled ? '#' : href} // Prevent navigation if disabled
+        className={`${allClasses} ${linkDisabledClasses}`}
+        aria-disabled={disabled} // Accessibility
+        tabIndex={disabled ? -1 : undefined} // Prevent tabbing if disabled
+        {...linkProps}
+      >
         {content}
       </Link>
     );
@@ -65,6 +74,7 @@ const Button: React.FC<ButtonProps> = ({
       type={type} // Use the type prop
       className={allClasses}
       onClick={onClick}
+      disabled={disabled} // Apply disabled attribute to button
     >
       {content}
     </button>
