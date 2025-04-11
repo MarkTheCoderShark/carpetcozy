@@ -53,7 +53,7 @@ const Header = () => {
             width={280}
             height={78}
             priority // Add priority prop back
-            // Removed unoptimized prop
+            unoptimized // Add unoptimized prop
             // Removed inline style, relying on width/height props
           />
           {/* Removed decorative icon */}
