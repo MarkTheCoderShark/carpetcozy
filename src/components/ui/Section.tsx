@@ -24,7 +24,7 @@ const Section: React.FC<SectionProps> = ({
   // Background color classes using new theme colors
   const bgClasses = {
     default: 'bg-background', // White
-    alt: 'bg-background-alt', // Off-white
+    alt: 'bg-primary/10', // Use light primary tint instead of off-white
     'primary-light': 'bg-primary/10', // Very light primary blue tint
     dark: 'bg-text-primary', // Dark brown/charcoal
   };
