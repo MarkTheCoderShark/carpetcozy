@@ -48,7 +48,7 @@ const Header = () => {
         {/* Logo - Wrapped in Link, using Next.js Image */}
         <Link href="/" className="flex items-center flex-shrink-0"> {/* Reverted space-x-2 */}
           <Image
-            src="/carpetcozylogo.png" // Reverted to standard absolute path
+            src="/logo.png" // Updated to match renamed file
             alt="CarpetCozy Logo"
             width={280}
             height={78}
