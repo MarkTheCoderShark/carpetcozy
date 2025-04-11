@@ -8,7 +8,7 @@ export default function Home() {
   return (
     <>
       {/* Hero Section */}
-      <section className="hero relative h-[80vh] min-h-[600px] flex items-center">
+      <section className="hero relative h-[80vh] min-h-[600px] flex"> {/* Removed items-center */}
         <div className="absolute inset-0 z-0">
           {/* Removed dark overlays for a lighter theme */}
           {/* Pattern overlay */}
@@ -27,24 +27,31 @@ export default function Home() {
         </div>
         
         {/* Centered the container and text */}
-        <div className="container mx-auto px-4 z-10 flex justify-center text-center">
-          {/* Increased max-width and centered */}
-          <div className="max-w-4xl mx-auto p-8 rounded-lg text-text-primary"> {/* Removed bg, blur, shadow; ensured text color */}
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6"> {/* Removed text-shadow */}
-              Professional Carpet Cleaning in Roseville & Surrounding Areas
-            </h1>
-            <p className="text-xl md:text-2xl mb-8"> {/* Removed text-shadow */}
-              Bringing life back to your carpets with our professional, eco-friendly cleaning services.
-            </p>
+        {/* Added pt-24 (header height) + extra padding */}
+        <div className="container mx-auto px-4 z-10 flex justify-center text-center items-center pt-32">
+          {/* Added relative positioning for overlay */}
+          <div className="relative max-w-4xl mx-auto p-8 rounded-lg text-text-primary">
+            {/* Added overlay */}
+            <div className="absolute inset-0 bg-white/80 backdrop-blur-sm rounded-lg"></div>
+            {/* Added relative z-10 to text content */}
+            <div className="relative z-10">
+              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
+                Professional Carpet Cleaning in Roseville & Surrounding Areas
+              </h1>
+              <p className="text-xl md:text-2xl mb-8">
+                Bringing life back to your carpets with our professional, eco-friendly cleaning services.
+              </p>
             {/* Centered buttons */}
-            <div className="flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-4">
-              <Button href="/contact" size="lg" variant="primary"> {/* Use new primary variant */}
-                Get a Free Quote
-              </Button>
-              <Button href="/services" variant="secondary" size="lg"> {/* Use new secondary variant */}
-                Our Services
-              </Button>
-            </div>
+              {/* Added relative z-10 */}
+              <div className="relative z-10 flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-4">
+                <Button href="/contact" size="lg" variant="primary">
+                  Get a Free Quote
+                </Button>
+                <Button href="/services" variant="secondary" size="lg">
+                  Our Services
+                </Button>
+              </div>
+            </div> {/* Close relative z-10 div */}
           </div>
         </div>
       </section>

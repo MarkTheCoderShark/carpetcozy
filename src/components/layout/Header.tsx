@@ -35,10 +35,10 @@ const Header = () => {
   ];
 
   // Define header classes for default and scrolled states
-  const headerBaseClasses = "sticky top-0 z-50 transition-all duration-300";
-  const headerDefaultBg = "bg-white";
-  // Use a slightly transparent background with blur when scrolled
-  const headerScrolledBg = "bg-white shadow-subtle"; // Simplified scrolled background
+  const headerBaseClasses = "absolute top-0 left-0 w-full z-50 transition-all duration-300"; // Changed to absolute positioning
+  const headerDefaultBg = "bg-transparent"; // Transparent initially
+  // Use a slightly transparent background with blur and shadow when scrolled
+  const headerScrolledBg = "bg-white/90 backdrop-blur-md shadow-md"; // Scrolled state with blur and shadow
 
   return (
     <header className={`${headerBaseClasses} ${scrolled ? headerScrolledBg : headerDefaultBg}`}>

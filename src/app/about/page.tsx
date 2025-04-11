@@ -13,7 +13,7 @@ export default function AboutPage() {
     <>
       {/* Hero Section */}
       {/* Hero Section - Styled like homepage */}
-      <section className="hero relative h-[60vh] min-h-[500px] flex items-center"> {/* Adjusted height slightly */}
+      <section className="hero relative h-[60vh] min-h-[500px] flex"> {/* Removed items-center */}
         <div className="absolute inset-0 z-0">
           {/* Overlays removed */}
           {/* Main background image */}
@@ -30,15 +30,21 @@ export default function AboutPage() {
         </div>
         
         {/* Centered the container and text */}
-        <div className="container mx-auto px-4 z-10 flex justify-center text-center">
-          {/* Increased max-width and centered */}
-          <div className="max-w-4xl mx-auto p-8 rounded-lg text-text-primary"> {/* Removed bg/blur, ensure text color */}
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6"> {/* Removed text-shadow */}
-              About CarpetCozy
-            </h1>
-            <p className="text-xl md:text-2xl mb-8"> {/* Removed text-shadow */}
-              Learn about our story, our mission, and the dedicated team behind our exceptional cleaning services.
-            </p>
+        {/* Added pt-24 (header height) + extra padding */}
+        <div className="container mx-auto px-4 z-10 flex justify-center text-center items-center pt-32">
+          {/* Added relative positioning for overlay */}
+          <div className="relative max-w-4xl mx-auto p-8 rounded-lg text-text-primary">
+            {/* Added overlay */}
+            <div className="absolute inset-0 bg-white/80 backdrop-blur-sm rounded-lg"></div>
+            {/* Added relative z-10 to text content */}
+            <div className="relative z-10">
+              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
+                About CarpetCozy
+              </h1>
+              <p className="text-xl md:text-2xl mb-8">
+                Learn about our story, our mission, and the dedicated team behind our exceptional cleaning services.
+              </p>
+            </div> {/* Close relative z-10 div */}
             {/* Buttons removed for this page, can be added if needed */}
           </div>
         </div>

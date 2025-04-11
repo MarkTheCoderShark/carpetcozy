@@ -50,7 +50,7 @@ export default function PetStainServicePage() {
         }) }}
       />
       {/* Hero Section - Standard Structure */}
-      <section className="hero relative h-[60vh] min-h-[500px] flex items-center"> {/* Match homepage hero style */}
+      <section className="hero relative h-[60vh] min-h-[500px] flex"> {/* Removed items-center */}
         <div className="absolute inset-0 z-0">
           {/* Main background image */}
           <div className="relative h-full">
@@ -63,15 +63,21 @@ export default function PetStainServicePage() {
             />
           </div>
         </div>
-        {/* Centered the container and text */}
-        <div className="container mx-auto px-4 z-10 flex justify-center text-center">
-          <div className="max-w-4xl mx-auto p-8 rounded-lg text-text-primary"> {/* Ensure text color */}
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
-              Pet Stain & Odor Removal
-            </h1>
-            <p className="text-xl md:text-2xl mb-8">
-              Specialized solutions for homes with furry family members.
-            </p>
+        {/* Added pt-24 (header height) + extra padding */}
+        <div className="container mx-auto px-4 z-10 flex justify-center text-center items-center pt-32">
+          {/* Added relative positioning for overlay */}
+          <div className="relative max-w-4xl mx-auto p-8 rounded-lg text-text-primary">
+            {/* Added overlay */}
+            <div className="absolute inset-0 bg-white/80 backdrop-blur-sm rounded-lg"></div>
+            {/* Added relative z-10 to text content */}
+            <div className="relative z-10">
+              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
+                Pet Stain & Odor Removal
+              </h1>
+              <p className="text-xl md:text-2xl mb-8">
+                Specialized solutions for homes with furry family members.
+              </p>
+            </div> {/* Close relative z-10 div */}
           </div>
         </div>
       </section>
