@@ -11,20 +11,20 @@ export default function Home() {
       <section className="hero relative h-[80vh] min-h-[600px] flex items-center">
         <div className="absolute inset-0 z-0">
           <div className="absolute inset-0 bg-black opacity-40"></div>
-          <div className="absolute inset-0 bg-gradient-to-r from-blue-900/60 to-indigo-900/60 mix-blend-multiply"></div>
+          <div className="absolute inset-0 bg-gradient-to-r from-blue-900/50 to-indigo-900/50 mix-blend-multiply"></div> {/* Reduced gradient opacity slightly */}
           {/* Pattern overlay */}
           <div className="absolute inset-0 opacity-10" 
             style={{ 
-              backgroundImage: 'url("/images/textures/pattern.png")', 
+              backgroundImage: 'url("/images/textures/pattern.svg")',  /* Use existing SVG pattern */
               backgroundSize: '200px',
               backgroundRepeat: 'repeat',
             }}>
           </div>
           {/* Main background image */}
           <div className="relative h-full">
-            <Image 
-              src="/images/hero-carpet.jpg" 
-              alt="Professional carpet cleaning" 
+            <Image
+              src="/images/cleaning-process.jpg" // Changed image to show cleaning process
+              alt="Professional carpet cleaning process" // Updated alt text
               fill
               className="object-cover"
               priority
@@ -32,15 +32,18 @@ export default function Home() {
           </div>
         </div>
         
-        <div className="container mx-auto px-4 z-10">
-          <div className="max-w-3xl bg-black/20 p-8 rounded-lg backdrop-blur-sm">
+        {/* Centered the container and text */}
+        <div className="container mx-auto px-4 z-10 flex justify-center text-center">
+          {/* Increased max-width and centered */}
+          <div className="max-w-4xl mx-auto bg-white/5 p-8 rounded-lg backdrop-blur-sm shadow-xl">
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 text-shadow">
               Professional Carpet Cleaning in Roseville & Surrounding Areas
             </h1>
             <p className="text-xl md:text-2xl mb-8 text-shadow">
               Bringing life back to your carpets with our professional, eco-friendly cleaning services.
             </p>
-            <div className="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
+            {/* Centered buttons */}
+            <div className="flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-4">
               <Button 
                 href="/contact" 
                 size="lg"

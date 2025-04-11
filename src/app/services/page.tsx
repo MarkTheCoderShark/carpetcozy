@@ -198,7 +198,8 @@ export default function ServicesPage() {
       </Section>
 
       {/* Service Areas Preview */}
-      <Section bgColor="blue" title="Service Areas" subtitle="We proudly serve Roseville and surrounding communities">
+      {/* Explicitly set textColor to dark for better contrast on light blue background */}
+      <Section bgColor="blue" textColor="dark" title="Service Areas" subtitle="We proudly serve Roseville and surrounding communities">
         <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
           <Link href="/areas/roseville" className="bg-white p-4 rounded-md text-center hover:bg-blue-50 transition-colors">
             <h3 className="font-bold text-blue-600">Roseville</h3>

@@ -5,11 +5,7 @@
   --foreground: #374151; /* Slightly lighter gray (Tailwind gray-700) */
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-manrope);
-}
+/* Removed @theme block as font variables are applied directly */
 
 @media (prefers-color-scheme: dark) {
   :root {
@@ -21,11 +17,13 @@
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: 'Manrope', sans-serif;
+  font-family: var(--font-roboto), sans-serif; /* Use Roboto for body */
+  line-height: 1.6; /* Increase line height for readability */
 }
 
 h1, h2, h3, h4, h5, h6 { /* Apply to all headings */
-  font-weight: 700;
+  font-family: var(--font-poppins), sans-serif; /* Use Poppins for headings */
+  font-weight: 700; /* Keep existing weight or adjust if needed based on Poppins weights */
   letter-spacing: -0.5px;
   margin-bottom: 0.5em; /* Add some bottom margin */
 }
@@ -45,7 +43,7 @@ h1, h2, h3, h4, h5, h6 { /* Apply to all headings */
   border-radius: 8px; /* Slightly sharper radius */
   font-weight: 600;
   color: white; /* Ensure text is white */
-  box-shadow: 0 2px 8px rgba(59, 130, 246, 0.3); /* Softer shadow */
+  box-shadow: 0 4px 10px rgba(59, 130, 246, 0.35); /* Slightly stronger shadow for depth */
   transition: all 0.2s ease-in-out; /* Slightly faster transition */
   white-space: nowrap;
   display: inline-flex;
@@ -54,7 +52,7 @@ h1, h2, h3, h4, h5, h6 { /* Apply to all headings */
 
 .button-primary:hover {
   transform: translateY(-1px); /* Less pronounced hover effect */
-  box-shadow: 0 4px 12px rgba(59, 130, 246, 0.4); /* Adjusted hover shadow */
+  box-shadow: 0 6px 14px rgba(59, 130, 246, 0.45); /* Adjusted hover shadow */
 }
 
 .navbar {
@@ -82,4 +80,18 @@ h1, h2, h3, h4, h5, h6 { /* Apply to all headings */
 
 .text-shadow {
   text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+/* Secondary Button Styles from Feedback */
+.button-secondary {
+  border: 1px solid #ffffff40; /* Assuming white text context, adjust if needed */
+  background-color: transparent;
+  color: white; /* Assuming white text context */
+  transition: all 0.3s ease;
+  /* Base padding/font-size will come from Button.tsx size classes */
+}
+
+.button-secondary:hover {
+  background-color: #ffffff20;
+  border-color: white;
 }

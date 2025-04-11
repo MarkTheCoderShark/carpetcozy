@@ -25,9 +25,9 @@ const Button: React.FC<ButtonProps> = ({
   
   // Variant classes
   const variantClasses = {
-    primary: variant === 'primary' ? 'button-primary' : '',
-    secondary: 'bg-gray-600 text-white hover:bg-gray-700', // Changed to gray
-    outline: 'border border-gray-400 bg-transparent text-gray-700 hover:border-blue-600 hover:text-blue-600 hover:bg-blue-50', // Refined outline style and hover
+    primary: 'button-primary', // Use class from globals.css
+    secondary: 'button-secondary', // Use class from globals.css
+    outline: 'border border-gray-400 bg-transparent text-gray-700 hover:border-blue-600 hover:text-blue-600 hover:bg-blue-50', // Keep outline as Tailwind for now, can be moved to globals.css if needed
   };
   
   // Size classes

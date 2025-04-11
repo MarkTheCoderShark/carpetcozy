@@ -46,16 +46,17 @@ const Header = () => {
       <div className="container mx-auto px-4 h-24 flex items-center justify-between"> 
         
         {/* Logo - Wrapped in Link, using Next.js Image */}
-        <Link href="/" className="flex items-center flex-shrink-0"> {/* Added flex-shrink-0 back */}
-          <Image 
-            src="/carpetcozylogo.png" 
+        <Link href="/" className="flex items-center flex-shrink-0"> {/* Reverted space-x-2 */}
+          <Image
+            src="/carpetcozylogo.png" // Reverted to standard absolute path
             alt="CarpetCozy Logo"
-            width={280} // Keep prop for Next.js optimization hint
-            height={78} // Keep prop for Next.js optimization hint
-            priority // Prioritize loading the logo
-            style={{ width: '280px', height: '78px', objectFit: 'contain' }} // Direct inline styles
-            // Removed duplicate style attribute causing error
+            width={280}
+            height={78}
+            // Removed unoptimized prop
+            // Removed priority prop temporarily
+            // Removed inline style, relying on width/height props
           />
+          {/* Removed decorative icon */}
         </Link>
 
         {/* Desktop Navigation */}

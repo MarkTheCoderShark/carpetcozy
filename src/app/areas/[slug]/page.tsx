@@ -27,7 +27,8 @@ export async function generateMetadata({ params }: { params: { slug: string } })
   };
 }
 
-export default function ServiceAreaPage({
+// Make the component async to align with best practices for using params
+export default async function ServiceAreaPage({
   params,
 }: {
   params: {

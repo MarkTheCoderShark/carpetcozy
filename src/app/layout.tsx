@@ -1,13 +1,23 @@
 import type { Metadata } from "next";
-import { Manrope } from "next/font/google";
+import { Poppins, Roboto } from "next/font/google"; // Import Poppins and Roboto
 import "./globals.css";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 
-const manrope = Manrope({
-  variable: "--font-manrope",
+// Configure Roboto for body text
+const roboto = Roboto({
+  variable: "--font-roboto",
   subsets: ["latin"],
-  weight: ["400", "600", "700"],
+  weight: ["400", "500", "700"], // Include weights needed
+  display: 'swap', // Ensure text remains visible during font load
+});
+
+// Configure Poppins for headings
+const poppins = Poppins({
+  variable: "--font-poppins",
+  subsets: ["latin"],
+  weight: ["600", "700", "800"], // Include weights needed for headings
+  display: 'swap',
 });
 
 export const metadata: Metadata = {
@@ -72,7 +82,7 @@ export default function RootLayout({
         <meta name="theme-color" content="#1e40af" />
       </head>
       <body
-        className={`${manrope.variable} antialiased min-h-screen flex flex-col`}
+        className={`${roboto.variable} ${poppins.variable} antialiased min-h-screen flex flex-col`} // Add both font variables
       >
         <Header />
         <main className="flex-grow">{children}</main>
