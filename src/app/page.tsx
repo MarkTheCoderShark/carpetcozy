@@ -10,8 +10,7 @@ export default function Home() {
       {/* Hero Section */}
       <section className="hero relative h-[80vh] min-h-[600px] flex items-center">
         <div className="absolute inset-0 z-0">
-          <div className="absolute inset-0 bg-black opacity-40"></div>
-          <div className="absolute inset-0 bg-gradient-to-r from-blue-900/50 to-indigo-900/50 mix-blend-multiply"></div> {/* Reduced gradient opacity slightly */}
+          {/* Removed dark overlays for a lighter theme */}
           {/* Pattern overlay */}
           <div className="absolute inset-0 opacity-10" 
             style={{ 
@@ -35,7 +34,7 @@ export default function Home() {
         {/* Centered the container and text */}
         <div className="container mx-auto px-4 z-10 flex justify-center text-center">
           {/* Increased max-width and centered */}
-          <div className="max-w-4xl mx-auto bg-white/5 p-8 rounded-lg backdrop-blur-sm shadow-xl">
+          <div className="max-w-4xl mx-auto p-8 rounded-lg text-text-primary"> {/* Removed bg, blur, shadow; ensured text color */}
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 text-shadow">
               Professional Carpet Cleaning in Roseville & Surrounding Areas
             </h1>
@@ -44,18 +43,10 @@ export default function Home() {
             </p>
             {/* Centered buttons */}
             <div className="flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-4">
-              <Button 
-                href="/contact" 
-                size="lg"
-                icon={
-                  <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
-                  </svg>
-                }
-              >
+              <Button href="/contact" size="lg" variant="primary"> {/* Use new primary variant */}
                 Get a Free Quote
               </Button>
-              <Button href="/services" variant="outline" size="lg" className="bg-white/10 border-white text-white hover:bg-white/20">
+              <Button href="/services" variant="secondary" size="lg"> {/* Use new secondary variant */}
                 Our Services
               </Button>
             </div>
@@ -64,7 +55,7 @@ export default function Home() {
       </section>
 
       {/* Features Section */}
-      <Section bgColor="white">
+      <Section bgColor="default"> {/* Updated bgColor */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           <div className="text-center p-6 bg-gray-50 rounded-lg shadow-sm card-hover">
             <div className="text-blue-600 mb-4">
@@ -99,7 +90,7 @@ export default function Home() {
       </Section>
 
       {/* About Preview Section */}
-      <Section bgColor="gray" title="About CarpetCozy" subtitle="We're committed to providing the highest quality carpet cleaning services in Roseville and surrounding areas.">
+      <Section bgColor="alt" title="About CarpetCozy" subtitle="We're committed to providing the highest quality carpet cleaning services in Roseville and surrounding areas."> {/* Updated bgColor */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           <div>
             <p className="mb-6 text-gray-700">
@@ -131,7 +122,7 @@ export default function Home() {
       </Section>
 
       {/* Services Preview Section */}
-      <Section title="Our Services" subtitle="We offer a range of professional carpet cleaning services to meet your needs.">
+      <Section title="Our Services" subtitle="We offer a range of professional carpet cleaning services to meet your needs."> {/* Assumes default bg */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           <ServiceCard 
             title="Residential Carpet Cleaning" 
@@ -158,7 +149,7 @@ export default function Home() {
       </Section>
 
       {/* Testimonials Section */}
-      <Section bgColor="dark" textColor="light" title="Customer Testimonials" subtitle="Don't just take our word for it. Here's what our satisfied customers have to say.">
+      <Section bgColor="dark" textColor="light" title="Customer Testimonials" subtitle="Don't just take our word for it. Here's what our satisfied customers have to say."> {/* Keep dark/light for this section */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           <TestimonialCard 
             quote="CarpetCozy did an amazing job on our carpets. They looked brand new after the cleaning, and the technician was professional and friendly."
@@ -183,31 +174,31 @@ export default function Home() {
           />
         </div>
         <div className="mt-12 text-center">
-          <Button href="/reviews" variant="outline" className="border-white text-white hover:bg-white/10">
+          <Button href="/reviews" variant="secondary" className="text-background hover:bg-background/10 border-background/50"> {/* Use secondary, override text/border for dark bg */}
             Read More Reviews
           </Button>
         </div>
       </Section>
 
       {/* CTA Section */}
-      <section className="bg-gradient-to-r from-blue-700 to-indigo-800 text-white py-16">
+      <section className="bg-primary text-text-primary py-16"> {/* Updated background and text */}
         <div className="container mx-auto px-4 text-center">
           <h2 className="text-3xl md:text-4xl font-bold mb-6 text-shadow">Ready for Cleaner, Fresher Carpets?</h2>
           <p className="text-xl mb-8 max-w-3xl mx-auto">
             Contact us today for a free quote and experience the CarpetCozy difference!
           </p>
-          <Button 
-            href="/contact" 
-            className="bg-white text-blue-700 hover:bg-gray-100"
-            size="lg"
-            icon={
-              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
-              </svg>
-            }
-          >
+          <Button href="/contact" variant="secondary" size="lg"> {/* Use secondary variant */}
             Get Your Free Quote
           </Button>
+
+
+
+
+
+
+
+
+
         </div>
       </section>
     </>

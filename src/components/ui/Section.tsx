@@ -5,9 +5,11 @@ interface SectionProps {
   subtitle?: string;
   children: React.ReactNode;
   className?: string;
-  bgColor?: 'white' | 'gray' | 'blue' | 'dark';
+  // Updated bgColor options to reflect new theme
+  bgColor?: 'default' | 'alt' | 'primary-light' | 'dark'; 
   id?: string;
-  textColor?: 'default' | 'light' | 'dark';
+  // textColor prop might be less necessary now, but keep for explicit overrides
+  textColor?: 'default' | 'light'; 
 }
 
 const Section: React.FC<SectionProps> = ({
@@ -15,48 +17,38 @@ const Section: React.FC<SectionProps> = ({
   subtitle,
   children,
   className = '',
-  bgColor = 'white',
+  bgColor = 'default', // Default to standard background
   id,
-  textColor = 'default',
+  textColor = 'default', // Default to standard text color
 }) => {
-  // Background color classes
+  // Background color classes using new theme colors
   const bgClasses = {
-    white: 'bg-white',
-    gray: 'bg-gray-50',
-    blue: 'bg-blue-100',
-    dark: 'bg-blue-900',
+    default: 'bg-background', // White
+    alt: 'bg-background-alt', // Off-white
+    'primary-light': 'bg-primary/10', // Very light primary blue tint
+    dark: 'bg-text-primary', // Dark brown/charcoal
   };
   
-  // Text color classes for the main content
+  // Text color classes - Primarily for dark background override
   const textClasses = {
-    default: '',
-    light: 'text-white',
-    dark: 'text-gray-900',
+    default: 'text-text-primary', // Default dark brown text
+    light: 'text-background', // White text for dark background
   };
   
-  // Title color classes based on background
-  const titleColorClass = 
-    textColor === 'light' ? 'text-white' : 
-    textColor === 'dark' ? 'text-gray-900' : 
-    bgColor === 'dark' ? 'text-white' : 
-    bgColor === 'gray' ? 'text-gray-900' : 
-    bgColor === 'blue' ? 'text-blue-900' : 'text-gray-900';
-  
-  // Subtitle color classes based on background
-  const subtitleColorClass = 
-    textColor === 'light' ? 'text-blue-100' : 
-    textColor === 'dark' ? 'text-gray-700' : 
-    bgColor === 'dark' ? 'text-blue-100' : 
-    bgColor === 'gray' ? 'text-gray-700' : 
-    bgColor === 'blue' ? 'text-blue-700' : 'text-gray-600'; // Already using gray-600, looks good.
-  
+  // Determine text color based on bgColor and explicit textColor prop
+  const effectiveTextColor = textColor === 'light' || bgColor === 'dark' ? textClasses.light : textClasses.default;
+  const effectiveSubtitleColor = textColor === 'light' || bgColor === 'dark' ? 'text-background/80' : 'text-text-primary/80'; // Slightly muted subtitle
+
   return (
-    <section id={id} className={`py-12 ${bgClasses[bgColor]} ${textClasses[textColor]} ${className}`}> {/* Reduced padding */}
+    // Increased vertical padding
+    <section id={id} className={`py-16 ${bgClasses[bgColor]} ${effectiveTextColor} ${className}`}> 
       <div className="container mx-auto px-4">
         {(title || subtitle) && (
-          <div className="mb-10 text-center"> {/* Reduced margin */}
-            {title && <h2 className={`text-3xl md:text-4xl font-bold mb-4 ${titleColorClass}`}>{title}</h2>}
-            {subtitle && <p className={`text-lg ${subtitleColorClass} max-w-3xl mx-auto`}>{subtitle}</p>}
+          <div className="mb-12 text-center"> {/* Increased margin */}
+            {/* Title uses the main effective text color */}
+            {title && <h2 className={`text-3xl md:text-4xl font-bold mb-4 ${effectiveTextColor}`}>{title}</h2>}
+            {/* Subtitle uses a slightly muted version */}
+            {subtitle && <p className={`text-lg ${effectiveSubtitleColor} max-w-3xl mx-auto`}>{subtitle}</p>}
           </div>
         )}
         {children}
@@ -65,4 +57,4 @@ const Section: React.FC<SectionProps> = ({
   );
 };
 
-export default Section; 
+export default Section;

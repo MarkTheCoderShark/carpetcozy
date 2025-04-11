@@ -7,7 +7,7 @@ const Footer = () => {
   const currentYear = new Date().getFullYear();
   
   return (
-    <footer className="bg-blue-900 text-gray-300"> {/* Changed background, adjusted base text color */}
+    <footer className="bg-background-alt text-text-primary border-t border-primary/20"> {/* Updated background, text, added border */}
       <div className="container mx-auto px-4 py-12">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {/* Company Info */}
@@ -22,7 +22,7 @@ const Footer = () => {
                 unoptimized // Added prop
               />
             </div>
-            <p className="mb-4 text-gray-400">Professional carpet cleaning services in Roseville and surrounding areas.</p> {/* Lighter text */}
+            <p className="mb-4 text-text-primary/80">Professional carpet cleaning services in Roseville and surrounding areas.</p> {/* Adjusted text opacity */}
             <div className="space-y-2">
               <p className="flex items-center">
                 <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
@@ -48,40 +48,40 @@ const Footer = () => {
 
           {/* Quick Links */}
           <div>
-            <h3 className="text-xl font-bold mb-4 text-white">Quick Links</h3> {/* Brighter heading */}
+            <h3 className="text-xl font-bold mb-4 text-text-primary">Quick Links</h3> {/* Updated heading color */}
             <ul className="space-y-2">
               <li>
-                <Link href="/" className="hover:text-blue-300 transition duration-300"> {/* Adjusted hover color */}
+                <Link href="/" className="hover:text-primary transition duration-300"> {/* Updated hover color */}
                   Home
                 </Link>
               </li>
               <li>
-                <Link href="/about" className="hover:text-blue-300 transition duration-300">
+                <Link href="/about" className="hover:text-primary transition duration-300">
                   About Us
                 </Link>
               </li>
               <li>
-                <Link href="/services" className="hover:text-blue-300 transition duration-300">
+                <Link href="/services" className="hover:text-primary transition duration-300">
                   Services
                 </Link>
               </li>
               <li>
-                <Link href="/areas" className="hover:text-blue-300 transition duration-300">
+                <Link href="/areas" className="hover:text-primary transition duration-300">
                   Service Areas
                 </Link>
               </li>
               <li>
-                <Link href="/reviews" className="hover:text-blue-300 transition duration-300">
+                <Link href="/reviews" className="hover:text-primary transition duration-300">
                   Reviews
                 </Link>
               </li>
               <li>
-                <Link href="/gallery" className="hover:text-blue-300 transition duration-300">
+                <Link href="/gallery" className="hover:text-primary transition duration-300">
                   Gallery
                 </Link>
               </li>
               <li>
-                <Link href="/contact" className="hover:text-blue-300 transition duration-300">
+                <Link href="/contact" className="hover:text-primary transition duration-300">
                   Contact
                 </Link>
               </li>
@@ -90,30 +90,30 @@ const Footer = () => {
 
           {/* Service Areas */}
           <div>
-            <h3 className="text-xl font-bold mb-4 text-white">Service Areas</h3> {/* Brighter heading */}
+            <h3 className="text-xl font-bold mb-4 text-text-primary">Service Areas</h3> {/* Updated heading color */}
             <div className="grid grid-cols-2 gap-2">
-              <Link href="/areas/roseville" className="hover:text-blue-300 transition duration-300">
+              <Link href="/areas/roseville" className="hover:text-primary transition duration-300">
                 Roseville
               </Link>
-              <Link href="/areas/rocklin" className="hover:text-blue-300 transition duration-300">
+              <Link href="/areas/rocklin" className="hover:text-primary transition duration-300">
                 Rocklin
               </Link>
-              <Link href="/areas/loomis" className="hover:text-blue-300 transition duration-300">
+              <Link href="/areas/loomis" className="hover:text-primary transition duration-300">
                 Loomis
               </Link>
-              <Link href="/areas/folsom" className="hover:text-blue-300 transition duration-300">
+              <Link href="/areas/folsom" className="hover:text-primary transition duration-300">
                 Folsom
               </Link>
-              <Link href="/areas/citrus-heights" className="hover:text-blue-300 transition duration-300">
+              <Link href="/areas/citrus-heights" className="hover:text-primary transition duration-300">
                 Citrus Heights
               </Link>
-              <Link href="/areas/granite-bay" className="hover:text-blue-300 transition duration-300">
+              <Link href="/areas/granite-bay" className="hover:text-primary transition duration-300">
                 Granite Bay
               </Link>
-              <Link href="/areas/auburn" className="hover:text-blue-300 transition duration-300">
+              <Link href="/areas/auburn" className="hover:text-primary transition duration-300">
                 Auburn
               </Link>
-              <Link href="/areas/grass-valley" className="hover:text-blue-300 transition duration-300">
+              <Link href="/areas/grass-valley" className="hover:text-primary transition duration-300">
                 Grass Valley
               </Link>
             </div>
@@ -121,8 +121,8 @@ const Footer = () => {
         </div>
         
         {/* Copyright */}
-        <div className="border-t border-gray-700 mt-8 pt-8 text-center">
-          <p className="text-sm text-gray-400">© {currentYear} CarpetCozy. All rights reserved.</p> {/* Smaller, lighter copyright */}
+        <div className="border-t border-primary/20 mt-8 pt-8 text-center"> {/* Updated border color */}
+          <p className="text-sm text-text-primary/60">© {currentYear} CarpetCozy. All rights reserved.</p> {/* Adjusted copyright color */}
         </div>
       </div>
     </footer>

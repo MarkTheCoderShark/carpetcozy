@@ -38,7 +38,7 @@ const Header = () => {
   const headerBaseClasses = "sticky top-0 z-50 transition-all duration-300";
   const headerDefaultBg = "bg-white";
   // Use a slightly transparent background with blur when scrolled
-  const headerScrolledBg = "bg-white/90 backdrop-blur-md shadow-md"; 
+  const headerScrolledBg = "bg-white shadow-subtle"; // Simplified scrolled background
 
   return (
     <header className={`${headerBaseClasses} ${scrolled ? headerScrolledBg : headerDefaultBg}`}>
@@ -66,7 +66,7 @@ const Header = () => {
               key={item.href} 
               href={item.href} 
               // Apply active state styling and hover effect
-              className={`text-base font-medium transition-colors hover:text-blue-600 ${pathname === item.href ? 'text-blue-600 font-bold' : 'text-gray-700'}`}
+              className={`text-base font-medium transition-colors hover:text-primary ${pathname === item.href ? 'text-primary font-semibold' : 'text-text-primary'}`} // Updated colors
             >
               {item.label}
             </Link>
@@ -77,12 +77,12 @@ const Header = () => {
         <div className="flex items-center space-x-4">
           {/* Hide CTA on small screens */}
           <div className="hidden md:block">
-             <Button href="/contact" size="sm">Get a Free Quote</Button> 
+             <Button href="/contact" size="sm" variant="primary">Get a Free Quote</Button>  {/* Ensure primary variant */}
           </div>
 
           {/* Mobile Menu Button */}
           <button 
-            className="md:hidden text-gray-700 focus:outline-none p-2" // Added padding for easier tapping
+            className="md:hidden text-text-primary focus:outline-none p-2" // Updated text color
             onClick={toggleMenu}
             aria-label="Toggle menu" // Accessibility improvement
           >
@@ -101,13 +101,13 @@ const Header = () => {
 
       {/* Mobile Menu - Appears below header when open */}
       {isMenuOpen && (
-        <div className="md:hidden absolute top-full left-0 w-full bg-white shadow-lg border-t border-gray-200">
+        <div className="md:hidden absolute top-full left-0 w-full bg-background shadow-lg border-t border-primary/20"> {/* Updated bg and border */}
           <div className="container mx-auto px-4 py-4 flex flex-col space-y-3">
             {navItems.map((item) => (
               <Link 
                 key={item.href} 
                 href={item.href} 
-                className={`block py-2 text-center font-medium transition-colors hover:text-blue-600 ${pathname === item.href ? 'text-blue-600 font-bold' : 'text-gray-700'}`}
+                className={`block py-2 text-center font-medium transition-colors hover:text-primary ${pathname === item.href ? 'text-primary font-semibold' : 'text-text-primary'}`} // Updated colors
                 onClick={() => setIsMenuOpen(false)} // Close menu on navigation
               >
                 {item.label}
@@ -115,7 +115,7 @@ const Header = () => {
             ))}
             {/* Separator and CTA for mobile */}
             <div className="mt-3 pt-3 border-t border-gray-100">
-               <Button href="/contact" className="w-full justify-center" onClick={() => setIsMenuOpen(false)}>Get a Free Quote</Button> 
+               <Button href="/contact" variant="primary" className="w-full justify-center" onClick={() => setIsMenuOpen(false)}>Get a Free Quote</Button> {/* Ensure primary variant */}
             </div>
           </div>
         </div>

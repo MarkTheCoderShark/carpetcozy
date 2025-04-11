@@ -1,37 +1,29 @@
 import type { Metadata } from "next";
-import { Poppins, Roboto } from "next/font/google"; // Import Poppins and Roboto
+import { Inter } from "next/font/google"; // Import Inter font
 import "./globals.css";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 
-// Configure Roboto for body text
-const roboto = Roboto({
-  variable: "--font-roboto",
+// Configure Inter font
+const inter = Inter({
+  variable: "--font-inter", // Define CSS variable
   subsets: ["latin"],
-  weight: ["400", "500", "700"], // Include weights needed
   display: 'swap', // Ensure text remains visible during font load
 });
 
-// Configure Poppins for headings
-const poppins = Poppins({
-  variable: "--font-poppins",
-  subsets: ["latin"],
-  weight: ["600", "700", "800"], // Include weights needed for headings
-  display: 'swap',
-});
-
 export const metadata: Metadata = {
+  // Keep title and description, update keywords if needed
   title: "CarpetCozy | Professional Carpet Cleaning in Roseville & Surrounding Areas",
   description: "Professional carpet cleaning services in Roseville and surrounding areas. Residential and commercial services, stain removal, pet odor treatment, and more.",
-  keywords: "carpet cleaning, professional carpet cleaning, Roseville, Rocklin, Loomis, Folsom, stain removal, pet odor, upholstery cleaning",
+  keywords: "carpet cleaning, professional carpet cleaning, Roseville, Rocklin, Loomis, Folsom, stain removal, pet odor, upholstery cleaning, cozy carpet care", // Added new keyword
   openGraph: {
     title: "CarpetCozy | Professional Carpet Cleaning in Roseville & Surrounding Areas",
     description: "Professional carpet cleaning services in Roseville and surrounding areas. Residential and commercial services, stain removal, pet odor treatment, and more.",
     images: [
       {
-        url: '/carpetcozy.png',
-        width: 1200,
-        height: 630,
+        url: '/logo.png', // Updated path
+        width: 1200, // Adjust if logo dimensions differ significantly
+        height: 630, // Adjust if logo dimensions differ significantly
         alt: 'CarpetCozy Logo',
       }
     ],
@@ -42,16 +34,21 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'CarpetCozy | Professional Carpet Cleaning in Roseville & Surrounding Areas',
     description: 'Professional carpet cleaning services in Roseville and surrounding areas.',
-    images: ['/carpetcozy.png'],
+    images: ['/logo.png'], // Updated path
   },
   icons: {
-    icon: '/carpetcozy.png',
-    shortcut: '/carpetcozy.png',
-    apple: '/apple-touch-icon.png',
+    icon: '/logo.png', // Updated path
+    shortcut: '/logo.png', // Updated path
+    apple: '/apple-touch-icon.png', // Keep apple touch icon if it exists
   },
   manifest: '/manifest.json',
-  themeColor: '#1e40af',
+  // themeColor: '#b7e3f5', // Update theme color to new primary (optional, consider viewport instead)
 };
+
+// Define viewport for theme color and other settings
+export const viewport = {
+  themeColor: '#b7e3f5', // Use new primary color
+}
 
 export default function RootLayout({
   children,
@@ -77,12 +74,16 @@ export default function RootLayout({
             }
           }) }}
         />
-        <link rel="manifest" href="/manifest.json" />
-        <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
-        <meta name="theme-color" content="#1e40af" />
+        {/* Manifest link is usually handled by metadata, but keep if needed */}
+        {/* <link rel="manifest" href="/manifest.json" /> */}
+        {/* Apple touch icon link is handled by metadata */}
+        {/* <link rel="apple-touch-icon" href="/apple-touch-icon.png" /> */}
+        {/* Theme color meta tag is handled by viewport export */}
+        {/* <meta name="theme-color" content="#b7e3f5" /> */}
       </head>
       <body
-        className={`${roboto.variable} ${poppins.variable} antialiased min-h-screen flex flex-col`} // Add both font variables
+        // Apply Inter font variable and base styles
+        className={`${inter.variable} font-sans antialiased min-h-screen flex flex-col bg-background text-text-primary`} 
       >
         <Header />
         <main className="flex-grow">{children}</main>
