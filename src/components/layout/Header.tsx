@@ -52,8 +52,8 @@ const Header = () => {
             alt="CarpetCozy Logo"
             width={280}
             height={78}
+            priority // Add priority prop back
             // Removed unoptimized prop
-            // Removed priority prop temporarily
             // Removed inline style, relying on width/height props
           />
           {/* Removed decorative icon */}
