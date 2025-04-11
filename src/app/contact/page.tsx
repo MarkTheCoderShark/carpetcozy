@@ -58,7 +58,27 @@ export default function ContactPage() {
           {/* Contact Form */}
           <div>
             <h2 className="text-2xl md:text-3xl font-bold mb-6 text-text-primary border-b-2 border-primary pb-2">Send Us a Message</h2> {/* Updated colors */}
-            <form className="space-y-6">
+            <form
+              name="contact"
+              method="POST"
+              data-netlify="true"
+              data-netlify-honeypot="bot-field"
+              className="space-y-6"
+            >
+              {/* Netlify hidden inputs */}
+              <input type="hidden" name="form-name" value="contact" />
+              <p className="hidden"> {/* Honeypot field */}
+                <label>
+                  Don’t fill this out if you’re human: <input name="bot-field" />
+                </label>
+              </p>
+              {/* Netlify hidden inputs */}
+              <input type="hidden" name="form-name" value="contact" />
+              <p className="hidden"> {/* Honeypot field */}
+                <label>
+                  Don’t fill this out if you’re human: <input name="bot-field" />
+                </label>
+              </p>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div>
                   <label htmlFor="first-name" className="block text-text-primary/90 font-medium mb-2"> {/* Updated text color */}
