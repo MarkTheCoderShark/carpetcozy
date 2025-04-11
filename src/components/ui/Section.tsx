@@ -48,13 +48,13 @@ const Section: React.FC<SectionProps> = ({
     textColor === 'dark' ? 'text-gray-700' : 
     bgColor === 'dark' ? 'text-blue-100' : 
     bgColor === 'gray' ? 'text-gray-700' : 
-    bgColor === 'blue' ? 'text-blue-700' : 'text-gray-600';
+    bgColor === 'blue' ? 'text-blue-700' : 'text-gray-600'; // Already using gray-600, looks good.
   
   return (
-    <section id={id} className={`py-16 ${bgClasses[bgColor]} ${textClasses[textColor]} ${className}`}>
+    <section id={id} className={`py-12 ${bgClasses[bgColor]} ${textClasses[textColor]} ${className}`}> {/* Reduced padding */}
       <div className="container mx-auto px-4">
         {(title || subtitle) && (
-          <div className="mb-12 text-center">
+          <div className="mb-10 text-center"> {/* Reduced margin */}
             {title && <h2 className={`text-3xl md:text-4xl font-bold mb-4 ${titleColorClass}`}>{title}</h2>}
             {subtitle && <p className={`text-lg ${subtitleColorClass} max-w-3xl mx-auto`}>{subtitle}</p>}
           </div>

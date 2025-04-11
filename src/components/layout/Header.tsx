@@ -4,123 +4,118 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { useState, useEffect } from 'react';
 import { usePathname } from 'next/navigation';
+import Button from '@/components/ui/Button'; // Assuming Button component is correctly imported and styled
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const pathname = usePathname();
 
-  const toggleMenu = () => {
-    setIsMenuOpen(!isMenuOpen);
-  };
+  const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
 
+  // Handle scroll effect
   useEffect(() => {
     const handleScroll = () => {
       setScrolled(window.scrollY > 10);
     };
-    
     window.addEventListener('scroll', handleScroll);
+    handleScroll(); // Check scroll position on initial load
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  // Navigation items data
+  const navItems = [
+    { href: '/', label: 'Home' },
+    { href: '/about', label: 'About Us' },
+    { href: '/services', label: 'Services' },
+    { href: '/areas', label: 'Service Areas' },
+    { href: '/reviews', label: 'Reviews' },
+    { href: '/gallery', label: 'Gallery' },
+    { href: '/contact', label: 'Contact' },
+  ];
+
+  // Define header classes for default and scrolled states
+  const headerBaseClasses = "sticky top-0 z-50 transition-all duration-300";
+  const headerDefaultBg = "bg-white";
+  // Use a slightly transparent background with blur when scrolled
+  const headerScrolledBg = "bg-white/90 backdrop-blur-md shadow-md"; 
+
   return (
-    <header className={`${scrolled ? 'navbar' : 'bg-white'} sticky top-0 z-50 transition-all duration-300`}>
-      <div className="container mx-auto px-4 py-3 flex items-center justify-between">
-        <Link 
-          href="/" 
-          className="flex items-center flex-shrink-0"
-        >
-          <div className="relative w-[240px] h-[60px]">
-            {/* Using standard img tag for debugging */}
-            <img
-              src="/carpetcozylogo.png"
-              alt="CarpetCozy Logo"
-              className="w-full h-full" style={{ objectFit: 'contain' }}
-            />
-          </div>
+    <header className={`${headerBaseClasses} ${scrolled ? headerScrolledBg : headerDefaultBg}`}>
+      {/* Increased header height using h-24 (96px) */}
+      <div className="container mx-auto px-4 h-24 flex items-center justify-between"> 
+        
+        {/* Logo - Wrapped in Link, using Next.js Image */}
+        <Link href="/" className="flex items-center flex-shrink-0"> {/* Added flex-shrink-0 back */}
+          <Image 
+            src="/carpetcozylogo.png" 
+            alt="CarpetCozy Logo"
+            width={280} // Keep prop for Next.js optimization hint
+            height={78} // Keep prop for Next.js optimization hint
+            priority // Prioritize loading the logo
+            style={{ width: '280px', height: '78px', objectFit: 'contain' }} // Direct inline styles
+            // Removed duplicate style attribute causing error
+          />
         </Link>
 
         {/* Desktop Navigation */}
         <nav className="hidden md:flex items-center space-x-6 lg:space-x-8">
-          <Link href="/" className={`nav-item font-medium ${pathname === '/' ? 'text-blue-600 font-bold' : 'text-gray-700'}`}>
-            Home
-          </Link>
-          <Link href="/about" className={`nav-item font-medium ${pathname === '/about' ? 'text-blue-600 font-bold' : 'text-gray-700'}`}>
-            About Us
-          </Link>
-          <Link href="/services" className={`nav-item font-medium ${pathname === '/services' ? 'text-blue-600 font-bold' : 'text-gray-700'}`}>
-            Services
-          </Link>
-          <Link href="/areas" className={`nav-item font-medium ${pathname === '/areas' ? 'text-blue-600 font-bold' : 'text-gray-700'}`}>
-            Service Areas
-          </Link>
-          <Link href="/reviews" className={`nav-item font-medium ${pathname === '/reviews' ? 'text-blue-600 font-bold' : 'text-gray-700'}`}>
-            Reviews
-          </Link>
-          <Link href="/gallery" className={`nav-item font-medium ${pathname === '/gallery' ? 'text-blue-600 font-bold' : 'text-gray-700'}`}>
-            Gallery
-          </Link>
-          <Link href="/contact" className={`nav-item font-medium ${pathname === '/contact' ? 'text-blue-600 font-bold' : 'text-gray-700'}`}>
-            Contact
-          </Link>
+          {navItems.map((item) => (
+            <Link 
+              key={item.href} 
+              href={item.href} 
+              // Apply active state styling and hover effect
+              className={`text-base font-medium transition-colors hover:text-blue-600 ${pathname === item.href ? 'text-blue-600 font-bold' : 'text-gray-700'}`}
+            >
+              {item.label}
+            </Link>
+          ))}
         </nav>
 
-        {/* CTA Button */}
-        <div className="hidden md:block">
-          <Link href="/contact" className="button-primary whitespace-nowrap">
-            Get a Free Quote
-            <svg className="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
-            </svg>
-          </Link>
-        </div>
+        {/* CTA Button & Mobile Menu Toggle */}
+        <div className="flex items-center space-x-4">
+          {/* Hide CTA on small screens */}
+          <div className="hidden md:block">
+             <Button href="/contact" size="sm">Get a Free Quote</Button> 
+          </div>
 
-        {/* Mobile Menu Button */}
-        <button 
-          className="md:hidden text-gray-700 focus:outline-none"
-          onClick={toggleMenu}
-        >
-          <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-            {isMenuOpen ? (
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-            ) : (
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
-            )}
-          </svg>
-        </button>
+          {/* Mobile Menu Button */}
+          <button 
+            className="md:hidden text-gray-700 focus:outline-none p-2" // Added padding for easier tapping
+            onClick={toggleMenu}
+            aria-label="Toggle menu" // Accessibility improvement
+          >
+            <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              {isMenuOpen ? (
+                // Close icon (X)
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+              ) : (
+                // Hamburger icon
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+              )}
+            </svg>
+          </button>
+        </div>
       </div>
 
-      {/* Mobile Menu */}
+      {/* Mobile Menu - Appears below header when open */}
       {isMenuOpen && (
-        <div className="md:hidden bg-white shadow-md">
-          <div className="container mx-auto px-4 py-4 flex flex-col space-y-4">
-            <Link href="/" className={`nav-item font-medium ${pathname === '/' ? 'text-blue-600 font-bold' : 'text-gray-700'}`}>
-              Home
-            </Link>
-            <Link href="/about" className={`nav-item font-medium ${pathname === '/about' ? 'text-blue-600 font-bold' : 'text-gray-700'}`}>
-              About Us
-            </Link>
-            <Link href="/services" className={`nav-item font-medium ${pathname === '/services' ? 'text-blue-600 font-bold' : 'text-gray-700'}`}>
-              Services
-            </Link>
-            <Link href="/areas" className={`nav-item font-medium ${pathname === '/areas' ? 'text-blue-600 font-bold' : 'text-gray-700'}`}>
-              Service Areas
-            </Link>
-            <Link href="/reviews" className={`nav-item font-medium ${pathname === '/reviews' ? 'text-blue-600 font-bold' : 'text-gray-700'}`}>
-              Reviews
-            </Link>
-            <Link href="/gallery" className={`nav-item font-medium ${pathname === '/gallery' ? 'text-blue-600 font-bold' : 'text-gray-700'}`}>
-              Gallery
-            </Link>
-            <Link href="/contact" className={`nav-item font-medium ${pathname === '/contact' ? 'text-blue-600 font-bold' : 'text-gray-700'}`}>
-              Contact
-            </Link>
-            <Link href="/contact" className="button-primary text-center w-full">
-              Get a Free Quote
-              <svg className="w-4 h-4 ml-1 inline" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
-              </svg>
-            </Link>
+        <div className="md:hidden absolute top-full left-0 w-full bg-white shadow-lg border-t border-gray-200">
+          <div className="container mx-auto px-4 py-4 flex flex-col space-y-3">
+            {navItems.map((item) => (
+              <Link 
+                key={item.href} 
+                href={item.href} 
+                className={`block py-2 text-center font-medium transition-colors hover:text-blue-600 ${pathname === item.href ? 'text-blue-600 font-bold' : 'text-gray-700'}`}
+                onClick={() => setIsMenuOpen(false)} // Close menu on navigation
+              >
+                {item.label}
+              </Link>
+            ))}
+            {/* Separator and CTA for mobile */}
+            <div className="mt-3 pt-3 border-t border-gray-100">
+               <Button href="/contact" className="w-full justify-center" onClick={() => setIsMenuOpen(false)}>Get a Free Quote</Button> 
+            </div>
           </div>
         </div>
       )}
@@ -128,4 +123,4 @@ const Header = () => {
   );
 };
 
-export default Header; 
+export default Header;

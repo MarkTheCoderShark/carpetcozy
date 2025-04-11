@@ -26,8 +26,8 @@ const Button: React.FC<ButtonProps> = ({
   // Variant classes
   const variantClasses = {
     primary: variant === 'primary' ? 'button-primary' : '',
-    secondary: 'bg-indigo-500 text-white hover:bg-indigo-600',
-    outline: 'border border-gray-300 bg-transparent text-gray-700 hover:bg-gray-50',
+    secondary: 'bg-gray-600 text-white hover:bg-gray-700', // Changed to gray
+    outline: 'border border-gray-400 bg-transparent text-gray-700 hover:border-blue-600 hover:text-blue-600 hover:bg-blue-50', // Refined outline style and hover
   };
   
   // Size classes
