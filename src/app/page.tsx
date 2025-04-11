@@ -8,52 +8,43 @@ export default function Home() {
   return (
     <>
       {/* Hero Section */}
-      <section className="hero relative h-[80vh] min-h-[600px] flex"> {/* Removed items-center */}
-        <div className="absolute inset-0 z-0">
-          {/* Removed dark overlays for a lighter theme */}
-          {/* Pattern overlay */}
-          {/* Overlays removed to use hero.png directly */}
+      <section
+        className="hero relative bg-cover bg-center pt-32 pb-24 min-h-[600px]" // Added padding, bg-cover, bg-center
+        style={{ backgroundImage: "url('/hero.png')" }} // Use inline style for background
+      >
+        {/* Overlay */}
+        <div className="absolute inset-0 bg-white/70 backdrop-blur-sm z-0"></div>
 
-          {/* Main background image */}
-          <div className="relative h-full">
-            <Image
-              src="/hero.png" // Use the new hero image
-              alt="CarpetCozy Hero Background" // Updated alt text
-              fill
-              className="object-cover"
-              priority
-            />
+        {/* Removed the separate Image component as background is now inline style */}
+        {/* Hero content */}
+        <div className="relative z-10 container mx-auto px-4 text-center max-w-4xl">
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 text-text-primary">
+            Professional Carpet Cleaning in Roseville & Surrounding Areas
+          </h1>
+          <p className="text-xl md:text-2xl mb-8 text-text-primary/80">
+            Bringing life back to your carpets with our professional, eco-friendly cleaning services.
+          </p>
+          <div className="flex flex-col sm:flex-row justify-center gap-4">
+            {/* Updated Button styling to match feedback example */}
+            <Button
+              href="/contact"
+              size="lg"
+              variant="primary"
+              className="bg-[#b7e3f5] text-[#3e342e] hover:bg-[#a5dced] rounded-full" // Match feedback style
+            >
+              Get a Free Quote
+            </Button>
+            <Button
+              href="/services"
+              size="lg"
+              variant="outline"
+              className="border border-gray-300 text-text-primary hover:bg-gray-100 rounded-full" // Match feedback style
+            >
+              Our Services
+            </Button>
           </div>
         </div>
-        
-        {/* Centered the container and text */}
-        {/* Added pt-24 (header height) + extra padding */}
-        <div className="container mx-auto px-4 z-10 flex justify-center text-center items-center pt-32">
-          {/* Added relative positioning for overlay */}
-          <div className="relative max-w-4xl mx-auto p-8 rounded-lg text-text-primary">
-            {/* Added overlay */}
-            <div className="absolute inset-0 bg-white/80 backdrop-blur-sm rounded-lg"></div>
-            {/* Added relative z-10 to text content */}
-            <div className="relative z-10">
-              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
-                Professional Carpet Cleaning in Roseville & Surrounding Areas
-              </h1>
-              <p className="text-xl md:text-2xl mb-8">
-                Bringing life back to your carpets with our professional, eco-friendly cleaning services.
-              </p>
-            {/* Centered buttons */}
-              {/* Added relative z-10 */}
-              <div className="relative z-10 flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-4">
-                <Button href="/contact" size="lg" variant="primary">
-                  Get a Free Quote
-                </Button>
-                <Button href="/services" variant="secondary" size="lg">
-                  Our Services
-                </Button>
-              </div>
-            </div> {/* Close relative z-10 div */}
-          </div>
-        </div>
+        {/* End Content Container */}
       </section>
 
       {/* Features Section */}

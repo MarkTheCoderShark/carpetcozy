@@ -61,29 +61,21 @@ export default async function ServiceAreaPage({
           "image": `${process.env.NEXT_PUBLIC_SITE_URL || 'https://carpetcozy.com'}/carpetcozy.png`, // Use absolute URL
           "@id": `${process.env.NEXT_PUBLIC_SITE_URL || 'https://carpetcozy.com'}`, // Use absolute URL
           "url": `${process.env.NEXT_PUBLIC_SITE_URL || 'https://carpetcozy.com'}/areas/${area.slug}`, // Use absolute URL for this specific area page
-          // telephone property removed as requested
           "description": `Professional carpet cleaning services in ${area.name}. CarpetCozy offers residential and commercial carpet cleaning, upholstery cleaning, and more in ${area.name}.`,
-          "address": { // Add a generic address or headquarters if applicable, or omit if service area only
+          "address": { 
             "@type": "PostalAddress",
-            "addressLocality": area.name, // Specific area name
-            "addressRegion": "CA", // Assuming California, adjust if needed
+            "addressLocality": area.name, 
+            "addressRegion": "CA", 
             "addressCountry": "US"
           },
-          "geo": { // Optional: Add coordinates if known for the area center
+          "geo": { 
             "@type": "GeoCoordinates",
-            // "latitude": 38.7521, // Example for Roseville
-            // "longitude": -121.2880 // Example for Roseville
+            // Add coordinates if known
           },
-          "openingHoursSpecification": [ // Example opening hours, adjust as needed
+          "openingHoursSpecification": [ 
             {
               "@type": "OpeningHoursSpecification",
-              "dayOfWeek": [
-                "Monday",
-                "Tuesday",
-                "Wednesday",
-                "Thursday",
-                "Friday"
-              ],
+              "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday"],
               "opens": "08:00",
               "closes": "18:00"
             },
@@ -96,59 +88,54 @@ export default async function ServiceAreaPage({
           ],
           "areaServed": {
             "@type": "Place",
-            "name": area.name // Explicitly state the area served
+            "name": area.name 
           },
-          "makesOffer": [ // List main services offered in this area
+          "makesOffer": [ 
              { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Residential Carpet Cleaning" }},
              { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Commercial Carpet Cleaning" }},
              { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Pet Stain & Odor Removal" }},
              { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Upholstery Cleaning" }}
           ],
-          "sameAs": [ // Add social media/other profile links if available
-            // "https://www.facebook.com/carpetcozy",
-            // "https://www.yelp.com/biz/carpetcozy-roseville"
+          "sameAs": [ 
+            // Add social media links
           ]
         }) }}
       />
       {/* Hero Section - Standard Structure */}
-      <section className="hero relative h-[60vh] min-h-[500px] flex"> {/* Removed items-center */}
-        <div className="absolute inset-0 z-0">
-          {/* Main background image */}
-          <div className="relative h-full">
-            <Image
-              src="/hero.png" // Use the new hero image
-              alt="CarpetCozy Hero Background" // Updated alt text
-              fill
-              className="object-cover"
-              priority
-            />
+      <section 
+        className="hero relative bg-cover bg-center pt-32 pb-24 min-h-[500px]" // Added padding, bg-cover, bg-center
+        style={{ backgroundImage: "url('/hero.png')" }} // Use inline style for background
+      >
+        {/* Overlay */}
+        <div className="absolute inset-0 bg-white/70 backdrop-blur-sm z-0"></div>
+        {/* Content Container */}
+        <div className="relative z-10 container mx-auto px-4 text-center max-w-4xl"> 
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 text-text-primary"> 
+            Professional Carpet Cleaning in {displayName}
+          </h1>
+          <p className="text-xl md:text-2xl mb-8 text-text-primary/80"> 
+            Trusted, eco-friendly carpet cleaning services for homes and businesses in {displayName}.
+          </p>
+          <div className="flex flex-col sm:flex-row justify-center gap-4">
+            {/* Updated Button styling to match feedback example */}
+            <Button 
+              href="/contact" 
+              size="lg" 
+              variant="primary" 
+              className="bg-[#b7e3f5] text-[#3e342e] hover:bg-[#a5dced] rounded-full" // Match feedback style
+            > 
+              Get a Free Quote
+            </Button>
+            <Button 
+              href="/services" 
+              size="lg" 
+              variant="outline" 
+              className="border border-gray-300 text-text-primary hover:bg-gray-100 rounded-full" // Match feedback style
+            > 
+              Our Services
+            </Button>
           </div>
-        </div>
-        {/* Added pt-24 (header height) + extra padding */}
-        <div className="container mx-auto px-4 z-10 flex justify-center text-center items-center pt-32">
-          {/* Added relative positioning for overlay */}
-          <div className="relative max-w-4xl mx-auto p-8 rounded-lg text-text-primary">
-            {/* Added overlay */}
-            <div className="absolute inset-0 bg-white/80 backdrop-blur-sm rounded-lg"></div>
-            {/* Added relative z-10 to text content */}
-            <div className="relative z-10">
-              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
-                Professional Carpet Cleaning in {displayName}
-              </h1>
-              <p className="text-xl md:text-2xl mb-8">
-                Trusted, eco-friendly carpet cleaning services for homes and businesses in {displayName}.
-              </p>
-              <div className="flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-4">
-                <Button href="/contact" size="lg" variant="primary">
-                  Get a Free Quote
-                </Button>
-                <Button href="/services" variant="secondary" size="lg">
-                  Our Services
-                </Button>
-              </div>
-            </div> {/* Close relative z-10 div */}
-          </div>
-        </div>
+        </div> {/* End Content Container */}
       </section>
 
       {/* Area Introduction */}

@@ -13,38 +13,27 @@ export default function AboutPage() {
     <>
       {/* Hero Section */}
       {/* Hero Section - Styled like homepage */}
-      <section className="hero relative h-[60vh] min-h-[500px] flex"> {/* Removed items-center */}
+      <section
+        className="hero relative bg-cover bg-center pt-32 pb-24 min-h-[500px]" // Added padding, bg-cover, bg-center
+        style={{ backgroundImage: "url('/hero.png')" }} // Use inline style for background
+      >
         <div className="absolute inset-0 z-0">
-          {/* Overlays removed */}
-          {/* Main background image */}
-          <div className="relative h-full">
-            <Image
-              src="/hero.png" // Use the new hero image
-              alt="CarpetCozy Hero Background" // Updated alt text
-              fill
-              className="object-cover"
-              priority
-            />
-          </div>
-          {/* End background image div */}
-        </div>
+        {/* Overlay */}
+        <div className="absolute inset-0 bg-white/70 backdrop-blur-sm z-0"></div>
+
+        {/* Removed the separate Image component */}
+        {/* Content Container */}
         
         {/* Centered the container and text */}
         {/* Added pt-24 (header height) + extra padding */}
-        <div className="container mx-auto px-4 z-10 flex justify-center text-center items-center pt-32">
-          {/* Added relative positioning for overlay */}
-          <div className="relative max-w-4xl mx-auto p-8 rounded-lg text-text-primary">
-            {/* Added overlay */}
-            <div className="absolute inset-0 bg-white/80 backdrop-blur-sm rounded-lg"></div>
-            {/* Added relative z-10 to text content */}
-            <div className="relative z-10">
-              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
-                About CarpetCozy
-              </h1>
-              <p className="text-xl md:text-2xl mb-8">
-                Learn about our story, our mission, and the dedicated team behind our exceptional cleaning services.
-              </p>
-            </div> {/* Close relative z-10 div */}
+        <div className="relative z-10 container mx-auto px-4 text-center max-w-4xl">
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 text-text-primary">
+            About CarpetCozy
+          </h1>
+          <p className="text-xl md:text-2xl mb-8 text-text-primary/80">
+            Learn about our story, our mission, and the dedicated team behind our exceptional cleaning services.
+          </p>
+          {/* Buttons removed for this page */}
             {/* Buttons removed for this page, can be added if needed */}
           </div>
         </div>
