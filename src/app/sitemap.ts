@@ -44,9 +44,30 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.6,
   }));
 
+  // Specific Location + Service pages
+  const locationServiceSlugs = [
+    'carpet',
+    'commercial-carpet',
+    'pet-stain-removal',
+    'steam',
+    'tile',
+    'upholstery',
+    'water-extraction'
+  ];
+
+  const locationServiceRoutes = serviceAreas.flatMap((area: ServiceArea) =>
+    locationServiceSlugs.map(serviceSlug => ({
+      url: `${baseUrl}/${area.slug}-${serviceSlug}-cleaning`,
+      lastModified: new Date().toISOString(),
+      changeFrequency: 'monthly' as MetadataRoute.Sitemap[0]['changeFrequency'],
+      priority: 0.5, // Lower priority than general areas/services
+    }))
+  );
+
   return [
     ...staticRoutes,
     ...serviceRoutes,
     ...areaRoutes,
+    ...locationServiceRoutes,
   ];
 }
