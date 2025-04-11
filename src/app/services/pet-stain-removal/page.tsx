@@ -49,22 +49,30 @@ export default function PetStainServicePage() {
           }
         }) }}
       />
-      {/* Hero Section */}
-      <section className="relative h-[40vh] min-h-[300px] bg-green-700 text-white flex items-center justify-center text-center">
+      {/* Hero Section - Standard Structure */}
+      <section className="hero relative h-[60vh] min-h-[500px] flex items-center"> {/* Match homepage hero style */}
         <div className="absolute inset-0 z-0">
-          <Image 
-            src="/images/service-pet-stain.jpg" 
-            alt="Happy dog on a clean carpet" 
-            fill
-            className="object-cover opacity-40"
-            priority
-          />
+          {/* Main background image */}
+          <div className="relative h-full">
+            <Image
+              src="/hero.png" // Use the new hero image
+              alt="CarpetCozy Hero Background" // Updated alt text
+              fill
+              className="object-cover"
+              priority
+            />
+          </div>
         </div>
-        <div className="container mx-auto px-4 z-10">
-          <h1 className="text-4xl md:text-5xl font-bold mb-4">Pet Stain & Odor Removal</h1>
-          <p className="text-lg md:text-xl max-w-2xl mx-auto">
-            Specialized solutions for homes with furry family members.
-          </p>
+        {/* Centered the container and text */}
+        <div className="container mx-auto px-4 z-10 flex justify-center text-center">
+          <div className="max-w-4xl mx-auto p-8 rounded-lg text-text-primary"> {/* Ensure text color */}
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
+              Pet Stain & Odor Removal
+            </h1>
+            <p className="text-xl md:text-2xl mb-8">
+              Specialized solutions for homes with furry family members.
+            </p>
+          </div>
         </div>
       </section>
 
@@ -73,14 +81,14 @@ export default function PetStainServicePage() {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
           <div>
             <h3 className="text-2xl font-bold mb-4">Targeted Cleaning for Pet Messes</h3>
-            <p className="text-gray-700 mb-4">
+            <p className="text-text-primary/80 mb-4"> {/* Theme text color */}
               We love our pets, but accidents happen. CarpetCozy offers specialized pet stain and odor removal services designed to tackle the unique challenges pet messes present. Urine, feces, and vomit stains require specific treatments to break down proteins and neutralize odors effectively.
             </p>
-            <p className="text-gray-700 mb-6">
+            <p className="text-text-primary/80 mb-6"> {/* Theme text color */}
               Our technicians use powerful, pet-safe enzymatic cleaners that penetrate deep into carpet fibers to eliminate stains and the odor-causing bacteria at their source, rather than just masking the smell. Keep your carpets fresh and your home healthy for everyone, including your four-legged friends.
             </p>
             <h4 className="text-xl font-semibold mb-3">Our Pet Treatment Process:</h4>
-            <ul className="list-disc list-inside space-y-2 text-gray-700 mb-6">
+            <ul className="list-disc list-inside space-y-2 text-text-primary/80 mb-6"> {/* Theme text color */}
               <li>Identifies affected areas using specialized tools.</li>
               <li>Applies powerful enzymatic pre-treatment.</li>
               <li>Utilizes deep extraction to remove contaminants.</li>
@@ -103,22 +111,22 @@ export default function PetStainServicePage() {
       </Section>
 
       {/* Why Professional Treatment? */}
-      <Section title="Why DIY Isn't Always Enough" bgColor="gray">
-         <p className="text-center text-gray-700 max-w-2xl mx-auto mb-8">While store-bought cleaners can sometimes help with surface stains, pet urine can soak deep into the carpet padding and subfloor. Our professional equipment and solutions reach these deeper layers to fully eliminate stains and odors, preventing long-term damage and lingering smells.</p>
+      <Section title="Why DIY Isn't Always Enough" bgColor="alt"> {/* Changed gray to alt */}
+         <p className="text-center text-text-primary/80 max-w-2xl mx-auto mb-8">While store-bought cleaners can sometimes help with surface stains, pet urine can soak deep into the carpet padding and subfloor. Our professional equipment and solutions reach these deeper layers to fully eliminate stains and odors, preventing long-term damage and lingering smells.</p> {/* Theme text color */}
       </Section>
 
-      {/* CTA Section */}
-      <section className="bg-green-600 text-white py-12">
-        <div className="container mx-auto px-4 text-center">
+      {/* CTA Section - Refactored */}
+      <Section bgColor="dark" textColor="light"> {/* Use dark brown bg, light text */}
+        <div className="text-center">
           <h2 className="text-3xl font-bold mb-4">Restore Freshness to Your Home?</h2>
-          <p className="text-lg mb-6 max-w-xl mx-auto">
+          <p className="text-lg mb-6 max-w-xl mx-auto text-background/80"> {/* Muted light text */}
             Don't let pet accidents ruin your carpets. Contact CarpetCozy for effective stain and odor removal.
           </p>
-          <Button href="/contact?service=pet" className="bg-white text-green-600 hover:bg-gray-100" size="lg">
+          <Button href="/contact?service=pet" variant="secondary" size="lg" className="text-text-primary bg-background hover:bg-background/90"> {/* Secondary button with light text on dark bg */}
             Book Your Pet Treatment Today
           </Button>
         </div>
-      </section>
+      </Section>
     </>
   );
 }

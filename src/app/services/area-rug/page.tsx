@@ -49,22 +49,30 @@ export default function AreaRugServicePage() {
           }
         }) }}
       />
-      {/* Hero Section */}
-      <section className="relative h-[40vh] min-h-[300px] bg-teal-700 text-white flex items-center justify-center text-center">
+      {/* Hero Section - Standard Structure */}
+      <section className="hero relative h-[60vh] min-h-[500px] flex items-center"> {/* Match homepage hero style */}
         <div className="absolute inset-0 z-0">
-          <Image 
-            src="/images/service-area-rug.jpg" 
-            alt="Beautiful clean area rug" 
-            fill
-            className="object-cover opacity-40"
-            priority
-          />
+          {/* Main background image */}
+          <div className="relative h-full">
+            <Image
+              src="/hero.png" // Use the new hero image
+              alt="CarpetCozy Hero Background" // Updated alt text
+              fill
+              className="object-cover"
+              priority
+            />
+          </div>
         </div>
-        <div className="container mx-auto px-4 z-10">
-          <h1 className="text-4xl md:text-5xl font-bold mb-4">Area Rug Cleaning</h1>
-          <p className="text-lg md:text-xl max-w-2xl mx-auto">
-            Expert care for your valuable and delicate area rugs.
-          </p>
+        {/* Centered the container and text */}
+        <div className="container mx-auto px-4 z-10 flex justify-center text-center">
+          <div className="max-w-4xl mx-auto p-8 rounded-lg text-text-primary"> {/* Ensure text color */}
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
+              Area Rug Cleaning
+            </h1>
+            <p className="text-xl md:text-2xl mb-8">
+              Expert care for your valuable and delicate area rugs.
+            </p>
+          </div>
         </div>
       </section>
 
@@ -73,14 +81,14 @@ export default function AreaRugServicePage() {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
           <div className="order-2 md:order-1">
             <h3 className="text-2xl font-bold mb-4">Gentle Cleaning for Delicate Fibers</h3>
-            <p className="text-gray-700 mb-4">
+            <p className="text-text-primary/80 mb-4"> {/* Theme text color */}
               Area rugs, especially oriental, wool, silk, or antique rugs, require specialized care distinct from standard carpet cleaning. CarpetCozy offers expert area rug cleaning services that safely remove dirt, stains, and allergens while preserving the delicate fibers, intricate patterns, and vibrant colors of your valuable rugs.
             </p>
-            <p className="text-gray-700 mb-6">
+            <p className="text-text-primary/80 mb-6"> {/* Theme text color */}
               Our process involves careful inspection, dust removal, gentle washing tailored to the rug type, and controlled drying to prevent damage or shrinkage. Trust our trained technicians to handle your area rugs with the utmost care and expertise.
             </p>
             <h4 className="text-xl font-semibold mb-3">Our Area Rug Cleaning Includes:</h4>
-            <ul className="list-disc list-inside space-y-2 text-gray-700 mb-6">
+            <ul className="list-disc list-inside space-y-2 text-text-primary/80 mb-6"> {/* Theme text color */}
               <li>Cleaning for Wool, Silk, Cotton, Synthetic rugs.</li>
               <li>Special care for Oriental, Persian, and Antique rugs.</li>
               <li>Thorough dusting and dirt removal.</li>
@@ -104,23 +112,24 @@ export default function AreaRugServicePage() {
       </Section>
 
       {/* Pickup/Delivery Option (Optional) */}
-      <Section title="Convenient Options Available" bgColor="gray">
-         <p className="text-center text-gray-700 max-w-2xl mx-auto mb-4">For certain types of delicate rugs, we may recommend off-site cleaning at our facility for optimal results. We offer convenient pickup and delivery services for your area rugs.</p>
-         <Button href="/contact?service=arearug" variant="secondary">Inquire About Pickup/Delivery</Button>
+      <Section title="Convenient Options Available" bgColor="alt"> {/* Changed gray to alt */}
+         <p className="text-center text-text-primary/80 max-w-2xl mx-auto mb-4">For certain types of delicate rugs, we may recommend off-site cleaning at our facility for optimal results. We offer convenient pickup and delivery services for your area rugs.</p> {/* Theme text color */}
+         <div className="text-center"><Button href="/contact?service=arearug" variant="secondary">Inquire About Pickup/Delivery</Button></div> {/* Centered button */}
       </Section>
+      {/* Removed extra closing Section tag */}
 
-      {/* CTA Section */}
-      <section className="bg-teal-600 text-white py-12">
-        <div className="container mx-auto px-4 text-center">
+      {/* CTA Section - Refactored */}
+      <Section bgColor="dark" textColor="light"> {/* Use dark brown bg, light text */}
+        <div className="text-center">
           <h2 className="text-3xl font-bold mb-4">Care for Your Cherished Rugs?</h2>
-          <p className="text-lg mb-6 max-w-xl mx-auto">
+          <p className="text-lg mb-6 max-w-xl mx-auto text-background/80"> {/* Muted light text */}
             Entrust your delicate area rugs to the experts at CarpetCozy. Contact us for specialized cleaning.
           </p>
-          <Button href="/contact?service=arearug" className="bg-white text-teal-600 hover:bg-gray-100" size="lg">
+          <Button href="/contact?service=arearug" variant="secondary" size="lg" className="text-text-primary bg-background hover:bg-background/90"> {/* Secondary button with light text on dark bg */}
             Request Your Area Rug Cleaning Quote
           </Button>
         </div>
-      </section>
+      </Section>
     </>
   );
 }

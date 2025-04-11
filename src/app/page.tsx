@@ -12,18 +12,13 @@ export default function Home() {
         <div className="absolute inset-0 z-0">
           {/* Removed dark overlays for a lighter theme */}
           {/* Pattern overlay */}
-          {/* Radial gradient overlay */}
-          <div className="absolute inset-0 opacity-20"
-            style={{
-              backgroundImage: 'radial-gradient(circle at top right, var(--faq-bg) 0%, transparent 70%)', // Use faq-bg color variable
-            }}>
-          </div>
-          {/* Removed SVG pattern properties */}
+          {/* Overlays removed to use hero.png directly */}
+
           {/* Main background image */}
           <div className="relative h-full">
             <Image
-              src="/images/cleaning-process.jpg" // Changed image to show cleaning process
-              alt="Professional carpet cleaning process" // Updated alt text
+              src="/hero.png" // Use the new hero image
+              alt="CarpetCozy Hero Background" // Updated alt text
               fill
               className="object-cover"
               priority

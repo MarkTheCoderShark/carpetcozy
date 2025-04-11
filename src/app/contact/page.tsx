@@ -18,19 +18,13 @@ export default function ContactPage() {
         <div className="absolute inset-0 z-0">
           {/* Removed dark overlays */}
 
-          {/* Pattern overlay */}
-          <div className="absolute inset-0 opacity-10"
-            style={{
-              backgroundImage: 'url("/images/textures/pattern.svg")',
-              backgroundSize: '200px',
-              backgroundRepeat: 'repeat',
-            }}>
-          </div>
+          {/* Overlays removed to use hero.png directly */}
+
           {/* Main background image */}
           <div className="relative h-full">
             <Image
-              src="/images/contact-hero.jpg" // Use Contact page specific image
-              alt="Contact CarpetCozy for a free quote"
+              src="/hero.png" // Use the new hero image
+              alt="CarpetCozy Hero Background" // Updated alt text
               fill
               className="object-cover"
               priority

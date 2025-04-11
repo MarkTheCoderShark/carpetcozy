@@ -49,22 +49,30 @@ export default function CommercialServicePage() {
           }
         }) }}
       />
-      {/* Hero Section */}
-      <section className="relative h-[40vh] min-h-[300px] bg-indigo-700 text-white flex items-center justify-center text-center">
+      {/* Hero Section - Standard Structure */}
+      <section className="hero relative h-[60vh] min-h-[500px] flex items-center"> {/* Match homepage hero style */}
         <div className="absolute inset-0 z-0">
-          <Image 
-            src="/images/service-commercial.jpg" 
-            alt="Clean office carpet" 
-            fill
-            className="object-cover opacity-40"
-            priority
-          />
+          {/* Main background image */}
+          <div className="relative h-full">
+            <Image
+              src="/hero.png" // Use the new hero image
+              alt="CarpetCozy Hero Background" // Updated alt text
+              fill
+              className="object-cover"
+              priority
+            />
+          </div>
         </div>
-        <div className="container mx-auto px-4 z-10">
-          <h1 className="text-4xl md:text-5xl font-bold mb-4">Commercial Carpet Cleaning</h1>
-          <p className="text-lg md:text-xl max-w-2xl mx-auto">
-            Professional cleaning solutions to keep your business looking its best.
-          </p>
+        {/* Centered the container and text */}
+        <div className="container mx-auto px-4 z-10 flex justify-center text-center">
+          <div className="max-w-4xl mx-auto p-8 rounded-lg text-text-primary"> {/* Ensure text color */}
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
+              Commercial Carpet Cleaning
+            </h1>
+            <p className="text-xl md:text-2xl mb-8">
+              Professional cleaning solutions to keep your business looking its best.
+            </p>
+          </div>
         </div>
       </section>
 
@@ -73,14 +81,14 @@ export default function CommercialServicePage() {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
           <div className="order-2 md:order-1">
              <h3 className="text-2xl font-bold mb-4">Expert Cleaning for Offices & Retail Spaces</h3>
-            <p className="text-gray-700 mb-4">
+            <p className="text-text-primary/80 mb-4"> {/* Theme text color */}
               First impressions matter in business. CarpetCozy provides top-tier commercial carpet cleaning services tailored to the unique needs of offices, retail stores, restaurants, and other commercial properties in the Roseville area. We understand the importance of minimizing disruption to your operations.
             </p>
-            <p className="text-gray-700 mb-6">
+            <p className="text-text-primary/80 mb-6"> {/* Theme text color */}
               Our powerful cleaning technology effectively removes heavy foot traffic dirt, spills, and grime, ensuring your carpets are clean, presentable, and contribute to a healthier environment for your employees and customers. We offer flexible scheduling, including after-hours and weekends.
             </p>
             <h4 className="text-xl font-semibold mb-3">Why Choose CarpetCozy for Your Business:</h4>
-            <ul className="list-disc list-inside space-y-2 text-gray-700 mb-6">
+            <ul className="list-disc list-inside space-y-2 text-text-primary/80 mb-6"> {/* Theme text color */}
               <li>Enhances your business's professional appearance.</li>
               <li>Removes tough dirt from high-traffic areas.</li>
               <li>Improves indoor air quality for staff and clients.</li>
@@ -103,23 +111,23 @@ export default function CommercialServicePage() {
       </Section>
 
       {/* Industries Served (Optional) */}
-      <Section title="Serving Various Industries" bgColor="gray">
-         <p className="text-center text-gray-700 max-w-2xl mx-auto mb-8">We provide commercial carpet cleaning for a wide range of businesses, including offices, retail stores, medical facilities, educational institutions, hospitality venues, and more.</p>
+      <Section title="Serving Various Industries" bgColor="alt"> {/* Changed gray to alt */}
+         <p className="text-center text-text-primary/80 max-w-2xl mx-auto mb-8">We provide commercial carpet cleaning for a wide range of businesses, including offices, retail stores, medical facilities, educational institutions, hospitality venues, and more.</p> {/* Theme text color */}
          {/* Maybe add logos or icons here later */}
       </Section>
 
-      {/* CTA Section */}
-      <section className="bg-indigo-600 text-white py-12">
-        <div className="container mx-auto px-4 text-center">
+      {/* CTA Section - Refactored */}
+      <Section bgColor="dark" textColor="light"> {/* Use dark brown bg, light text */}
+        <div className="text-center">
           <h2 className="text-3xl font-bold mb-4">Elevate Your Business Environment?</h2>
-          <p className="text-lg mb-6 max-w-xl mx-auto">
+          <p className="text-lg mb-6 max-w-xl mx-auto text-background/80"> {/* Muted light text */}
             Ensure your commercial space reflects professionalism. Contact CarpetCozy for reliable carpet cleaning services.
           </p>
-          <Button href="/contact?service=commercial" className="bg-white text-indigo-600 hover:bg-gray-100" size="lg">
+          <Button href="/contact?service=commercial" variant="secondary" size="lg" className="text-text-primary bg-background hover:bg-background/90"> {/* Secondary button with light text on dark bg */}
             Get Your Commercial Quote Today
           </Button>
         </div>
-      </section>
+      </Section>
     </>
   );
 }

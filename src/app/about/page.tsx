@@ -15,36 +15,28 @@ export default function AboutPage() {
       {/* Hero Section - Styled like homepage */}
       <section className="hero relative h-[60vh] min-h-[500px] flex items-center"> {/* Adjusted height slightly */}
         <div className="absolute inset-0 z-0">
-          <div className="absolute inset-0 bg-black opacity-40"></div>
-          <div className="absolute inset-0 bg-gradient-to-r from-blue-900/50 to-indigo-900/50 mix-blend-multiply"></div>
-          {/* Pattern overlay */}
-          <div className="absolute inset-0 opacity-10"
-            style={{
-              backgroundImage: 'url("/images/textures/pattern.svg")',
-              backgroundSize: '200px',
-              backgroundRepeat: 'repeat',
-            }}>
-          </div>
+          {/* Overlays removed */}
           {/* Main background image */}
           <div className="relative h-full">
             <Image
-              src="/images/about-hero.jpg" // Use About page specific image
-              alt="About CarpetCozy Team"
+              src="/hero.png" // Use the new hero image
+              alt="CarpetCozy Hero Background" // Updated alt text
               fill
               className="object-cover"
               priority
             />
           </div>
+          {/* End background image div */}
         </div>
         
         {/* Centered the container and text */}
         <div className="container mx-auto px-4 z-10 flex justify-center text-center">
           {/* Increased max-width and centered */}
-          <div className="max-w-4xl mx-auto bg-white/5 p-8 rounded-lg backdrop-blur-sm shadow-xl">
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 text-shadow">
+          <div className="max-w-4xl mx-auto p-8 rounded-lg text-text-primary"> {/* Removed bg/blur, ensure text color */}
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6"> {/* Removed text-shadow */}
               About CarpetCozy
             </h1>
-            <p className="text-xl md:text-2xl mb-8 text-shadow">
+            <p className="text-xl md:text-2xl mb-8"> {/* Removed text-shadow */}
               Learn about our story, our mission, and the dedicated team behind our exceptional cleaning services.
             </p>
             {/* Buttons removed for this page, can be added if needed */}
@@ -56,13 +48,13 @@ export default function AboutPage() {
       <Section title="Our Story" subtitle="Founded on a commitment to quality and customer satisfaction">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           <div className="order-2 lg:order-1">
-            <p className="mb-6 text-gray-700">
+            <p className="mb-6 text-text-primary/80"> {/* Theme text color */}
               CarpetCozy was established in 2010 with a simple mission: to provide exceptional carpet cleaning services that truly make a difference in homes and businesses throughout Roseville and surrounding areas.
             </p>
-            <p className="mb-6 text-gray-700">
+            <p className="mb-6 text-text-primary/80"> {/* Theme text color */}
               Our founder, John Smith, started the company after noticing a gap in the market for truly professional, reliable, and thorough carpet cleaning services. With just one van and a passion for cleanliness, John built CarpetCozy from the ground up, focusing on customer satisfaction and attention to detail.
             </p>
-            <p className="text-gray-700">
+            <p className="text-text-primary/80"> {/* Theme text color */}
               Today, we've grown into a trusted team of professionals, but our core values remain the same: integrity, quality, and a commitment to making your carpets truly cozy.
             </p>
           </div>
@@ -78,27 +70,30 @@ export default function AboutPage() {
       </Section>
 
       {/* Our Mission Section */}
-      <Section bgColor="gray" title="Our Mission" subtitle="Providing exceptional carpet cleaning services with integrity and expertise">
+      <Section bgColor="alt" title="Our Mission" subtitle="Providing exceptional carpet cleaning services with integrity and expertise"> {/* Changed gray to alt */}
         <div className="max-w-3xl mx-auto text-center">
-          <p className="mb-8 text-gray-700 text-lg">
+          <p className="mb-8 text-text-primary/80 text-lg"> {/* Theme text color */}
             At CarpetCozy, our mission is to enhance the cleanliness, health, and comfort of homes and businesses through professional carpet cleaning services that exceed expectations. We aim to build lasting relationships with our clients based on trust, reliability, and superior results.
           </p>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-left">
-            <div className="bg-white p-6 rounded-lg shadow-md">
-              <h3 className="text-xl font-bold mb-3 text-blue-600">Excellence</h3>
-              <p className="text-gray-700">
+            {/* Mission Card 1 */}
+            <div className="bg-background p-6 rounded-xl shadow-md border border-gray-100"> {/* Card styling */}
+              <h3 className="text-xl font-bold mb-3 text-primary">Excellence</h3> {/* Theme color */}
+              <p className="text-text-primary/80"> {/* Theme text color */}
                 We strive for excellence in every job, using the best techniques and equipment to deliver outstanding results.
               </p>
             </div>
-            <div className="bg-white p-6 rounded-lg shadow-md">
-              <h3 className="text-xl font-bold mb-3 text-blue-600">Integrity</h3>
-              <p className="text-gray-700">
+            {/* Mission Card 2 */}
+            <div className="bg-background p-6 rounded-xl shadow-md border border-gray-100"> {/* Card styling */}
+              <h3 className="text-xl font-bold mb-3 text-primary">Integrity</h3> {/* Theme color */}
+              <p className="text-text-primary/80"> {/* Theme text color */}
                 We operate with transparency and honesty, providing fair pricing and honest recommendations.
               </p>
             </div>
-            <div className="bg-white p-6 rounded-lg shadow-md">
-              <h3 className="text-xl font-bold mb-3 text-blue-600">Reliability</h3>
-              <p className="text-gray-700">
+            {/* Mission Card 3 */}
+            <div className="bg-background p-6 rounded-xl shadow-md border border-gray-100"> {/* Card styling */}
+              <h3 className="text-xl font-bold mb-3 text-primary">Reliability</h3> {/* Theme color */}
+              <p className="text-text-primary/80"> {/* Theme text color */}
                 Our customers can count on us to be punctual, professional, and consistent in delivering high-quality service.
               </p>
             </div>
@@ -118,39 +113,39 @@ export default function AboutPage() {
                 className="object-cover"
               />
             </div>
-            <h3 className="text-xl font-bold">John Smith</h3>
-            <p className="text-blue-600 mb-2">Founder & CEO</p>
-            <p className="text-gray-600">
+            <h3 className="text-xl font-bold text-text-primary">John Smith</h3> {/* Theme text color */}
+            <p className="text-primary mb-2">Founder & CEO</p> {/* Theme color */}
+            <p className="text-text-primary/80"> {/* Theme text color */}
               With over 15 years of experience in carpet cleaning, John leads our team with expertise and passion.
             </p>
           </div>
           <div className="text-center">
             <div className="relative h-64 w-64 mx-auto mb-4 overflow-hidden rounded-full">
-              <Image 
-                src="/images/team-2.jpg" 
-                alt="Sarah Johnson - Operations Manager" 
-                fill 
+              <Image
+                src="/images/team-2.jpg"
+                alt="Sarah Johnson - Operations Manager"
+                fill
                 className="object-cover"
               />
             </div>
-            <h3 className="text-xl font-bold">Sarah Johnson</h3>
-            <p className="text-blue-600 mb-2">Operations Manager</p>
-            <p className="text-gray-600">
+            <h3 className="text-xl font-bold text-text-primary">Sarah Johnson</h3> {/* Theme text color */}
+            <p className="text-primary mb-2">Operations Manager</p> {/* Theme color */}
+            <p className="text-text-primary/80"> {/* Theme text color */}
               Sarah ensures our operations run smoothly and that every customer receives exceptional service.
             </p>
           </div>
           <div className="text-center">
             <div className="relative h-64 w-64 mx-auto mb-4 overflow-hidden rounded-full">
-              <Image 
-                src="/images/team-3.jpg" 
-                alt="Mike Williams - Lead Technician" 
-                fill 
+              <Image
+                src="/images/team-3.jpg"
+                alt="Mike Williams - Lead Technician"
+                fill
                 className="object-cover"
               />
             </div>
-            <h3 className="text-xl font-bold">Mike Williams</h3>
-            <p className="text-blue-600 mb-2">Lead Technician</p>
-            <p className="text-gray-600">
+            <h3 className="text-xl font-bold text-text-primary">Mike Williams</h3> {/* Theme text color */}
+            <p className="text-primary mb-2">Lead Technician</p> {/* Theme color */}
+            <p className="text-text-primary/80"> {/* Theme text color */}
               Mike brings technical expertise and attention to detail to every cleaning job, ensuring top-quality results.
             </p>
           </div>
@@ -158,71 +153,72 @@ export default function AboutPage() {
       </Section>
 
       {/* Why Choose Us Section */}
-      <Section bgColor="blue" title="Why Choose CarpetCozy?" subtitle="What sets us apart from other carpet cleaning services">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-          <div className="bg-white p-6 rounded-lg shadow-md">
-            <h3 className="text-xl font-bold mb-3 flex items-center">
-              <svg className="w-6 h-6 mr-2 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+      <Section bgColor="alt" title="Why Choose CarpetCozy?" subtitle="What sets us apart from other carpet cleaning services"> {/* Keep alt background */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6"> {/* Adjusted gap */}
+          {/* Why Choose Us Card 1 */}
+          <div className="bg-background p-6 rounded-xl shadow-md border border-gray-100"> {/* Card styling */}
+            <h3 className="text-xl font-bold mb-3 flex items-center text-text-primary"> {/* Theme text color */}
+              <svg className="w-6 h-6 mr-2 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"> {/* Theme icon color */}
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
               </svg>
               Experienced Professionals
             </h3>
-            <p className="text-gray-700">
+            <p className="text-text-primary/80"> {/* Theme text color */}
               Our team has years of experience and continuous training in the latest carpet cleaning techniques and technologies.
             </p>
           </div>
-          <div className="bg-white p-6 rounded-lg shadow-md">
-            <h3 className="text-xl font-bold mb-3 flex items-center">
-              <svg className="w-6 h-6 mr-2 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          {/* Why Choose Us Card 2 */}
+          <div className="bg-background p-6 rounded-xl shadow-md border border-gray-100"> {/* Card styling */}
+            <h3 className="text-xl font-bold mb-3 flex items-center text-text-primary"> {/* Theme text color */}
+              <svg className="w-6 h-6 mr-2 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"> {/* Theme icon color */}
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
               </svg>
               Advanced Equipment
             </h3>
-            <p className="text-gray-700">
+            <p className="text-text-primary/80"> {/* Theme text color */}
               We use state-of-the-art equipment and cleaning solutions to deliver the best possible results for your carpets.
             </p>
           </div>
-          <div className="bg-white p-6 rounded-lg shadow-md">
-            <h3 className="text-xl font-bold mb-3 flex items-center">
-              <svg className="w-6 h-6 mr-2 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          {/* Why Choose Us Card 3 */}
+          <div className="bg-background p-6 rounded-xl shadow-md border border-gray-100"> {/* Card styling */}
+            <h3 className="text-xl font-bold mb-3 flex items-center text-text-primary"> {/* Theme text color */}
+              <svg className="w-6 h-6 mr-2 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"> {/* Theme icon color */}
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
               </svg>
               Eco-Friendly Products
             </h3>
-            <p className="text-gray-700">
+            <p className="text-text-primary/80"> {/* Theme text color */}
               We're committed to using environmentally-friendly cleaning products that are safe for your family, pets, and the planet.
             </p>
           </div>
-          <div className="bg-white p-6 rounded-lg shadow-md">
-            <h3 className="text-xl font-bold mb-3 flex items-center">
-              <svg className="w-6 h-6 mr-2 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          {/* Why Choose Us Card 4 */}
+          <div className="bg-background p-6 rounded-xl shadow-md border border-gray-100"> {/* Card styling */}
+            <h3 className="text-xl font-bold mb-3 flex items-center text-text-primary"> {/* Theme text color */}
+              <svg className="w-6 h-6 mr-2 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"> {/* Theme icon color */}
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
               </svg>
               Satisfaction Guaranteed
             </h3>
-            <p className="text-gray-700">
+            <p className="text-text-primary/80"> {/* Theme text color */}
               We stand behind our work with a 100% satisfaction guarantee. If you're not happy, we'll make it right.
             </p>
           </div>
         </div>
       </Section>
 
-      {/* CTA Section */}
-      <section className="bg-gradient-to-r from-blue-600 to-indigo-700 text-white py-16">
-        <div className="container mx-auto px-4 text-center">
+      {/* CTA Section - Use dark background for contrast */}
+      <Section bgColor="dark" textColor="light"> {/* Use dark brown bg, light text */}
+        <div className="text-center">
           <h2 className="text-3xl md:text-4xl font-bold mb-6">Ready to Experience the CarpetCozy Difference?</h2>
-          <p className="text-xl mb-8 max-w-3xl mx-auto">
+          <p className="text-xl mb-8 max-w-3xl mx-auto text-background/80"> {/* Muted light text */}
             Contact us today to schedule your professional carpet cleaning service!
           </p>
-          <Button 
-            href="/contact" 
-            className="bg-white text-blue-600 hover:bg-gray-100"
-            size="lg"
-          >
+          <Button href="/contact" variant="secondary" size="lg" className="text-text-primary bg-background hover:bg-background/90"> {/* Secondary button with light text on dark bg */}
             Contact Us Today
           </Button>
         </div>
-      </section>
+      </Section>
+      {/* Removed extra closing tag */}
     </>
   );
 } 

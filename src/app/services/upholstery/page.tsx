@@ -49,22 +49,30 @@ export default function UpholsteryServicePage() {
           }
         }) }}
       />
-      {/* Hero Section */}
-      <section className="relative h-[40vh] min-h-[300px] bg-purple-700 text-white flex items-center justify-center text-center">
+      {/* Hero Section - Standard Structure */}
+      <section className="hero relative h-[60vh] min-h-[500px] flex items-center"> {/* Match homepage hero style */}
         <div className="absolute inset-0 z-0">
-          <Image 
-            src="/images/service-upholstery.jpg" 
-            alt="Clean sofa upholstery" 
-            fill
-            className="object-cover opacity-40"
-            priority
-          />
+          {/* Main background image */}
+          <div className="relative h-full">
+            <Image
+              src="/hero.png" // Use the new hero image
+              alt="CarpetCozy Hero Background" // Updated alt text
+              fill
+              className="object-cover"
+              priority
+            />
+          </div>
         </div>
-        <div className="container mx-auto px-4 z-10">
-          <h1 className="text-4xl md:text-5xl font-bold mb-4">Upholstery Cleaning</h1>
-          <p className="text-lg md:text-xl max-w-2xl mx-auto">
-            Revive your furniture and restore its original beauty.
-          </p>
+        {/* Centered the container and text */}
+        <div className="container mx-auto px-4 z-10 flex justify-center text-center">
+          <div className="max-w-4xl mx-auto p-8 rounded-lg text-text-primary"> {/* Ensure text color */}
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
+              Upholstery Cleaning
+            </h1>
+            <p className="text-xl md:text-2xl mb-8">
+              Revive your furniture and restore its original beauty.
+            </p>
+          </div>
         </div>
       </section>
 
@@ -73,14 +81,14 @@ export default function UpholsteryServicePage() {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
           <div>
             <h3 className="text-2xl font-bold mb-4">Extend the Life of Your Upholstery</h3>
-            <p className="text-gray-700 mb-4">
+            <p className="text-text-primary/80 mb-4"> {/* Theme text color */}
               Your furniture is a significant investment and often the centerpiece of your living spaces. CarpetCozy's professional upholstery cleaning service safely and effectively cleans sofas, chairs, sectionals, ottomans, and other upholstered items, removing accumulated dirt, body oils, dust, allergens, and stains.
             </p>
-            <p className="text-gray-700 mb-6">
+            <p className="text-text-primary/80 mb-6"> {/* Theme text color */}
               We carefully inspect the fabric type (natural fibers, synthetics, blends) to determine the most appropriate cleaning method, whether it's hot water extraction or a low-moisture process. Our cleaning helps preserve the fabric's integrity, color, and texture, extending the life of your furniture.
             </p>
             <h4 className="text-xl font-semibold mb-3">Benefits of Upholstery Cleaning:</h4>
-            <ul className="list-disc list-inside space-y-2 text-gray-700 mb-6">
+            <ul className="list-disc list-inside space-y-2 text-text-primary/80 mb-6"> {/* Theme text color */}
               <li>Removes dirt, dust, and allergens trapped in fabric.</li>
               <li>Eliminates stains and spots.</li>
               <li>Neutralizes odors.</li>
@@ -103,22 +111,23 @@ export default function UpholsteryServicePage() {
       </Section>
 
       {/* Fabric Types Section */}
-      <Section title="We Clean Various Fabric Types" bgColor="gray">
-         <p className="text-center text-gray-700 max-w-2xl mx-auto mb-8">Our technicians are trained to handle a wide range of upholstery fabrics, including cotton, linen, wool, microfiber, polyester, nylon, and blends. We always test for colorfastness before proceeding.</p>
+      <Section title="We Clean Various Fabric Types" bgColor="alt"> {/* Changed gray to alt */}
+         <p className="text-center text-text-primary/80 max-w-2xl mx-auto mb-8">Our technicians are trained to handle a wide range of upholstery fabrics, including cotton, linen, wool, microfiber, polyester, nylon, and blends. We always test for colorfastness before proceeding.</p> {/* Theme text color */}
       </Section>
+      {/* Removed extra closing Section tag */}
 
-      {/* CTA Section */}
-      <section className="bg-purple-600 text-white py-12">
-        <div className="container mx-auto px-4 text-center">
+      {/* CTA Section - Refactored */}
+      <Section bgColor="dark" textColor="light"> {/* Use dark brown bg, light text */}
+        <div className="text-center">
           <h2 className="text-3xl font-bold mb-4">Give Your Furniture a New Lease on Life?</h2>
-          <p className="text-lg mb-6 max-w-xl mx-auto">
+          <p className="text-lg mb-6 max-w-xl mx-auto text-background/80"> {/* Muted light text */}
             Contact CarpetCozy today for professional upholstery cleaning and enjoy fresher, cleaner furniture.
           </p>
-          <Button href="/contact?service=upholstery" className="bg-white text-purple-600 hover:bg-gray-100" size="lg">
+          <Button href="/contact?service=upholstery" variant="secondary" size="lg" className="text-text-primary bg-background hover:bg-background/90"> {/* Secondary button with light text on dark bg */}
             Request Your Upholstery Cleaning Quote
           </Button>
         </div>
-      </section>
+      </Section>
     </>
   );
 }

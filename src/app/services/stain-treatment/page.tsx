@@ -49,22 +49,30 @@ export default function StainTreatmentServicePage() {
           }
         }) }}
       />
-      {/* Hero Section */}
-      <section className="relative h-[40vh] min-h-[300px] bg-red-700 text-white flex items-center justify-center text-center">
+      {/* Hero Section - Standard Structure */}
+      <section className="hero relative h-[60vh] min-h-[500px] flex items-center"> {/* Match homepage hero style */}
         <div className="absolute inset-0 z-0">
-          <Image 
-            src="/images/service-stain-treatment.jpg" 
-            alt="Technician treating a tough carpet stain" 
-            fill
-            className="object-cover opacity-40"
-            priority
-          />
+          {/* Main background image */}
+          <div className="relative h-full">
+            <Image
+              src="/hero.png" // Use the new hero image
+              alt="CarpetCozy Hero Background" // Updated alt text
+              fill
+              className="object-cover"
+              priority
+            />
+          </div>
         </div>
-        <div className="container mx-auto px-4 z-10">
-          <h1 className="text-4xl md:text-5xl font-bold mb-4">Deep Stain Treatment</h1>
-          <p className="text-lg md:text-xl max-w-2xl mx-auto">
-            Tackling the toughest stains that regular cleaning can't handle.
-          </p>
+        {/* Centered the container and text */}
+        <div className="container mx-auto px-4 z-10 flex justify-center text-center">
+          <div className="max-w-4xl mx-auto p-8 rounded-lg text-text-primary"> {/* Ensure text color */}
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
+              Deep Stain Treatment
+            </h1>
+            <p className="text-xl md:text-2xl mb-8">
+              Tackling the toughest stains that regular cleaning can't handle.
+            </p>
+          </div>
         </div>
       </section>
 
@@ -73,14 +81,14 @@ export default function StainTreatmentServicePage() {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
           <div className="order-2 md:order-1">
             <h3 className="text-2xl font-bold mb-4">Specialized Techniques for Tough Stains</h3>
-            <p className="text-gray-700 mb-4">
+            <p className="text-text-primary/80 mb-4"> {/* Theme text color */}
               Some stains require more than just standard cleaning. CarpetCozy's Deep Stain Treatment service utilizes advanced techniques and specialized cleaning agents to target and remove stubborn stains like red wine, coffee, tea, ink, grease, rust, and more.
             </p>
-            <p className="text-gray-700 mb-6">
+            <p className="text-text-primary/80 mb-6"> {/* Theme text color */}
               Our experienced technicians carefully assess the type of stain and carpet fiber to determine the most effective and safest treatment method. While not all stains are completely removable (especially if they have set for a long time or involve permanent dyes), our deep treatment significantly improves the appearance of most tough spots.
             </p>
             <h4 className="text-xl font-semibold mb-3">We Can Treat Stains Like:</h4>
-            <ul className="list-disc list-inside space-y-2 text-gray-700 mb-6">
+            <ul className="list-disc list-inside space-y-2 text-text-primary/80 mb-6"> {/* Theme text color */}
               <li>Red Wine & Juice</li>
               <li>Coffee & Tea</li>
               <li>Ink & Marker</li>
@@ -104,23 +112,24 @@ export default function StainTreatmentServicePage() {
       </Section>
 
       {/* Important Note Section */}
-      <Section title="Important Considerations" bgColor="gray">
-         <p className="text-center text-gray-700 max-w-2xl mx-auto mb-4">The success of stain removal depends on factors like the type of stain, the carpet fiber, how long the stain has been present, and any previous cleaning attempts.</p>
-         <p className="text-center text-gray-700 max-w-2xl mx-auto">We always perform a spot test in an inconspicuous area first and provide an honest assessment of the likely outcome before proceeding with treatment.</p>
+      <Section title="Important Considerations" bgColor="alt"> {/* Changed gray to alt */}
+         <p className="text-center text-text-primary/80 max-w-2xl mx-auto mb-4">The success of stain removal depends on factors like the type of stain, the carpet fiber, how long the stain has been present, and any previous cleaning attempts.</p> {/* Theme text color */}
+         <p className="text-center text-text-primary/80 max-w-2xl mx-auto">We always perform a spot test in an inconspicuous area first and provide an honest assessment of the likely outcome before proceeding with treatment.</p> {/* Theme text color */}
       </Section>
 
-      {/* CTA Section */}
-      <section className="bg-red-600 text-white py-12">
-        <div className="container mx-auto px-4 text-center">
+      {/* Removed extra closing Section tag */}
+      {/* CTA Section - Refactored */}
+      <Section bgColor="dark" textColor="light"> {/* Use dark brown bg, light text */}
+        <div className="text-center">
           <h2 className="text-3xl font-bold mb-4">Have a Stubborn Stain?</h2>
-          <p className="text-lg mb-6 max-w-xl mx-auto">
+          <p className="text-lg mb-6 max-w-xl mx-auto text-background/80"> {/* Muted light text */}
             Don't let unsightly stains detract from your carpets. Contact CarpetCozy for expert deep stain treatment.
           </p>
-          <Button href="/contact?service=stain" className="bg-white text-red-600 hover:bg-gray-100" size="lg">
+          <Button href="/contact?service=stain" variant="secondary" size="lg" className="text-text-primary bg-background hover:bg-background/90"> {/* Secondary button with light text on dark bg */}
             Request Stain Removal Assessment
           </Button>
         </div>
-      </section>
+      </Section>
     </>
   );
 }

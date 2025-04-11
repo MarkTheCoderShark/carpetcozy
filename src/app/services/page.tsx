@@ -18,19 +18,13 @@ export default function ServicesPage() {
         <div className="absolute inset-0 z-0">
           {/* Removed dark overlays */}
 
-          {/* Pattern overlay */}
-          <div className="absolute inset-0 opacity-10"
-            style={{
-              backgroundImage: 'url("/images/textures/pattern.svg")',
-              backgroundSize: '200px',
-              backgroundRepeat: 'repeat',
-            }}>
-          </div>
+          {/* Overlays removed to use hero.png directly */}
+
           {/* Main background image */}
           <div className="relative h-full">
             <Image
-              src="/images/services-hero.jpg" // Use Services page specific image
-              alt="Our Professional Cleaning Services"
+              src="/hero.png" // Use the new hero image
+              alt="CarpetCozy Hero Background" // Updated alt text
               fill
               className="object-cover"
               priority
@@ -42,10 +36,10 @@ export default function ServicesPage() {
         <div className="container mx-auto px-4 z-10 flex justify-center text-center">
           {/* Increased max-width and centered */}
           <div className="max-w-4xl mx-auto p-8 rounded-lg text-text-primary"> {/* Removed bg/blur, set text color */}
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 text-shadow">
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6"> {/* Removed text-shadow */}
               Our Professional Cleaning Services
             </h1>
-            <p className="text-xl md:text-2xl mb-8 text-shadow">
+            <p className="text-xl md:text-2xl mb-8"> {/* Removed text-shadow */}
               Explore our comprehensive range of cleaning solutions for carpets, upholstery, tile, and more.
             </p>
             {/* Buttons removed for this page, can be added if needed */}
@@ -204,7 +198,7 @@ export default function ServicesPage() {
               </p>
             </div>
             
-            <div className="bg-background-alt p-6 rounded-lg shadow-subtle"> {/* Updated styles */}
+            <div className="bg-background p-6 rounded-xl shadow-md"> {/* White card on FAQ bg, rounded-xl, shadow-md */}
               <h3 className="text-xl font-bold mb-2">Do I need to move my furniture before you arrive?</h3>
               <p className="text-text-primary/80"> {/* Updated color */}
                 For best results, we recommend removing small items. We can move larger furniture pieces as part of our service at no extra charge.
@@ -250,22 +244,18 @@ export default function ServicesPage() {
         </div>
       </Section>
 
-      {/* CTA Section */}
-      <section className="bg-primary text-text-primary py-16"> {/* Updated background and text */}
-        <div className="container mx-auto px-4 text-center">
+      {/* CTA Section - Refactored to use Section component */}
+      <Section bgColor="dark" textColor="light"> {/* Use dark brown bg, light text */}
+        <div className="text-center">
           <h2 className="text-3xl md:text-4xl font-bold mb-6">Ready to Rejuvenate Your Carpets?</h2>
-          <p className="text-xl mb-8 max-w-3xl mx-auto">
+          <p className="text-xl mb-8 max-w-3xl mx-auto text-background/80"> {/* Muted light text */}
             Contact us today for a free quote on any of our professional carpet cleaning services!
           </p>
-          <Button href="/contact" variant="secondary" size="lg"> {/* Use secondary variant */}
+          <Button href="/contact" variant="secondary" size="lg" className="text-text-primary bg-background hover:bg-background/90"> {/* Secondary button with light text on dark bg */}
             Get Your Free Quote
           </Button>
-
-
-
-
         </div>
-      </section>
+      </Section>
     </>
   );
 } 
