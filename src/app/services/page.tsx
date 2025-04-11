@@ -105,7 +105,7 @@ export default function ServicesPage() {
                   <div className="flex items-center justify-center h-8 w-8 rounded-full bg-blue-600 text-white font-bold">1</div>
                 </div>
                 <div className="ml-4">
-                  <h3 className="text-xl font-bold mb-2">Inspection</h3>
+                  <h3 className="text-xl font-bold mb-2 text-gray-900">Inspection</h3>
                   <p className="text-gray-700">
                     We thoroughly inspect your carpets to identify problem areas, stains, and the appropriate cleaning methods.
                   </p>
@@ -117,7 +117,7 @@ export default function ServicesPage() {
                   <div className="flex items-center justify-center h-8 w-8 rounded-full bg-blue-600 text-white font-bold">2</div>
                 </div>
                 <div className="ml-4">
-                  <h3 className="text-xl font-bold mb-2">Pre-Treatment</h3>
+                  <h3 className="text-xl font-bold mb-2 text-gray-900">Pre-Treatment</h3>
                   <p className="text-gray-700">
                     We apply a pre-treatment solution to break down dirt and stains before the main cleaning process.
                   </p>
@@ -129,7 +129,7 @@ export default function ServicesPage() {
                   <div className="flex items-center justify-center h-8 w-8 rounded-full bg-blue-600 text-white font-bold">3</div>
                 </div>
                 <div className="ml-4">
-                  <h3 className="text-xl font-bold mb-2">Deep Cleaning</h3>
+                  <h3 className="text-xl font-bold mb-2 text-gray-900">Deep Cleaning</h3>
                   <p className="text-gray-700">
                     Using hot water extraction (steam cleaning), we deep clean your carpets to remove dirt, allergens, and bacteria.
                   </p>
@@ -141,7 +141,7 @@ export default function ServicesPage() {
                   <div className="flex items-center justify-center h-8 w-8 rounded-full bg-blue-600 text-white font-bold">4</div>
                 </div>
                 <div className="ml-4">
-                  <h3 className="text-xl font-bold mb-2">Spot Treatment</h3>
+                  <h3 className="text-xl font-bold mb-2 text-gray-900">Spot Treatment</h3>
                   <p className="text-gray-700">
                     We address any remaining stubborn stains with specialized spot treatments.
                   </p>
@@ -153,7 +153,7 @@ export default function ServicesPage() {
                   <div className="flex items-center justify-center h-8 w-8 rounded-full bg-blue-600 text-white font-bold">5</div>
                 </div>
                 <div className="ml-4">
-                  <h3 className="text-xl font-bold mb-2">Drying</h3>
+                  <h3 className="text-xl font-bold mb-2 text-gray-900">Drying</h3>
                   <p className="text-gray-700">
                     We use high-powered equipment to reduce drying time, leaving your carpets ready to use in just a few hours.
                   </p>
