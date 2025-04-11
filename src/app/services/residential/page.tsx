@@ -12,6 +12,46 @@ export const metadata = {
 export default function ResidentialServicePage() {
   return (
     <>
+      {/* Add JSON-LD Schema Markup for Service */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "Service",
+          "serviceType": "Residential Carpet Cleaning",
+          "name": "Residential Carpet Cleaning",
+          "description": metadata.description, // Use description from page metadata
+          "url": `${process.env.NEXT_PUBLIC_SITE_URL || 'https://carpetcozy.com'}/services/residential`, // Absolute URL
+          "provider": {
+            "@type": "LocalBusiness",
+            "name": "CarpetCozy",
+            "@id": `${process.env.NEXT_PUBLIC_SITE_URL || 'https://carpetcozy.com'}` // Link back to the main business ID
+          },
+          "areaServed": { // Define general service area, can be refined
+             "@type": "Place",
+             "name": "Roseville and surrounding areas" // Match general description
+             // Or list specific areas if desired:
+             // "@type": "AdministrativeArea",
+             // "name": ["Roseville", "Rocklin", "Loomis", "Folsom", "Citrus Heights", "Granite Bay", "Auburn", "Grass Valley", "Orangevale", "El Dorado Hills"]
+          },
+          "potentialAction": {
+             "@type": "ReserveAction", // Or OrderAction/QuoteAction
+             "target": {
+               "@type": "EntryPoint",
+               "urlTemplate": `${process.env.NEXT_PUBLIC_SITE_URL || 'https://carpetcozy.com'}/contact`, // Link to contact/quote page
+               "actionPlatform": [
+                 "http://schema.org/DesktopWebPlatform",
+                 "http://schema.org/IOSPlatform",
+                 "http://schema.org/AndroidPlatform"
+               ]
+             },
+             "result": {
+               "@type": "Reservation", // Or Order/Quote
+               "name": "Request a Free Quote"
+             }
+          }
+        }) }}
+      />
       {/* Hero Section */}
       <section className="relative h-[40vh] min-h-[300px] bg-blue-700 text-white flex items-center justify-center text-center">
         <div className="absolute inset-0 z-0">

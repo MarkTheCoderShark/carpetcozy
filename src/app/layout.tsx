@@ -51,6 +51,22 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
+        {/* Add JSON-LD Schema Markup for WebSite */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "WebSite",
+            "url": process.env.NEXT_PUBLIC_SITE_URL || 'https://carpetcozy.com',
+            "name": "CarpetCozy",
+            "description": metadata.description, // Use description from metadata
+            "potentialAction": { // Helps define site search capabilities
+              "@type": "SearchAction",
+              "target": `${process.env.NEXT_PUBLIC_SITE_URL || 'https://carpetcozy.com'}/search?q={search_term_string}`, // Adjust if you have site search
+              "query-input": "required name=search_term_string"
+            }
+          }) }}
+        />
         <link rel="manifest" href="/manifest.json" />
         <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
         <meta name="theme-color" content="#1e40af" />

@@ -12,6 +12,43 @@ export const metadata = {
 export default function StainTreatmentServicePage() {
   return (
     <>
+      {/* Add JSON-LD Schema Markup for Service */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "Service",
+          "serviceType": "Deep Stain Treatment",
+          "name": "Deep Stain Treatment",
+          "description": metadata.description, // Use description from page metadata
+          "url": `${process.env.NEXT_PUBLIC_SITE_URL || 'https://carpetcozy.com'}/services/stain-treatment`, // Absolute URL
+          "provider": {
+            "@type": "LocalBusiness",
+            "name": "CarpetCozy",
+            "@id": `${process.env.NEXT_PUBLIC_SITE_URL || 'https://carpetcozy.com'}` // Link back to the main business ID
+          },
+          "areaServed": { // Define general service area
+             "@type": "Place",
+             "name": "Roseville and surrounding areas"
+          },
+          "potentialAction": {
+             "@type": "ReserveAction", // Or OrderAction/QuoteAction
+             "target": {
+               "@type": "EntryPoint",
+               "urlTemplate": `${process.env.NEXT_PUBLIC_SITE_URL || 'https://carpetcozy.com'}/contact?service=stain`, // Link to contact/quote page (specific for stain)
+               "actionPlatform": [
+                 "http://schema.org/DesktopWebPlatform",
+                 "http://schema.org/IOSPlatform",
+                 "http://schema.org/AndroidPlatform"
+               ]
+             },
+             "result": {
+               "@type": "Reservation", // Or Order/Quote
+               "name": "Request Stain Removal Assessment"
+             }
+          }
+        }) }}
+      />
       {/* Hero Section */}
       <section className="relative h-[40vh] min-h-[300px] bg-red-700 text-white flex items-center justify-center text-center">
         <div className="absolute inset-0 z-0">

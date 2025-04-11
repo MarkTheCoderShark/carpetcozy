@@ -1,0 +1,10 @@
+# Allow all ethical crawlers access to the entire site
+User-agent: *
+Allow: /
+
+# Disallow access to Next.js build/internal folders (though usually handled by hosting platform)
+Disallow: /_next/
+Disallow: /api/
+
+# Specify the location of the sitemap
+Sitemap: https://carpetcozy.com/sitemap.xml

@@ -49,6 +49,65 @@ export default function ServiceAreaPage({
   
   return (
     <>
+      {/* Add JSON-LD Schema Markup */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "LocalBusiness",
+          "name": "CarpetCozy",
+          "image": `${process.env.NEXT_PUBLIC_SITE_URL || 'https://carpetcozy.com'}/carpetcozy.png`, // Use absolute URL
+          "@id": `${process.env.NEXT_PUBLIC_SITE_URL || 'https://carpetcozy.com'}`, // Use absolute URL
+          "url": `${process.env.NEXT_PUBLIC_SITE_URL || 'https://carpetcozy.com'}/areas/${area.slug}`, // Use absolute URL for this specific area page
+          // telephone property removed as requested
+          "description": `Professional carpet cleaning services in ${area.name}. CarpetCozy offers residential and commercial carpet cleaning, upholstery cleaning, and more in ${area.name}.`,
+          "address": { // Add a generic address or headquarters if applicable, or omit if service area only
+            "@type": "PostalAddress",
+            "addressLocality": area.name, // Specific area name
+            "addressRegion": "CA", // Assuming California, adjust if needed
+            "addressCountry": "US"
+          },
+          "geo": { // Optional: Add coordinates if known for the area center
+            "@type": "GeoCoordinates",
+            // "latitude": 38.7521, // Example for Roseville
+            // "longitude": -121.2880 // Example for Roseville
+          },
+          "openingHoursSpecification": [ // Example opening hours, adjust as needed
+            {
+              "@type": "OpeningHoursSpecification",
+              "dayOfWeek": [
+                "Monday",
+                "Tuesday",
+                "Wednesday",
+                "Thursday",
+                "Friday"
+              ],
+              "opens": "08:00",
+              "closes": "18:00"
+            },
+            {
+              "@type": "OpeningHoursSpecification",
+              "dayOfWeek": "Saturday",
+              "opens": "09:00",
+              "closes": "15:00"
+            }
+          ],
+          "areaServed": {
+            "@type": "Place",
+            "name": area.name // Explicitly state the area served
+          },
+          "makesOffer": [ // List main services offered in this area
+             { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Residential Carpet Cleaning" }},
+             { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Commercial Carpet Cleaning" }},
+             { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Pet Stain & Odor Removal" }},
+             { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Upholstery Cleaning" }}
+          ],
+          "sameAs": [ // Add social media/other profile links if available
+            // "https://www.facebook.com/carpetcozy",
+            // "https://www.yelp.com/biz/carpetcozy-roseville"
+          ]
+        }) }}
+      />
       {/* Hero Section */}
       <section className="relative h-[50vh] min-h-[400px] bg-gradient-to-r from-blue-900 to-indigo-900 text-white flex items-center">
         <div className="absolute inset-0 z-0">
@@ -308,15 +367,7 @@ export default function ServiceAreaPage({
             >
               Request a Free Quote
             </Button>
-            <Button 
-              href="tel:555-123-4567" 
-              variant="outline"
-              className="border-white text-white hover:bg-white/10"
-              size="lg"
-            >
-              Call Us: 555-123-4567
-            </Button>
-          </div>
+          </div> {/* Removed Call Us button */}
         </div>
       </section>
     </>
