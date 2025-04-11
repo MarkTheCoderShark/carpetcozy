@@ -13,14 +13,24 @@ export const metadata = {
 export default function ServicesPage() {
   return (
     <>
-      {/* Hero Section */}
-      <section className="relative h-[50vh] min-h-[400px] bg-blue-800 text-white flex items-center">
+      {/* Hero Section - Styled like homepage */}
+      <section className="hero relative h-[60vh] min-h-[500px] flex items-center"> {/* Adjusted height slightly */}
         <div className="absolute inset-0 z-0">
           <div className="absolute inset-0 bg-black opacity-40"></div>
+          <div className="absolute inset-0 bg-gradient-to-r from-blue-900/50 to-indigo-900/50 mix-blend-multiply"></div>
+          {/* Pattern overlay */}
+          <div className="absolute inset-0 opacity-10"
+            style={{
+              backgroundImage: 'url("/images/textures/pattern.svg")',
+              backgroundSize: '200px',
+              backgroundRepeat: 'repeat',
+            }}>
+          </div>
+          {/* Main background image */}
           <div className="relative h-full">
-            <Image 
-              src="/images/services-hero.jpg" 
-              alt="Professional carpet cleaning services" 
+            <Image
+              src="/images/services-hero.jpg" // Use Services page specific image
+              alt="Our Professional Cleaning Services"
               fill
               className="object-cover"
               priority
@@ -28,11 +38,18 @@ export default function ServicesPage() {
           </div>
         </div>
         
-        <div className="container mx-auto px-4 z-10">
-          <h1 className="text-4xl md:text-5xl font-bold mb-6">Our Services</h1>
-          <p className="text-xl max-w-2xl">
-            Comprehensive carpet cleaning solutions for homes and businesses in Roseville and surrounding areas.
-          </p>
+        {/* Centered the container and text */}
+        <div className="container mx-auto px-4 z-10 flex justify-center text-center">
+          {/* Increased max-width and centered */}
+          <div className="max-w-4xl mx-auto bg-white/5 p-8 rounded-lg backdrop-blur-sm shadow-xl">
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 text-shadow">
+              Our Professional Cleaning Services
+            </h1>
+            <p className="text-xl md:text-2xl mb-8 text-shadow">
+              Explore our comprehensive range of cleaning solutions for carpets, upholstery, tile, and more.
+            </p>
+            {/* Buttons removed for this page, can be added if needed */}
+          </div>
         </div>
       </section>
 

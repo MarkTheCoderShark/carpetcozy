@@ -12,13 +12,24 @@ export default function AboutPage() {
   return (
     <>
       {/* Hero Section */}
-      <section className="relative h-[50vh] min-h-[400px] bg-blue-800 text-white flex items-center">
+      {/* Hero Section - Styled like homepage */}
+      <section className="hero relative h-[60vh] min-h-[500px] flex items-center"> {/* Adjusted height slightly */}
         <div className="absolute inset-0 z-0">
           <div className="absolute inset-0 bg-black opacity-40"></div>
+          <div className="absolute inset-0 bg-gradient-to-r from-blue-900/50 to-indigo-900/50 mix-blend-multiply"></div>
+          {/* Pattern overlay */}
+          <div className="absolute inset-0 opacity-10"
+            style={{
+              backgroundImage: 'url("/images/textures/pattern.svg")',
+              backgroundSize: '200px',
+              backgroundRepeat: 'repeat',
+            }}>
+          </div>
+          {/* Main background image */}
           <div className="relative h-full">
-            <Image 
-              src="/images/about-hero.jpg" 
-              alt="CarpetCozy team" 
+            <Image
+              src="/images/about-hero.jpg" // Use About page specific image
+              alt="About CarpetCozy Team"
               fill
               className="object-cover"
               priority
@@ -26,11 +37,18 @@ export default function AboutPage() {
           </div>
         </div>
         
-        <div className="container mx-auto px-4 z-10">
-          <h1 className="text-4xl md:text-5xl font-bold mb-6">About CarpetCozy</h1>
-          <p className="text-xl max-w-2xl">
-            Get to know our story, our mission, and the team behind CarpetCozy's exceptional carpet cleaning services.
-          </p>
+        {/* Centered the container and text */}
+        <div className="container mx-auto px-4 z-10 flex justify-center text-center">
+          {/* Increased max-width and centered */}
+          <div className="max-w-4xl mx-auto bg-white/5 p-8 rounded-lg backdrop-blur-sm shadow-xl">
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 text-shadow">
+              About CarpetCozy
+            </h1>
+            <p className="text-xl md:text-2xl mb-8 text-shadow">
+              Learn about our story, our mission, and the dedicated team behind our exceptional cleaning services.
+            </p>
+            {/* Buttons removed for this page, can be added if needed */}
+          </div>
         </div>
       </section>
 

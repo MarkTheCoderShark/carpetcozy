@@ -13,14 +13,24 @@ export const metadata = {
 export default function ServiceAreasPage() {
   return (
     <>
-      {/* Hero Section */}
-      <section className="relative h-[50vh] min-h-[400px] bg-gradient-to-r from-blue-900 to-indigo-900 text-white flex items-center">
+      {/* Hero Section - Styled like homepage */}
+      <section className="hero relative h-[60vh] min-h-[500px] flex items-center"> {/* Adjusted height slightly */}
         <div className="absolute inset-0 z-0">
-          <div className="absolute inset-0 bg-black opacity-60"></div>
+          <div className="absolute inset-0 bg-black opacity-40"></div>
+          <div className="absolute inset-0 bg-gradient-to-r from-blue-900/50 to-indigo-900/50 mix-blend-multiply"></div>
+          {/* Pattern overlay */}
+          <div className="absolute inset-0 opacity-10"
+            style={{
+              backgroundImage: 'url("/images/textures/pattern.svg")',
+              backgroundSize: '200px',
+              backgroundRepeat: 'repeat',
+            }}>
+          </div>
+          {/* Main background image */}
           <div className="relative h-full">
-            <Image 
-              src="/images/about-hero.jpg" 
-              alt="CarpetCozy Service Areas" 
+            <Image
+              src="/images/about-hero.jpg" // Reusing about hero image for now
+              alt="Map showing CarpetCozy service areas"
               fill
               className="object-cover"
               priority
@@ -28,12 +38,17 @@ export default function ServiceAreasPage() {
           </div>
         </div>
         
-        <div className="container mx-auto px-4 z-10">
-          <div className="max-w-3xl bg-black/30 p-8 rounded-lg backdrop-blur-sm">
-            <h1 className="text-4xl md:text-5xl font-bold mb-6 text-shadow">Our Service Areas</h1>
-            <p className="text-xl max-w-2xl">
-              CarpetCozy provides professional carpet cleaning services throughout the greater Sacramento area.
+        {/* Centered the container and text */}
+        <div className="container mx-auto px-4 z-10 flex justify-center text-center">
+          {/* Increased max-width and centered */}
+          <div className="max-w-4xl mx-auto bg-white/5 p-8 rounded-lg backdrop-blur-sm shadow-xl">
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 text-shadow">
+              Our Service Areas
+            </h1>
+            <p className="text-xl md:text-2xl mb-8 text-shadow">
+              Find out if CarpetCozy provides professional cleaning services in your community.
             </p>
+            {/* Buttons removed for this page, can be added if needed */}
           </div>
         </div>
       </section>

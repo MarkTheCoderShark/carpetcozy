@@ -12,13 +12,24 @@ export default function ContactPage() {
   return (
     <>
       {/* Hero Section */}
-      <section className="relative h-[40vh] min-h-[300px] bg-blue-800 text-white flex items-center">
+      {/* Hero Section - Styled like homepage */}
+      <section className="hero relative h-[60vh] min-h-[500px] flex items-center"> {/* Adjusted height slightly */}
         <div className="absolute inset-0 z-0">
           <div className="absolute inset-0 bg-black opacity-40"></div>
+          <div className="absolute inset-0 bg-gradient-to-r from-blue-900/50 to-indigo-900/50 mix-blend-multiply"></div>
+          {/* Pattern overlay */}
+          <div className="absolute inset-0 opacity-10"
+            style={{
+              backgroundImage: 'url("/images/textures/pattern.svg")',
+              backgroundSize: '200px',
+              backgroundRepeat: 'repeat',
+            }}>
+          </div>
+          {/* Main background image */}
           <div className="relative h-full">
-            <Image 
-              src="/images/contact-hero.jpg" 
-              alt="Contact CarpetCozy" 
+            <Image
+              src="/images/contact-hero.jpg" // Use Contact page specific image
+              alt="Contact CarpetCozy for a free quote"
               fill
               className="object-cover"
               priority
@@ -26,11 +37,18 @@ export default function ContactPage() {
           </div>
         </div>
         
-        <div className="container mx-auto px-4 z-10">
-          <h1 className="text-4xl md:text-5xl font-bold mb-6">Contact Us</h1>
-          <p className="text-xl max-w-2xl">
-            Get in touch with our friendly team to schedule a service or request a free quote.
-          </p>
+        {/* Centered the container and text */}
+        <div className="container mx-auto px-4 z-10 flex justify-center text-center">
+          {/* Increased max-width and centered */}
+          <div className="max-w-4xl mx-auto bg-white/5 p-8 rounded-lg backdrop-blur-sm shadow-xl">
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 text-shadow">
+              Contact Us
+            </h1>
+            <p className="text-xl md:text-2xl mb-8 text-shadow">
+              We're here to help! Reach out for a free quote or to schedule your cleaning service.
+            </p>
+            {/* Buttons removed for this page, can be added if needed */}
+          </div>
         </div>
       </section>
 
