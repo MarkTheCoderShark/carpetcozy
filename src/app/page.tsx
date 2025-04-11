@@ -12,13 +12,13 @@ export default function Home() {
         <div className="absolute inset-0 z-0">
           {/* Removed dark overlays for a lighter theme */}
           {/* Pattern overlay */}
-          <div className="absolute inset-0 opacity-10" 
-            style={{ 
-              backgroundImage: 'url("/images/textures/pattern.svg")',  /* Use existing SVG pattern */
-              backgroundSize: '200px',
-              backgroundRepeat: 'repeat',
+          {/* Radial gradient overlay */}
+          <div className="absolute inset-0 opacity-20"
+            style={{
+              backgroundImage: 'radial-gradient(circle at top right, var(--faq-bg) 0%, transparent 70%)', // Use faq-bg color variable
             }}>
           </div>
+          {/* Removed SVG pattern properties */}
           {/* Main background image */}
           <div className="relative h-full">
             <Image
@@ -35,10 +35,10 @@ export default function Home() {
         <div className="container mx-auto px-4 z-10 flex justify-center text-center">
           {/* Increased max-width and centered */}
           <div className="max-w-4xl mx-auto p-8 rounded-lg text-text-primary"> {/* Removed bg, blur, shadow; ensured text color */}
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 text-shadow">
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6"> {/* Removed text-shadow */}
               Professional Carpet Cleaning in Roseville & Surrounding Areas
             </h1>
-            <p className="text-xl md:text-2xl mb-8 text-shadow">
+            <p className="text-xl md:text-2xl mb-8"> {/* Removed text-shadow */}
               Bringing life back to your carpets with our professional, eco-friendly cleaning services.
             </p>
             {/* Centered buttons */}
@@ -56,47 +56,50 @@ export default function Home() {
 
       {/* Features Section */}
       <Section bgColor="default"> {/* Updated bgColor */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          <div className="text-center p-6 bg-gray-50 rounded-lg shadow-sm card-hover">
-            <div className="text-blue-600 mb-4">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6"> {/* Adjusted gap */}
+          {/* Feature Card 1 */}
+          <div className="text-center p-6 bg-background rounded-xl shadow-md border border-gray-100 transition-shadow hover:shadow-lg"> {/* Card styling */}
+            <div className="text-primary mb-4"> {/* Icon color */}
               <svg className="w-12 h-12 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
               </svg>
             </div>
-            <h3 className="text-xl font-bold mb-2 text-gray-900">Trusted & Professional</h3>
-            <p className="text-gray-600">With years of experience, we deliver exceptional results that keep our customers coming back.</p>
-          </div>
+            <h3 className="text-xl font-bold mb-2 text-text-primary">Trusted & Professional</h3> {/* Text color */}
+            <p className="text-text-primary/80">With years of experience, we deliver exceptional results that keep our customers coming back.</p> {/* Text color */}
           
-          <div className="text-center p-6 bg-gray-50 rounded-lg shadow-sm card-hover">
-            <div className="text-blue-600 mb-4">
+          </div>
+          {/* Feature Card 2 */}
+          <div className="text-center p-6 bg-background rounded-xl shadow-md border border-gray-100 transition-shadow hover:shadow-lg"> {/* Card styling */}
+            <div className="text-primary mb-4"> {/* Icon color */}
               <svg className="w-12 h-12 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01" />
               </svg>
             </div>
-            <h3 className="text-xl font-bold mb-2 text-gray-900">Eco-Friendly Solutions</h3>
-            <p className="text-gray-600">We use green cleaning products that are safe for your family, pets, and the environment.</p>
-          </div>
+            <h3 className="text-xl font-bold mb-2 text-text-primary">Eco-Friendly Solutions</h3> {/* Text color */}
+            <p className="text-text-primary/80">We use green cleaning products that are safe for your family, pets, and the environment.</p> {/* Text color */}
           
-          <div className="text-center p-6 bg-gray-50 rounded-lg shadow-sm card-hover">
-            <div className="text-blue-600 mb-4">
+          </div>
+          {/* Feature Card 3 */}
+          <div className="text-center p-6 bg-background rounded-xl shadow-md border border-gray-100 transition-shadow hover:shadow-lg"> {/* Card styling */}
+            <div className="text-primary mb-4"> {/* Icon color */}
               <svg className="w-12 h-12 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
               </svg>
             </div>
-            <h3 className="text-xl font-bold mb-2 text-gray-900">Fast & Efficient</h3>
-            <p className="text-gray-600">Our efficient process minimizes disruption to your home or business with quick dry times.</p>
-          </div>
-        </div>
+            <h3 className="text-xl font-bold mb-2 text-text-primary">Fast & Efficient</h3> {/* Text color */}
+            <p className="text-text-primary/80">Our efficient process minimizes disruption to your home or business with quick dry times.</p> {/* Text color */}
+          </div> {/* Closing tag for Feature Card 3 */}
+        </div> {/* Closing tag for the grid container */}
       </Section>
 
       {/* About Preview Section */}
       <Section bgColor="alt" title="About CarpetCozy" subtitle="We're committed to providing the highest quality carpet cleaning services in Roseville and surrounding areas."> {/* Updated bgColor */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           <div>
-            <p className="mb-6 text-gray-700">
+            <p className="mb-6 text-text-primary/80"> {/* Use theme text color */}
               At CarpetCozy, we believe that clean carpets make for a healthier, more comfortable home. Founded with a passion for cleanliness and customer satisfaction, we've been serving Roseville and surrounding communities for years with professional carpet cleaning services.
             </p>
-            <p className="mb-6 text-gray-700">
+            <p className="mb-6 text-text-primary/80"> {/* Use theme text color */}
               Our team of experienced technicians uses the latest equipment and eco-friendly cleaning solutions to remove deep-seated dirt, stains, allergens, and odors from your carpets, leaving them fresh, clean, and cozy.
             </p>
             <Button 

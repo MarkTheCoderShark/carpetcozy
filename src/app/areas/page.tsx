@@ -74,7 +74,7 @@ export default function ServiceAreasPage() {
       </Section>
 
       {/* Service Radius Map */}
-      <Section bgColor="gray" title="Our Service Radius" subtitle="We typically service within a 25-mile radius of Roseville">
+      <Section bgColor="alt" title="Our Service Radius" subtitle="We typically service within a 25-mile radius of Roseville"> {/* Changed gray to alt */}
         <div className="bg-white p-4 rounded-lg shadow-md">
           <div className="h-96 bg-gray-200 rounded-lg flex items-center justify-center">
             <p className="text-gray-500">Interactive Service Area Map</p>
@@ -123,26 +123,26 @@ export default function ServiceAreasPage() {
       </Section>
 
       {/* FAQs */}
-      <Section bgColor="dark" textColor="light" title="Frequently Asked Questions" subtitle="Common questions about our service areas">
+      <Section bgColor="faq" title="Frequently Asked Questions" subtitle="Common questions about our service areas"> {/* Use FAQ background, default dark text */}
         <div className="max-w-3xl mx-auto">
           <div className="space-y-6">
-            <div className="bg-blue-800 p-6 rounded-lg shadow-md border border-blue-700">
-              <h3 className="text-xl font-bold mb-2">Do you charge a travel fee for distant locations?</h3>
-              <p className="text-blue-100">
+            <div className="bg-background p-6 rounded-xl shadow-md border border-gray-100"> {/* White card, rounded-xl, shadow-md */}
+              <h3 className="text-xl font-bold mb-2 text-text-primary">Do you charge a travel fee for distant locations?</h3> {/* Dark text */}
+              <p className="text-text-primary/80"> {/* Muted dark text */}
                 We generally don't charge travel fees for locations within our standard service area (25-mile radius of Roseville). For locations just outside this area, a small travel fee may apply.
               </p>
             </div>
             
-            <div className="bg-blue-800 p-6 rounded-lg shadow-md border border-blue-700">
-              <h3 className="text-xl font-bold mb-2">Can you service locations outside your standard service area?</h3>
-              <p className="text-blue-100">
+            <div className="bg-background p-6 rounded-xl shadow-md border border-gray-100"> {/* White card, rounded-xl, shadow-md */}
+              <h3 className="text-xl font-bold mb-2 text-text-primary">Can you service locations outside your standard service area?</h3> {/* Dark text */}
+              <p className="text-text-primary/80"> {/* Muted dark text */}
                 Yes, we can accommodate requests outside our standard service area for an additional travel fee. Please contact us for more information.
               </p>
             </div>
             
-            <div className="bg-blue-800 p-6 rounded-lg shadow-md border border-blue-700">
-              <h3 className="text-xl font-bold mb-2">How quickly can you schedule service in my area?</h3>
-              <p className="text-blue-100">
+            <div className="bg-background p-6 rounded-xl shadow-md border border-gray-100"> {/* White card, rounded-xl, shadow-md */}
+              <h3 className="text-xl font-bold mb-2 text-text-primary">How quickly can you schedule service in my area?</h3> {/* Dark text */}
+              <p className="text-text-primary/80"> {/* Muted dark text */}
                 Our response time varies by location and current schedule, but we typically can accommodate appointments within 1-3 business days for most areas we serve.
               </p>
             </div>

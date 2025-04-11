@@ -171,7 +171,7 @@ export default async function ServiceAreaPage({
       </Section>
 
       {/* Services We Offer */}
-      <Section bgColor="gray" title={`Our Services in ${displayName}`} subtitle="We offer a comprehensive range of carpet cleaning services to meet all your needs">
+      <Section bgColor="alt" title={`Our Services in ${displayName}`} subtitle="We offer a comprehensive range of carpet cleaning services to meet all your needs"> {/* Changed gray to alt */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           <div className="bg-white p-6 rounded-lg shadow-md card-hover">
             <div className="text-blue-600 mb-4">
@@ -326,26 +326,26 @@ export default async function ServiceAreaPage({
       </Section>
 
       {/* FAQs for This Area */}
-      <Section bgColor="gray" title={`Frequently Asked Questions About ${displayName} Carpet Cleaning`} subtitle="Get answers to common questions about our services in your area">
+      <Section bgColor="faq" title={`Frequently Asked Questions About ${displayName} Carpet Cleaning`} subtitle="Get answers to common questions about our services in your area"> {/* Use FAQ background */}
         <div className="max-w-3xl mx-auto">
           <div className="space-y-6">
-            <div className="bg-white p-6 rounded-lg shadow-md">
-              <h3 className="text-xl font-bold mb-2 text-blue-700">How quickly can you service my {displayName} location?</h3>
-              <p className="text-gray-700">
+            <div className="bg-background p-6 rounded-xl shadow-md border border-gray-100"> {/* White card, rounded-xl, shadow-md */}
+              <h3 className="text-xl font-bold mb-2 text-text-primary">How quickly can you service my {displayName} location?</h3> {/* Theme text color */}
+              <p className="text-text-primary/80"> {/* Muted theme text color */}
                 We typically provide service to {displayName} locations within 1-3 business days of your call. For urgent situations, we offer expedited service when possible.
               </p>
             </div>
             
-            <div className="bg-white p-6 rounded-lg shadow-md">
-              <h3 className="text-xl font-bold mb-2 text-blue-700">Do you offer free estimates for {displayName} customers?</h3>
-              <p className="text-gray-700">
+            <div className="bg-background p-6 rounded-xl shadow-md border border-gray-100"> {/* White card, rounded-xl, shadow-md */}
+              <h3 className="text-xl font-bold mb-2 text-text-primary">Do you offer free estimates for {displayName} customers?</h3> {/* Theme text color */}
+              <p className="text-text-primary/80"> {/* Muted theme text color */}
                 Yes, we provide free, no-obligation estimates for all {displayName} residents and businesses. Contact us to schedule your free quote today.
               </p>
             </div>
             
-            <div className="bg-white p-6 rounded-lg shadow-md">
-              <h3 className="text-xl font-bold mb-2 text-blue-700">How long does carpet cleaning take in {displayName}?</h3>
-              <p className="text-gray-700">
+            <div className="bg-background p-6 rounded-xl shadow-md border border-gray-100"> {/* White card, rounded-xl, shadow-md */}
+              <h3 className="text-xl font-bold mb-2 text-text-primary">How long does carpet cleaning take in {displayName}?</h3> {/* Theme text color */}
+              <p className="text-text-primary/80"> {/* Muted theme text color */}
                 Carpet cleaning time varies based on the size of the area and the level of soiling. On average, a standard {displayName} home takes 2-4 hours to complete, with drying times of 4-6 hours.
               </p>
             </div>

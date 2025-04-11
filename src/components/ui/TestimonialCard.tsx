@@ -18,11 +18,12 @@ const TestimonialCard: React.FC<TestimonialCardProps> = ({
   variant = 'light',
   authorImage,
 }) => {
-  const bgColor = variant === 'dark' ? 'bg-blue-800' : 'bg-white';
-  const textColor = variant === 'dark' ? 'text-blue-100' : 'text-gray-700';
-  const borderColor = variant === 'dark' ? 'border-blue-700' : 'border-gray-100';
-  const nameColor = variant === 'dark' ? 'text-white' : 'text-gray-900';
-  const locationColor = variant === 'dark' ? 'text-blue-200' : 'text-gray-500';
+  // Use theme colors for the default 'light' variant
+  const bgColor = variant === 'dark' ? 'bg-text-primary' : 'bg-background'; // Dark variant uses dark brown bg
+  const textColor = variant === 'dark' ? 'text-background/90' : 'text-text-primary/80'; // Muted text
+  const borderColor = variant === 'dark' ? 'border-primary/30' : 'border-gray-100'; // Subtle border
+  const nameColor = variant === 'dark' ? 'text-background' : 'text-text-primary'; // Main text color for name
+  const locationColor = variant === 'dark' ? 'text-background/70' : 'text-text-primary/60'; // More muted location
 
   // Generate placeholder initials if no author image is provided
   const initials = author
@@ -32,7 +33,7 @@ const TestimonialCard: React.FC<TestimonialCardProps> = ({
     .toUpperCase();
 
   return (
-    <div className={`p-6 ${bgColor} border ${borderColor} rounded-lg shadow-md transition-all duration-300 hover:shadow-xl hover:-translate-y-1`}>
+    <div className={`p-6 ${bgColor} border ${borderColor} rounded-xl shadow-md transition-all duration-300 hover:shadow-lg hover:-translate-y-1`}> {/* Use rounded-xl, adjusted hover shadow */}
       <div className="flex mb-4">
         {Array.from({ length: 5 }).map((_, i) => (
           <svg
@@ -46,7 +47,7 @@ const TestimonialCard: React.FC<TestimonialCardProps> = ({
           </svg>
         ))}
       </div>
-      <p className={`${textColor} mb-6 italic`}>"{quote}"</p>
+      <p className={`${textColor} mb-6 italic text-lg`}>"{quote}"</p> {/* Slightly larger quote text */}
       <div className="flex items-center">
         {authorImage ? (
           <div className="w-12 h-12 mr-4 relative overflow-hidden rounded-full">
@@ -58,7 +59,7 @@ const TestimonialCard: React.FC<TestimonialCardProps> = ({
             />
           </div>
         ) : (
-          <div className="w-12 h-12 mr-4 rounded-full bg-blue-600 flex items-center justify-center text-white font-bold">
+          <div className={`w-12 h-12 mr-4 rounded-full ${variant === 'dark' ? 'bg-primary/80' : 'bg-primary'} flex items-center justify-center ${variant === 'dark' ? 'text-text-primary' : 'text-background'} font-bold`}> {/* Use theme primary color for avatar bg */}
             {initials}
           </div>
         )}

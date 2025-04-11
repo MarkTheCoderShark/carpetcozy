@@ -173,31 +173,31 @@ export default function ServicesPage() {
       </Section>
 
       {/* FAQ Section */}
-      <Section title="Frequently Asked Questions" subtitle="Find answers to common questions about our carpet cleaning services"> {/* Assumes default bg */}
+      <Section bgColor="faq" title="Frequently Asked Questions" subtitle="Find answers to common questions about our carpet cleaning services"> {/* Use FAQ background */}
         <div className="max-w-3xl mx-auto">
           <div className="space-y-6">
-            <div className="bg-background-alt p-6 rounded-lg shadow-subtle"> {/* Updated styles */}
+            <div className="bg-background p-6 rounded-xl shadow-md"> {/* White card on FAQ bg, rounded-xl, shadow-md */}
               <h3 className="text-xl font-bold mb-2">How long will it take my carpets to dry?</h3>
               <p className="text-text-primary/80"> {/* Updated color */}
                 Most carpets dry within 2-6 hours. Drying time can vary based on carpet type, humidity, and air circulation in your home.
               </p>
             </div>
             
-            <div className="bg-background-alt p-6 rounded-lg shadow-subtle"> {/* Updated styles */}
+            <div className="bg-background p-6 rounded-xl shadow-md"> {/* White card on FAQ bg, rounded-xl, shadow-md */}
               <h3 className="text-xl font-bold mb-2">Are your cleaning products safe for children and pets?</h3>
               <p className="text-text-primary/80"> {/* Updated color */}
                 Yes, we use eco-friendly, non-toxic cleaning solutions that are safe for your entire family, including children and pets.
               </p>
             </div>
             
-            <div className="bg-background-alt p-6 rounded-lg shadow-subtle"> {/* Updated styles */}
+            <div className="bg-background p-6 rounded-xl shadow-md"> {/* White card on FAQ bg, rounded-xl, shadow-md */}
               <h3 className="text-xl font-bold mb-2">How often should I have my carpets professionally cleaned?</h3>
               <p className="text-text-primary/80"> {/* Updated color */}
                 For most homes, we recommend professional cleaning every 12-18 months. Homes with high traffic, children, or pets may benefit from more frequent cleaning.
               </p>
             </div>
             
-            <div className="bg-background-alt p-6 rounded-lg shadow-subtle"> {/* Updated styles */}
+            <div className="bg-background p-6 rounded-xl shadow-md"> {/* White card on FAQ bg, rounded-xl, shadow-md */}
               <h3 className="text-xl font-bold mb-2">Can you remove all stains from my carpet?</h3>
               <p className="text-text-primary/80"> {/* Updated color */}
                 We can remove most stains, but some permanent stains (like bleach or certain dyes) may not be completely removable. We'll assess your specific stains during our inspection.
@@ -216,7 +216,7 @@ export default function ServicesPage() {
 
       {/* Service Areas Preview */}
       {/* Explicitly set textColor to dark for better contrast on light blue background */}
-      <Section bgColor="primary-light" title="Service Areas" subtitle="We proudly serve Roseville and surrounding communities"> {/* Updated bgColor, removed textColor */}
+      <Section bgColor="alt" title="Service Areas" subtitle="We proudly serve Roseville and surrounding communities"> {/* Changed to alt background */}
         <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
           <Link href="/areas/roseville" className="bg-background p-4 rounded-lg text-center shadow-subtle hover:shadow-md transition-all"> {/* Updated styles */}
             <h3 className="font-bold text-text-primary">Roseville</h3> {/* Updated color */}

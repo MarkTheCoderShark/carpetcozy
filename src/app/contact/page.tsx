@@ -273,7 +273,7 @@ export default function ContactPage() {
       </section>
 
       {/* Service Areas Preview */}
-      <Section bgColor="primary-light" title="Service Areas" subtitle="We proudly serve Roseville and surrounding communities"> {/* Updated bgColor */}
+      <Section bgColor="alt" title="Service Areas" subtitle="We proudly serve Roseville and surrounding communities"> {/* Changed to alt background */}
         <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
           <div className="bg-background p-4 rounded-lg text-center shadow-subtle"> {/* Updated styles */}
             <h3 className="font-bold text-text-primary">Roseville</h3> {/* Updated color */}

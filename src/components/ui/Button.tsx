@@ -23,11 +23,11 @@ const Button: React.FC<ButtonProps> = ({
   type = 'button', // Default type
 }) => {
   // Base classes - Updated rounding and focus ring
-  const baseClasses = 'inline-flex items-center justify-center rounded-lg font-semibold transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed whitespace-nowrap';
+  const baseClasses = 'inline-flex items-center justify-center rounded-lg font-bold transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed whitespace-nowrap'; // Changed to font-bold
 
   // Variant classes - Using Tailwind utilities with new theme colors
   const variantClasses = {
-    primary: 'bg-primary text-text-primary hover:brightness-95 shadow-subtle', // Use new colors and subtle shadow
+    primary: 'bg-primary text-text-primary hover:bg-cta-hover', // Use new colors and specific hover background
     secondary: 'bg-background-alt text-text-primary border border-primary hover:bg-primary/20', // Off-white bg, light blue border
     outline: 'border border-primary bg-transparent text-primary hover:bg-primary/20', // Transparent bg, light blue text/border
   };

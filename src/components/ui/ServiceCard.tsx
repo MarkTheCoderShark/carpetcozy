@@ -21,7 +21,7 @@ const ServiceCard: React.FC<ServiceCardProps> = ({
 }) => {
   return (
     <Link href={href} className={`block group ${className}`}>
-      <div className="bg-background rounded-lg overflow-hidden border border-primary/20 shadow-subtle transition-all duration-300 group-hover:shadow-md h-full flex flex-col"> {/* Updated styles */}
+      <div className="bg-background rounded-xl overflow-hidden border border-primary/20 shadow-md transition-all duration-300 group-hover:shadow-lg h-full flex flex-col"> {/* Use rounded-xl, shadow-md, slightly enhance hover shadow */}
         <div className="relative h-48 overflow-hidden">
           <Image
             src={image}
