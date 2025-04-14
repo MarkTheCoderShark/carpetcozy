@@ -122,19 +122,19 @@ export default function Home() {
           <ServiceCard 
             title="Residential Carpet Cleaning" 
             description="Deep cleaning service for homes that removes dirt, stains, and allergens from your carpets."
-            image="/residential.jpg"
+            image="https://carpetcozy.netlify.app/residential.jpg"
             href="/services/residential"
           />
           <ServiceCard 
             title="Commercial Carpet Cleaning" 
             description="Professional cleaning solutions for offices, retail spaces, and other commercial properties."
-            image="/commercial.jpeg"
+            image="https://carpetcozy.netlify.app/commercial.jpeg"
             href="/services/commercial"
           />
           <ServiceCard 
             title="Pet Stain & Odor Removal" 
             description="Specialized treatments to eliminate pet stains and odors from your carpets and upholstery."
-            image="/pet.webp"
+            image="https://carpetcozy.netlify.app/pet.webp"
             href="/services/pet-stain-removal"
           />
         </div>

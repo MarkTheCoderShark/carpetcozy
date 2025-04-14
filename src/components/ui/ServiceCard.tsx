@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Link from 'next/link';
 
 interface ServiceCardProps {
@@ -18,15 +18,29 @@ const ServiceCard: React.FC<ServiceCardProps> = ({
   href,
   className = '',
 }) => {
+  const [imageError, setImageError] = useState(false);
+  
+  const handleImageError = () => {
+    console.error(`Failed to load image: ${image}`);
+    setImageError(true);
+  };
+
   return (
     <Link href={href} className={`block group ${className}`}>
       <div className="bg-background rounded-xl overflow-hidden border border-primary/20 shadow-md transition-all duration-300 group-hover:shadow-lg h-full flex flex-col"> {/* Use rounded-xl, shadow-md, slightly enhance hover shadow */}
         <div className="relative h-48 overflow-hidden">
-          <img
-            src={image}
-            alt={title}
-            className="object-cover w-full h-full transition-transform duration-500 group-hover:scale-110"
-          />
+          {imageError ? (
+            <div className="flex items-center justify-center w-full h-full bg-gray-200">
+              <span className="text-gray-500">{title}</span>
+            </div>
+          ) : (
+            <img
+              src={image}
+              alt={title}
+              className="object-cover w-full h-full transition-transform duration-500 group-hover:scale-110"
+              onError={handleImageError}
+            />
+          )}
           <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
         </div>
         <div className="p-6 flex-grow">
