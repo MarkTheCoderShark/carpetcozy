@@ -17,15 +17,10 @@ export default function AboutPage() {
         className="hero relative bg-cover bg-center pt-32 pb-24 min-h-[500px]" // Added padding, bg-cover, bg-center
         style={{ backgroundImage: "url('/hero.png')" }} // Use inline style for background
       >
-        <div className="absolute inset-0 z-0">
         {/* Overlay */}
         <div className="absolute inset-0 bg-white/70 backdrop-blur-sm z-0"></div>
 
-        {/* Removed the separate Image component */}
         {/* Content Container */}
-        
-        {/* Centered the container and text */}
-        {/* Added pt-24 (header height) + extra padding */}
         <div className="relative z-10 container mx-auto px-4 text-center max-w-4xl">
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 text-text-primary">
             About CarpetCozy
@@ -34,12 +29,10 @@ export default function AboutPage() {
             Learn about our story, our mission, and the dedicated team behind our exceptional cleaning services.
           </p>
           {/* Buttons removed for this page */}
-            {/* Buttons removed for this page, can be added if needed */}
-          </div>
         </div>
       </section>
 
-      {/* Our Story Section */}
+      {/* Our Story Section - Now includes team image */}
       <Section title="Our Story" subtitle="Founded on a commitment to quality and customer satisfaction">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           <div className="order-2 lg:order-1">
@@ -55,8 +48,8 @@ export default function AboutPage() {
           </div>
           <div className="relative h-80 lg:h-96 order-1 lg:order-2">
             <Image 
-              src="/images/our-story.jpg" 
-              alt="CarpetCozy founder" 
+              src="/images/team.png" 
+              alt="The CarpetCozy Professional Team" 
               fill 
               className="object-cover rounded-lg shadow-md"
             />
@@ -96,52 +89,18 @@ export default function AboutPage() {
         </div>
       </Section>
 
-      {/* Our Team Section */}
-      <Section title="Our Team" subtitle="Meet the professionals behind CarpetCozy's exceptional service">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          <div className="text-center">
-            <div className="relative h-64 w-64 mx-auto mb-4 overflow-hidden rounded-full">
-              <Image 
-                src="/images/team-1.jpg" 
-                alt="John Smith - Founder & CEO" 
-                fill 
-                className="object-cover"
-              />
-            </div>
-            <h3 className="text-xl font-bold text-text-primary">John Smith</h3> {/* Theme text color */}
-            <p className="text-primary mb-2">Founder & CEO</p> {/* Theme color */}
-            <p className="text-text-primary/80"> {/* Theme text color */}
-              With over 15 years of experience in carpet cleaning, John leads our team with expertise and passion.
+      {/* Our Team Section - Replaced with general description */}
+      <Section title="Our Professional Team" subtitle="The experienced experts behind our exceptional service">
+        <div className="max-w-4xl mx-auto">
+          <div className="bg-background p-8 rounded-xl shadow-md border border-gray-100">
+            <p className="mb-6 text-text-primary/80 text-lg">
+              At CarpetCozy, our team consists of highly trained and experienced cleaning professionals who are passionate about delivering outstanding results. Each team member undergoes rigorous training in the latest cleaning techniques and technologies to ensure your carpets receive the best possible care.
             </p>
-          </div>
-          <div className="text-center">
-            <div className="relative h-64 w-64 mx-auto mb-4 overflow-hidden rounded-full">
-              <Image
-                src="/images/team-2.jpg"
-                alt="Sarah Johnson - Operations Manager"
-                fill
-                className="object-cover"
-              />
-            </div>
-            <h3 className="text-xl font-bold text-text-primary">Sarah Johnson</h3> {/* Theme text color */}
-            <p className="text-primary mb-2">Operations Manager</p> {/* Theme color */}
-            <p className="text-text-primary/80"> {/* Theme text color */}
-              Sarah ensures our operations run smoothly and that every customer receives exceptional service.
+            <p className="mb-6 text-text-primary/80 text-lg">
+              Our cleaning technicians are certified professionals with years of experience in the industry. They're not just skilled at what they do—they're also friendly, respectful, and committed to providing exceptional customer service on every job.
             </p>
-          </div>
-          <div className="text-center">
-            <div className="relative h-64 w-64 mx-auto mb-4 overflow-hidden rounded-full">
-              <Image
-                src="/images/team-3.jpg"
-                alt="Mike Williams - Lead Technician"
-                fill
-                className="object-cover"
-              />
-            </div>
-            <h3 className="text-xl font-bold text-text-primary">Mike Williams</h3> {/* Theme text color */}
-            <p className="text-primary mb-2">Lead Technician</p> {/* Theme color */}
-            <p className="text-text-primary/80"> {/* Theme text color */}
-              Mike brings technical expertise and attention to detail to every cleaning job, ensuring top-quality results.
+            <p className="text-text-primary/80 text-lg">
+              From our office staff who schedule your appointments to our technicians who perform the cleaning, every member of the CarpetCozy team is dedicated to making your experience with us as positive and hassle-free as possible. We take pride in our work and it shows in the results we deliver.
             </p>
           </div>
         </div>
@@ -213,7 +172,6 @@ export default function AboutPage() {
           </Button>
         </div>
       </Section>
-      {/* Removed extra closing tag */}
     </>
   );
 } 

@@ -30,7 +30,6 @@ const Header = () => {
     { href: '/services', label: 'Services' },
     { href: '/areas', label: 'Service Areas' },
     { href: '/reviews', label: 'Reviews' },
-    { href: '/gallery', label: 'Gallery' },
     { href: '/contact', label: 'Contact' },
   ];
 
