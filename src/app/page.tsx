@@ -107,12 +107,10 @@ export default function Home() {
             </Button>
           </div>
           <div className="relative h-80 lg:h-96 rounded-lg overflow-hidden shadow-lg transform transition-all duration-500 hover:scale-[1.02] hover:shadow-xl">
-            <Image 
+            <img 
               src="/images/team.png" 
               alt="CarpetCozy team" 
-              fill 
-              className="object-cover"
-              priority
+              className="object-cover w-full h-full"
             />
           </div>
         </div>
