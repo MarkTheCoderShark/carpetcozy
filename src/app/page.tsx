@@ -122,19 +122,19 @@ export default function Home() {
           <ServiceCard 
             title="Residential Carpet Cleaning" 
             description="Deep cleaning service for homes that removes dirt, stains, and allergens from your carpets."
-            image="/images/service-residential.jpg"
+            image="/residential.jpg"
             href="/services/residential"
           />
           <ServiceCard 
             title="Commercial Carpet Cleaning" 
             description="Professional cleaning solutions for offices, retail spaces, and other commercial properties."
-            image="/images/service-commercial.jpg"
+            image="/commercial.jpeg"
             href="/services/commercial"
           />
           <ServiceCard 
             title="Pet Stain & Odor Removal" 
             description="Specialized treatments to eliminate pet stains and odors from your carpets and upholstery."
-            image="/images/service-pet-stain.jpg"
+            image="/pet.webp"
             href="/services/pet-stain-removal"
           />
         </div>
