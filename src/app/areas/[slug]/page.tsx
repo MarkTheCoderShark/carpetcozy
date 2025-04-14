@@ -159,6 +159,7 @@ export default async function ServiceAreaPage({
               alt={`CarpetCozy team serving ${displayName}`} 
               fill 
               priority
+              sizes="(min-width: 1024px) 50vw, 100vw"
               className="object-cover rounded-lg shadow-lg"
             />
           </div>
