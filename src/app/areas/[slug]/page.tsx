@@ -155,7 +155,7 @@ export default async function ServiceAreaPage({
           </div>
           <div className="relative h-80 lg:h-96">
             <Image 
-              src="/team.png" 
+              src="/images/team.png" 
               alt={`CarpetCozy team serving ${displayName}`} 
               fill 
               className="object-cover rounded-lg shadow-lg"
