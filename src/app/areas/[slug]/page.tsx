@@ -153,11 +153,12 @@ export default async function ServiceAreaPage({
             </p>
             <Button href="/contact">Schedule Your Cleaning Today</Button>
           </div>
-          <div className="relative h-80 lg:h-96">
+          <div className="relative w-full h-80 lg:h-96">
             <Image 
               src="/images/team.png" 
               alt={`CarpetCozy team serving ${displayName}`} 
               fill 
+              priority
               className="object-cover rounded-lg shadow-lg"
             />
           </div>
