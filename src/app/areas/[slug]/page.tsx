@@ -153,40 +153,6 @@ export default async function ServiceAreaPage({
             </p>
             <Button href="/contact">Schedule Your Cleaning Today</Button>
           </div>
-          {/* Debug Approach 1: Border around image */}
-          <div className="relative w-full h-96 border-4 border-red-500 mb-4">
-            <img
-              src="/images/team.png"
-              alt="Visible test"
-              className="object-cover w-full h-full"
-            />
-          </div>
-          
-          {/* Debug Approach 2: Pure HTML with no Tailwind */}
-          <div style={{ width: "100%", height: "400px", position: "relative", border: "1px solid blue", marginBottom: "1rem" }}>
-            <img
-              src="/images/team.png"
-              alt="Test team image"
-              style={{ objectFit: "cover", width: "100%", height: "100%" }}
-            />
-          </div>
-          
-          {/* Debug Approach 3: Force Image Visibility */}
-          <img
-            src="/images/team.png"
-            alt="Force visible"
-            style={{
-              display: 'block',
-              width: '100%',
-              height: 'auto',
-              opacity: 1,
-              visibility: 'visible',
-              position: 'relative',
-              zIndex: 9999,
-              marginBottom: '1rem'
-            }}
-          />
-          
           {/* Original Image Component */}
           <div>
             <Image 

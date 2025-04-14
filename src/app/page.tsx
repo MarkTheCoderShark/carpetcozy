@@ -108,10 +108,11 @@ export default function Home() {
           </div>
           <div className="relative h-80 lg:h-96 rounded-lg overflow-hidden shadow-lg transform transition-all duration-500 hover:scale-[1.02] hover:shadow-xl">
             <Image 
-              src="/images/about-team.jpg" 
+              src="/images/team.png" 
               alt="CarpetCozy team" 
               fill 
               className="object-cover"
+              priority
             />
           </div>
         </div>
@@ -186,15 +187,6 @@ export default function Home() {
           <Button href="/contact" variant="secondary" size="lg"> {/* Use secondary variant */}
             Get Your Free Quote
           </Button>
-
-
-
-
-
-
-
-
-
         </div>
       </section>
     </>
