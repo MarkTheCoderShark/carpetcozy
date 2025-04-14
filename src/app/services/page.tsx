@@ -43,19 +43,19 @@ export default function ServicesPage() {
           <ServiceCard 
             title="Residential Carpet Cleaning" 
             description="Revitalize your home carpets with our thorough cleaning process that eliminates dirt, stains, and allergens."
-            image="/images/service-residential.jpg"
+            image="/images/residential.jpg"
             href="/services/residential"
           />
           <ServiceCard 
             title="Commercial Carpet Cleaning" 
             description="Keep your business looking professional with our commercial carpet cleaning services for offices and retail spaces."
-            image="/images/service-commercial.jpg"
+            image="/images/commercial.jpeg"
             href="/services/commercial"
           />
           <ServiceCard 
             title="Pet Stain & Odor Removal" 
             description="Specialized treatments to eliminate tough pet stains and odors, leaving your carpets fresh and clean."
-            image="/images/service-pet-stain.jpg"
+            image="/images/pet.webp"
             href="/services/pet-stain-removal"
           />
           <ServiceCard 
