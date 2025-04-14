@@ -1,6 +1,5 @@
 import React from 'react';
 import Link from 'next/link';
-import Image from 'next/image';
 
 interface ServiceCardProps {
   title: string;
@@ -23,11 +22,10 @@ const ServiceCard: React.FC<ServiceCardProps> = ({
     <Link href={href} className={`block group ${className}`}>
       <div className="bg-background rounded-xl overflow-hidden border border-primary/20 shadow-md transition-all duration-300 group-hover:shadow-lg h-full flex flex-col"> {/* Use rounded-xl, shadow-md, slightly enhance hover shadow */}
         <div className="relative h-48 overflow-hidden">
-          <Image
+          <img
             src={image}
             alt={title}
-            fill
-            className="object-cover transition-transform duration-500 group-hover:scale-110"
+            className="object-cover w-full h-full transition-transform duration-500 group-hover:scale-110"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
         </div>
