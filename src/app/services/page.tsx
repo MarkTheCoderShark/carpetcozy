@@ -67,7 +67,7 @@ export default function ServicesPage() {
           <ServiceCard 
             title="Upholstery Cleaning" 
             description="Professional cleaning for sofas, chairs, ottomans, and other upholstered furniture to remove dirt and stains."
-            image="/images/service-upholstery.jpg"
+            image="/images/upholstery.jpg"
             href="/services/upholstery"
           />
           <ServiceCard 
