@@ -64,8 +64,13 @@ const Header = () => {
             <Link 
               key={item.href} 
               href={item.href} 
-              // Apply active state styling and hover effect
-              className={`text-base font-medium transition-colors hover:text-primary ${pathname === item.href ? 'text-primary font-semibold' : 'text-text-primary'}`} // Updated colors
+              // Enhanced hover effect with border-bottom and background
+              className={`
+                text-base font-medium px-3 py-2 rounded-md transition-all duration-200
+                ${pathname === item.href 
+                  ? 'text-primary font-semibold border-b-2 border-primary' 
+                  : 'text-text-primary hover:text-primary hover:bg-primary/5 hover:border-b-2 hover:border-primary/60'}
+              `}
             >
               {item.label}
             </Link>
@@ -106,7 +111,13 @@ const Header = () => {
               <Link 
                 key={item.href} 
                 href={item.href} 
-                className={`block py-2 text-center font-medium transition-colors hover:text-primary ${pathname === item.href ? 'text-primary font-semibold' : 'text-text-primary'}`} // Updated colors
+                // Enhanced hover effect for mobile links
+                className={`
+                  block py-3 px-4 text-center font-medium rounded-md transition-all duration-200
+                  ${pathname === item.href 
+                    ? 'text-primary font-semibold bg-primary/10 border-l-4 border-primary' 
+                    : 'text-text-primary hover:text-primary hover:bg-primary/5 hover:border-l-4 hover:border-primary/60'}
+                `}
                 onClick={() => setIsMenuOpen(false)} // Close menu on navigation
               >
                 {item.label}
