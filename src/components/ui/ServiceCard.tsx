@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 
 interface ServiceCardProps {
@@ -20,12 +20,40 @@ const ServiceCard: React.FC<ServiceCardProps> = ({
   href,
   className = '',
 }) => {
+  const [currentImage, setCurrentImage] = useState<string>(image);
   const [imageError, setImageError] = useState(false);
+  const [attemptCount, setAttemptCount] = useState(0);
+  
+  const pathVariations = [
+    image,                      // Original path
+    `/${image}`,                // Add leading slash
+    `/public/${image}`,         // Try with /public/
+    `/images/${image}`,         // Try with /images/
+    image.replace(/\.\w+$/, path => path.toLowerCase())  // Try lowercase extension
+  ];
   
   const handleImageError = () => {
-    console.error(`Failed to load image: ${image}`);
-    setImageError(true);
+    console.error(`Failed to load image: ${currentImage}`);
+    
+    // Try next path variation
+    const nextAttempt = attemptCount + 1;
+    if (nextAttempt < pathVariations.length) {
+      setAttemptCount(nextAttempt);
+      setCurrentImage(pathVariations[nextAttempt]);
+      console.log(`Trying path variation: ${pathVariations[nextAttempt]}`);
+    } else {
+      // All variations failed, show fallback
+      setImageError(true);
+      console.error("All image path variations failed");
+    }
   };
+  
+  // Reset error state if image path changes
+  useEffect(() => {
+    setImageError(false);
+    setAttemptCount(0);
+    setCurrentImage(image);
+  }, [image]);
 
   return (
     <Link href={href} className={`block group ${className}`}>
@@ -37,7 +65,7 @@ const ServiceCard: React.FC<ServiceCardProps> = ({
             </div>
           ) : (
             <img
-              src={image}
+              src={currentImage}
               alt={title}
               className="object-cover w-full h-full transition-transform duration-500 group-hover:scale-110"
               onError={handleImageError}
