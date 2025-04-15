@@ -75,14 +75,28 @@ export default function Home() {
       <Section className="bg-white py-20">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
           <div className="relative h-[600px] rounded-2xl overflow-hidden shadow-2xl transform hover:scale-[1.02] transition-all duration-500">
-            <Image
-              src="/images/team-new.png"
+            {/* Fallback image tag */}
+            <img
+              src="/images/team.png"
               alt="The CarpetCozy Professional Team"
-              fill
+              className="object-cover w-full h-full"
+              style={{ display: 'none' }}
+              onError={(e) => {
+                e.currentTarget.style.display = 'block';
+                e.currentTarget.onerror = null;
+              }}
+            />
+            <Image
+              src="/images/team.png"
+              alt="The CarpetCozy Professional Team"
+              width={1200}
+              height={800}
               priority
-              quality={100}
-              sizes="(max-width: 768px) 100vw, 50vw"
-              className="object-cover"
+              className="object-cover w-full h-full"
+              onError={(e) => {
+                // Hide the Image component if it fails to load
+                e.currentTarget.style.display = 'none';
+              }}
             />
           </div>
           <div className="space-y-6">
