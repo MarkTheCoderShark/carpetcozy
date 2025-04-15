@@ -40,7 +40,7 @@ export default function Home() {
             </div>
             <div className="relative h-[500px] animate-slide-up hidden lg:block">
               <Image
-                src="/hero.png"
+                src="/images/hero.jpeg"
                 alt="Professional carpet cleaning"
                 fill
                 className="object-cover rounded-2xl shadow-2xl"
@@ -78,7 +78,7 @@ export default function Home() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
           <div className="relative h-[600px] rounded-2xl overflow-hidden shadow-2xl transform hover:scale-[1.02] transition-all duration-500">
             <Image
-              src="/team.png"
+              src="/images/team.png"
               alt="CarpetCozy team"
               fill
               className="object-cover"
@@ -258,7 +258,7 @@ const services = [
   {
     title: "Residential Carpet Cleaning",
     description: "Deep cleaning service for homes that removes dirt, stains, and allergens from your carpets.",
-    image: "/residential.jpg",
+    image: "/images/residential.jpg",
     href: "/services/residential",
     icon: (
       <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -269,7 +269,7 @@ const services = [
   {
     title: "Commercial Carpet Cleaning",
     description: "Professional cleaning solutions for offices, retail spaces, and other commercial properties.",
-    image: "/commercial.jpeg",
+    image: "/images/commercial.jpeg",
     href: "/services/commercial",
     icon: (
       <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -280,7 +280,7 @@ const services = [
   {
     title: "Pet Stain & Odor Removal",
     description: "Specialized treatments to eliminate pet stains and odors from your carpets and upholstery.",
-    image: "/pet.webp",
+    image: "/images/pet.webp",
     href: "/services/pet-stain-removal",
     icon: (
       <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
