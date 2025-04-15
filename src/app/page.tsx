@@ -38,14 +38,11 @@ export default function Home() {
                 </Button>
               </div>
             </div>
-            <div className="relative h-[500px] animate-slide-up hidden lg:block">
-              <Image
-                src="/images/hero.jpeg"
+            <div className="relative h-[400px] md:h-[500px] lg:h-[600px] w-full animate-slide-up flex items-center justify-center">
+              <img
+                src="/images/upholstery.jpg"
                 alt="Professional carpet cleaning"
-                width={800}
-                height={500}
-                className="object-cover rounded-2xl shadow-2xl"
-                priority
+                className="object-cover w-full h-full rounded-2xl shadow-2xl"
               />
             </div>
           </div>
@@ -117,30 +114,24 @@ export default function Home() {
           </p>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {services.map((service, index) => (
+          {services.map((service) => (
             <div
               key={service.title}
-              className="bg-white rounded-2xl overflow-hidden shadow-card hover:shadow-hover transform hover:scale-105 transition-all duration-300"
+              className="bg-white rounded-2xl overflow-hidden shadow-card hover:shadow-hover transform hover:scale-105 transition-all duration-300 flex flex-col"
             >
-              <div className="relative h-64">
-                <Image
+              <div className="relative h-48 overflow-hidden">
+                <img
                   src={service.image}
                   alt={service.title}
-                  width={800}
-                  height={500}
-                  className="object-cover"
+                  className="object-cover w-full h-full transition-transform duration-500 hover:scale-110"
                 />
               </div>
-              <div className="p-8">
-                <div className="text-primary mb-4">
-                  {service.icon}
-                </div>
+              <div className="p-8 flex-grow">
+                <div className="text-primary mb-4">{service.icon}</div>
                 <h3 className="font-heading text-2xl font-bold mb-4 text-text-primary">
                   {service.title}
                 </h3>
-                <p className="text-text-primary/80 mb-6">
-                  {service.description}
-                </p>
+                <p className="text-text-primary/80 mb-6">{service.description}</p>
                 <Button
                   href={service.href}
                   variant="outline"
