@@ -11,7 +11,7 @@
 [[plugins]]
   package = "@netlify/plugin-sitemap"
   [plugins.inputs]
-    baseUrl = "https://carpetcozy.netlify.app"
+    baseUrl = "https://carpetcozy.com"
     exclude = ["/api/*"]
 
 [build.processing]
@@ -47,4 +47,11 @@
   from = "/*"
   to = "/index.html"
   status = 200
-  force = false 
+  force = false
+
+# Force Netlify to serve our static sitemap.xml file
+[[headers]]
+  for = "/sitemap.xml"
+  [headers.values]
+    Content-Type = "application/xml"
+    X-Content-Type-Options = "nosniff" 
