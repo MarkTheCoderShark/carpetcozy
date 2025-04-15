@@ -4,6 +4,7 @@ import Section from "@/components/ui/Section";
 import Button from "@/components/ui/Button";
 import TestimonialCard from "@/components/ui/TestimonialCard"; // Import TestimonialCard
 import { serviceAreas, ServiceArea } from "../data";
+import TeamImage from "@/components/TeamImage";
 
 export async function generateStaticParams() {
   return serviceAreas.map((area: ServiceArea) => ({
@@ -154,16 +155,7 @@ export default async function ServiceAreaPage({
             <Button href="/contact">Schedule Your Cleaning Today</Button>
           </div>
           {/* Original Image Component */}
-          <div>
-            <Image 
-              src="/images/team.png" 
-              alt={`CarpetCozy team serving ${displayName}`} 
-              width={600}
-              height={400}
-              priority
-              className="object-cover w-full h-full"
-            />
-          </div>
+          <TeamImage containerClassName="h-80 lg:h-96 w-full" className="order-1 lg:order-2" />
         </div>
       </Section>
 
