@@ -48,7 +48,8 @@ export default function AboutPage() {
             <Image 
               src="/images/team.png"
               alt="The CarpetCozy Professional Team" 
-              fill 
+              width={600}
+              height={400}
               className="object-cover rounded-lg shadow-md"
             />
           </div>

@@ -42,8 +42,8 @@ export default function Home() {
               <Image
                 src="/images/hero.jpeg"
                 alt="Professional carpet cleaning"
-                fill
-                sizes="(max-width: 768px) 100vw, 50vw"
+                width={800}
+                height={500}
                 className="object-cover rounded-2xl shadow-2xl"
                 priority
               />
@@ -81,8 +81,8 @@ export default function Home() {
             <Image
               src="/images/team.png"
               alt="CarpetCozy team"
-              fill
-              sizes="(max-width: 768px) 100vw, 50vw"
+              width={600}
+              height={400}
               className="object-cover"
             />
           </div>
@@ -126,8 +126,8 @@ export default function Home() {
                 <Image
                   src={service.image}
                   alt={service.title}
-                  fill
-                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                  width={800}
+                  height={500}
                   className="object-cover"
                 />
               </div>
