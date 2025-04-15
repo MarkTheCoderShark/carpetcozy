@@ -46,12 +46,13 @@ export default function AboutPage() {
           </div>
           <div className="relative h-80 lg:h-96 order-1 lg:order-2">
             <Image 
-              src="/images/team.png"
+              src="/images/team-new.png"
               alt="The CarpetCozy Professional Team"
-              width={600}
-              height={400}
+              fill
               priority
-              className="object-cover w-full h-full"
+              quality={100}
+              sizes="(max-width: 768px) 100vw, 50vw"
+              className="object-cover"
             />
           </div>
         </div>

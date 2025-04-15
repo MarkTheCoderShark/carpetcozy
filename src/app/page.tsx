@@ -76,14 +76,13 @@ export default function Home() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
           <div className="relative h-[600px] rounded-2xl overflow-hidden shadow-2xl transform hover:scale-[1.02] transition-all duration-500">
             <Image
-              src="/images/team.png"
+              src="/images/team-new.png"
               alt="The CarpetCozy Professional Team"
-              width={1200}
-              height={800}
+              fill
               priority
               quality={100}
-              loading="eager"
-              className="object-cover w-full h-full"
+              sizes="(max-width: 768px) 100vw, 50vw"
+              className="object-cover"
             />
           </div>
           <div className="space-y-6">
