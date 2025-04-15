@@ -4,8 +4,8 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "generate-sitemap": "node scripts/generate-sitemap.js",
-    "build": "npm run generate-sitemap && node scripts/clean-metadata.js && next build && cp public/sitemap.xml .next/sitemap.xml",
+    "generate-sitemap": "node scripts/generate-sitemap.js && node scripts/direct-sitemap.js",
+    "build": "npm run generate-sitemap && node scripts/clean-metadata.js && next build && cp public/sitemap.xml .next/ && cp public/sitemap.xml .next/server/pages/ || true",
     "start": "next start",
     "lint": "next lint"
   },

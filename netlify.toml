@@ -1,5 +1,5 @@
 [build]
-  command = "npm run build"
+  command = "npm run build && cp public/sitemap.xml .next/standalone/"
   publish = ".next"
 
 [build.environment]
@@ -52,7 +52,7 @@
 # Force Netlify to serve our static sitemap.xml file with highest priority
 [[redirects]]
   from = "/sitemap.xml"
-  to = "/sitemap.xml"
+  to = "/_static-sitemap.xml"
   status = 200
   force = true
 
