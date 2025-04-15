@@ -1,14 +1,23 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google"; // Import Inter font
+import { Poppins, Open_Sans } from "next/font/google"; // Import both fonts
 import "./globals.css";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 
-// Configure Inter font
-const inter = Inter({
-  variable: "--font-inter", // Define CSS variable
+// Configure Poppins font for headings
+const poppins = Poppins({
   subsets: ["latin"],
-  display: 'swap', // Ensure text remains visible during font load
+  weight: ["600", "700", "800"],
+  variable: "--font-poppins",
+  display: 'swap',
+});
+
+// Configure Open Sans font for body text
+const openSans = Open_Sans({
+  subsets: ["latin"],
+  weight: ["400", "500", "600"],
+  variable: "--font-open-sans",
+  display: 'swap',
 });
 
 export const metadata: Metadata = {
@@ -82,8 +91,8 @@ export default function RootLayout({
         {/* <meta name="theme-color" content="#b7e3f5" /> */}
       </head>
       <body
-        // Apply Inter font variable and base styles
-        className={`${inter.variable} font-sans antialiased min-h-screen flex flex-col bg-background text-text-primary`} 
+        // Apply Poppins and Open Sans font variables and base styles
+        className={`${poppins.variable} ${openSans.variable} font-sans antialiased min-h-screen flex flex-col bg-background text-text-primary`} 
       >
         <Header />
         <main className="flex-grow">{children}</main>
