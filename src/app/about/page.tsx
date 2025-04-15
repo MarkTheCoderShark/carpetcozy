@@ -12,10 +12,9 @@ export default function AboutPage() {
   return (
     <>
       {/* Hero Section */}
-      {/* Hero Section - Styled like homepage */}
       <section
-        className="hero relative bg-cover bg-center pt-32 pb-24 min-h-[500px]" // Added padding, bg-cover, bg-center
-        style={{ backgroundImage: "url('/hero.png')" }} // Use inline style for background
+        className="hero relative bg-cover bg-center pt-32 pb-24 min-h-[500px]"
+        style={{ backgroundImage: "url('/images/hero.jpeg')" }}
       >
         {/* Overlay */}
         <div className="absolute inset-0 bg-white/70 backdrop-blur-sm z-0"></div>
@@ -28,7 +27,6 @@ export default function AboutPage() {
           <p className="text-xl md:text-2xl mb-8 text-text-primary/80">
             Learn about our story, our mission, and the dedicated team behind our exceptional cleaning services.
           </p>
-          {/* Buttons removed for this page */}
         </div>
       </section>
 
@@ -36,19 +34,19 @@ export default function AboutPage() {
       <Section title="Our Story" subtitle="Founded on a commitment to quality and customer satisfaction">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           <div className="order-2 lg:order-1">
-            <p className="mb-6 text-text-primary/80"> {/* Theme text color */}
+            <p className="mb-6 text-text-primary/80">
               CarpetCozy was established in 2010 with a simple mission: to provide exceptional carpet cleaning services that truly make a difference in homes and businesses throughout Roseville and surrounding areas.
             </p>
-            <p className="mb-6 text-text-primary/80"> {/* Theme text color */}
+            <p className="mb-6 text-text-primary/80">
               Our founder, John Smith, started the company after noticing a gap in the market for truly professional, reliable, and thorough carpet cleaning services. With just one van and a passion for cleanliness, John built CarpetCozy from the ground up, focusing on customer satisfaction and attention to detail.
             </p>
-            <p className="text-text-primary/80"> {/* Theme text color */}
+            <p className="text-text-primary/80">
               Today, we've grown into a trusted team of professionals, but our core values remain the same: integrity, quality, and a commitment to making your carpets truly cozy.
             </p>
           </div>
           <div className="relative h-80 lg:h-96 order-1 lg:order-2">
             <Image 
-              src="/images/team.png" 
+              src="/images/team.png"
               alt="The CarpetCozy Professional Team" 
               fill 
               className="object-cover rounded-lg shadow-md"
