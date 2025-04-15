@@ -21,23 +21,27 @@ const openSans = Open_Sans({
 });
 
 export const metadata: Metadata = {
-  // Keep title and description, update keywords if needed
-  title: "CarpetCozy | Professional Carpet Cleaning in Roseville & Surrounding Areas",
-  description: "Professional carpet cleaning services in Roseville and surrounding areas. Residential and commercial services, stain removal, pet odor treatment, and more.",
-  keywords: "carpet cleaning, professional carpet cleaning, Roseville, Rocklin, Loomis, Folsom, stain removal, pet odor, upholstery cleaning, cozy carpet care", // Added new keyword
+  title: {
+    template: '%s | CarpetCozy - Professional Carpet Cleaning in Roseville',
+    default: 'CarpetCozy - Professional Carpet Cleaning in Roseville',
+  },
+  description: 'Professional carpet cleaning services in Roseville and surrounding areas. Eco-friendly solutions for residential and commercial cleaning needs.',
+  keywords: 'carpet cleaning, professional cleaning, Roseville, eco-friendly, pet stain removal, upholstery cleaning, commercial carpet cleaning',
   openGraph: {
-    title: "CarpetCozy | Professional Carpet Cleaning in Roseville & Surrounding Areas",
-    description: "Professional carpet cleaning services in Roseville and surrounding areas. Residential and commercial services, stain removal, pet odor treatment, and more.",
+    type: 'website',
+    locale: 'en_US',
+    url: process.env.NEXT_PUBLIC_SITE_URL || 'https://carpetcozy.com',
+    siteName: 'CarpetCozy',
+    title: 'CarpetCozy - Professional Carpet Cleaning in Roseville',
+    description: 'Professional carpet cleaning services in Roseville and surrounding areas. Eco-friendly solutions for residential and commercial cleaning needs.',
     images: [
       {
-        url: '/logo.png', // Updated path
-        width: 1200, // Adjust if logo dimensions differ significantly
-        height: 630, // Adjust if logo dimensions differ significantly
-        alt: 'CarpetCozy Logo',
-      }
+        url: `${process.env.NEXT_PUBLIC_SITE_URL || 'https://carpetcozy.com'}/carpetcozy.png`,
+        width: 1200,
+        height: 630,
+        alt: 'CarpetCozy Professional Carpet Cleaning',
+      },
     ],
-    locale: 'en_US',
-    type: 'website',
   },
   twitter: {
     card: 'summary_large_image',
@@ -89,6 +93,50 @@ export default function RootLayout({
         {/* <link rel="apple-touch-icon" href="/apple-touch-icon.png" /> */}
         {/* Theme color meta tag is handled by viewport export */}
         {/* <meta name="theme-color" content="#b7e3f5" /> */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "LocalBusiness",
+              "name": "CarpetCozy",
+              "image": "https://carpetcozy.com/carpetcozy.png",
+              "@id": "https://carpetcozy.com",
+              "url": "https://carpetcozy.com",
+              "telephone": "(555) 123-4567",
+              "address": {
+                "@type": "PostalAddress",
+                "streetAddress": "123 Main Street",
+                "addressLocality": "Roseville",
+                "addressRegion": "CA",
+                "postalCode": "95678",
+                "addressCountry": "US"
+              },
+              "geo": {
+                "@type": "GeoCoordinates",
+                "latitude": 38.7521,
+                "longitude": -121.2880
+              },
+              "openingHoursSpecification": {
+                "@type": "OpeningHoursSpecification",
+                "dayOfWeek": [
+                  "Monday",
+                  "Tuesday",
+                  "Wednesday",
+                  "Thursday",
+                  "Friday"
+                ],
+                "opens": "08:00",
+                "closes": "18:00"
+              },
+              "sameAs": [
+                "https://www.facebook.com/carpetcozy",
+                "https://www.instagram.com/carpetcozy"
+              ],
+              "priceRange": "$$"
+            })
+          }}
+        />
       </head>
       <body
         // Apply Poppins and Open Sans font variables and base styles

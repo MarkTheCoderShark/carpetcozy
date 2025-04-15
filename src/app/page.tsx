@@ -44,6 +44,8 @@ export default function Home() {
                 src="/images/upholstery.jpg"
                 alt="Professional carpet cleaning"
                 className="object-cover w-full h-full rounded-2xl shadow-2xl"
+                loading="eager"
+                fetchPriority="high"
               />
             </div>
           </div>

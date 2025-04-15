@@ -6,5 +6,16 @@ Allow: /
 Disallow: /_next/
 Disallow: /api/
 
+# Crawl delay suggestion to prevent server overload
+Crawl-delay: 1
+
+# Explicitly allow Google to crawl everything (overrides any Crawl-delay for Google)
+User-agent: Googlebot
+Allow: /
+
+# Explicitly allow Bing to crawl everything
+User-agent: Bingbot
+Allow: /
+
 # Specify the location of the sitemap
 Sitemap: https://carpetcozy.com/sitemap.xml

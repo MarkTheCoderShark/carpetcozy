@@ -5,6 +5,7 @@ import Button from "@/components/ui/Button";
 import TestimonialCard from "@/components/ui/TestimonialCard"; // Import TestimonialCard
 import { serviceAreas, ServiceArea } from "../data";
 import TeamImage from "@/components/TeamImage";
+import { Metadata } from "next";
 
 export async function generateStaticParams() {
   return serviceAreas.map((area: ServiceArea) => ({
@@ -12,20 +13,24 @@ export async function generateStaticParams() {
   }));
 }
 
-export async function generateMetadata({ params }: { params: { slug: string } }) {
+export async function generateMetadata({ params }: { params: { slug: string } }): Promise<Metadata> {
   const area = serviceAreas.find((area: ServiceArea) => area.slug === params.slug);
-  
-  if (!area) {
-    return {
-      title: "Area Not Found | CarpetCozy",
-      description: "Sorry, this service area couldn't be found.",
-    };
-  }
+  if (!area) return {}; // Handle area not found
+
+  const displayName = area.name;
   
   return {
-    title: `Carpet Cleaning in ${area.name} | CarpetCozy`,
-    description: `Professional carpet cleaning services in ${area.name}. CarpetCozy offers residential and commercial carpet cleaning, upholstery cleaning, and more in ${area.name}.`,
-    keywords: `carpet cleaning ${area.name}, professional carpet cleaning ${area.name}, ${area.name} carpet cleaners, upholstery cleaning ${area.name}, commercial carpet cleaning ${area.name}`,
+    title: `Professional Carpet Cleaning in ${displayName} | CarpetCozy`,
+    description: `Trusted carpet cleaning services in ${displayName}. Eco-friendly solutions for homes and businesses with free quotes and satisfaction guaranteed.`,
+    keywords: `carpet cleaning ${displayName}, professional cleaning ${displayName}, eco-friendly carpet cleaning ${displayName}, stain removal ${displayName}`,
+    alternates: {
+      canonical: `https://carpetcozy.com/areas/${params.slug}`,
+    },
+    openGraph: {
+      title: `Professional Carpet Cleaning in ${displayName} | CarpetCozy`,
+      description: `Trusted carpet cleaning services in ${displayName}. Eco-friendly solutions for homes and businesses with free quotes and satisfaction guaranteed.`,
+      url: `https://carpetcozy.com/areas/${params.slug}`,
+    }
   };
 }
 

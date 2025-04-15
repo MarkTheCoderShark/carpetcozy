@@ -7,6 +7,10 @@ export const metadata = {
   title: "Residential Carpet Cleaning | CarpetCozy - Roseville Homes",
   description: "Professional residential carpet cleaning services in Roseville. Revitalize your home carpets, remove dirt, stains, and allergens for a healthier living space.",
   keywords: "residential carpet cleaning, home carpet cleaning, carpet cleaning Roseville, stain removal, allergen removal, CarpetCozy",
+  openGraph: {
+    title: 'Residential Carpet Cleaning Services | CarpetCozy',
+    description: 'Professional residential carpet cleaning services in Roseville and surrounding areas. Deep cleaning that removes dirt, stains, and allergens for a healthier home.',
+  }
 };
 
 export default function ResidentialServicePage() {
@@ -15,42 +19,32 @@ export default function ResidentialServicePage() {
       {/* Add JSON-LD Schema Markup for Service */}
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify({
-          "@context": "https://schema.org",
-          "@type": "Service",
-          "serviceType": "Residential Carpet Cleaning",
-          "name": "Residential Carpet Cleaning",
-          "description": metadata.description, // Use description from page metadata
-          "url": `${process.env.NEXT_PUBLIC_SITE_URL || 'https://carpetcozy.com'}/services/residential`, // Absolute URL
-          "provider": {
-            "@type": "LocalBusiness",
-            "name": "CarpetCozy",
-            "@id": `${process.env.NEXT_PUBLIC_SITE_URL || 'https://carpetcozy.com'}` // Link back to the main business ID
-          },
-          "areaServed": { // Define general service area, can be refined
-             "@type": "Place",
-             "name": "Roseville and surrounding areas" // Match general description
-             // Or list specific areas if desired:
-             // "@type": "AdministrativeArea",
-             // "name": ["Roseville", "Rocklin", "Loomis", "Folsom", "Citrus Heights", "Granite Bay", "Auburn", "Grass Valley", "Orangevale", "El Dorado Hills"]
-          },
-          "potentialAction": {
-             "@type": "ReserveAction", // Or OrderAction/QuoteAction
-             "target": {
-               "@type": "EntryPoint",
-               "urlTemplate": `${process.env.NEXT_PUBLIC_SITE_URL || 'https://carpetcozy.com'}/contact`, // Link to contact/quote page
-               "actionPlatform": [
-                 "http://schema.org/DesktopWebPlatform",
-                 "http://schema.org/IOSPlatform",
-                 "http://schema.org/AndroidPlatform"
-               ]
-             },
-             "result": {
-               "@type": "Reservation", // Or Order/Quote
-               "name": "Request a Free Quote"
-             }
-          }
-        }) }}
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Service",
+            "name": "Residential Carpet Cleaning",
+            "serviceType": "Carpet Cleaning",
+            "provider": {
+              "@type": "LocalBusiness",
+              "name": "CarpetCozy",
+              "url": "https://carpetcozy.com"
+            },
+            "areaServed": {
+              "@type": "City",
+              "name": "Roseville"
+            },
+            "description": "Professional residential carpet cleaning services in Roseville and surrounding areas. Deep cleaning that removes dirt, stains, and allergens for a healthier home.",
+            "offers": {
+              "@type": "Offer",
+              "priceCurrency": "USD",
+              "price": "99.00",
+              "description": "Starting price for residential carpet cleaning services"
+            },
+            "image": "https://carpetcozy.com/images/residential.jpg",
+            "url": "https://carpetcozy.com/services/residential"
+          })
+        }}
       />
       {/* Hero Section - Standard Structure */}
       <section
