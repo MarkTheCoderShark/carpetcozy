@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Section from "@/components/ui/Section";
 import Button from "@/components/ui/Button";
+import TeamImage from "@/components/TeamImage";
 
 export const metadata = {
   title: "About Us | CarpetCozy - Professional Carpet Cleaning",
@@ -44,31 +45,7 @@ export default function AboutPage() {
               Today, we've grown into a trusted team of professionals, but our core values remain the same: integrity, quality, and a commitment to making your carpets truly cozy.
             </p>
           </div>
-          <div className="relative h-80 lg:h-96 order-1 lg:order-2">
-            {/* Fallback image tag */}
-            <img 
-              src="/images/team.png"
-              alt="The CarpetCozy Professional Team"
-              className="object-cover w-full h-full"
-              style={{ display: 'none' }}
-              onError={(e) => {
-                e.currentTarget.style.display = 'block';
-                e.currentTarget.onerror = null;
-              }}
-            />
-            <Image 
-              src="/images/team.png"
-              alt="The CarpetCozy Professional Team"
-              width={1200}
-              height={800}
-              priority
-              className="object-cover w-full h-full"
-              onError={(e) => {
-                // Hide the Image component if it fails to load
-                e.currentTarget.style.display = 'none';
-              }}
-            />
-          </div>
+          <TeamImage containerClassName="h-80 lg:h-96 order-1 lg:order-2" />
         </div>
       </Section>
 

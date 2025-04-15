@@ -3,6 +3,7 @@ import Button from "@/components/ui/Button";
 import Section from "@/components/ui/Section";
 import ServiceCard from "@/components/ui/ServiceCard";
 import TestimonialCard from "@/components/ui/TestimonialCard";
+import TeamImage from "@/components/TeamImage";
 
 export default function Home() {
   return (
@@ -74,31 +75,7 @@ export default function Home() {
       {/* About Preview Section */}
       <Section className="bg-white py-20">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-          <div className="relative h-[600px] rounded-2xl overflow-hidden shadow-2xl transform hover:scale-[1.02] transition-all duration-500">
-            {/* Fallback image tag */}
-            <img
-              src="/images/team.png"
-              alt="The CarpetCozy Professional Team"
-              className="object-cover w-full h-full"
-              style={{ display: 'none' }}
-              onError={(e) => {
-                e.currentTarget.style.display = 'block';
-                e.currentTarget.onerror = null;
-              }}
-            />
-            <Image
-              src="/images/team.png"
-              alt="The CarpetCozy Professional Team"
-              width={1200}
-              height={800}
-              priority
-              className="object-cover w-full h-full"
-              onError={(e) => {
-                // Hide the Image component if it fails to load
-                e.currentTarget.style.display = 'none';
-              }}
-            />
-          </div>
+          <TeamImage containerClassName="h-[600px] rounded-2xl overflow-hidden shadow-2xl transform hover:scale-[1.02] transition-all duration-500" />
           <div className="space-y-6">
             <h2 className="font-heading text-4xl md:text-5xl font-bold text-text-primary mb-6">
               About CarpetCozy
