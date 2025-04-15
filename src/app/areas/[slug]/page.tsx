@@ -161,7 +161,7 @@ export default async function ServiceAreaPage({
               width={600}
               height={400}
               priority
-              className="object-cover rounded-lg shadow-lg"
+              className="object-cover w-full h-full"
             />
           </div>
         </div>

@@ -75,9 +75,12 @@ export default function Home() {
       <Section className="bg-white py-20">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
           <div className="relative h-[600px] rounded-2xl overflow-hidden shadow-2xl transform hover:scale-[1.02] transition-all duration-500">
-            <img
+            <Image
               src="/images/team.png"
-              alt="CarpetCozy team"
+              alt="The CarpetCozy Professional Team"
+              width={600}
+              height={400}
+              priority
               className="object-cover w-full h-full"
             />
           </div>

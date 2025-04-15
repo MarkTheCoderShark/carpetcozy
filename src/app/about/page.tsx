@@ -47,10 +47,11 @@ export default function AboutPage() {
           <div className="relative h-80 lg:h-96 order-1 lg:order-2">
             <Image 
               src="/images/team.png"
-              alt="The CarpetCozy Professional Team" 
+              alt="The CarpetCozy Professional Team"
               width={600}
               height={400}
-              className="object-cover rounded-lg shadow-md"
+              priority
+              className="object-cover w-full h-full"
             />
           </div>
         </div>
