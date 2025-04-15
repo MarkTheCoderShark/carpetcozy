@@ -1,0 +1,12 @@
+// This file has been renamed to sitemap.ts.disabled to use the static sitemap instead
+import { MetadataRoute } from 'next';
+import { serviceAreas, ServiceArea } from './areas/data'; // Assuming areas data is exported correctly
+
+// Define the base URL of your site
+const baseUrl = 'https://carpetcozy.com';
+
+// This function is disabled in favor of a static sitemap.xml in the public directory
+export default function sitemap(): MetadataRoute.Sitemap {
+  console.log('Warning: Dynamic sitemap generation attempted but is disabled');
+  return [];
+}

@@ -49,6 +49,13 @@
   status = 200
   force = false
 
+# Force Netlify to serve our static sitemap.xml file with highest priority
+[[redirects]]
+  from = "/sitemap.xml"
+  to = "/sitemap.xml"
+  status = 200
+  force = true
+
 # Force Netlify to serve our static sitemap.xml file
 [[headers]]
   for = "/sitemap.xml"
