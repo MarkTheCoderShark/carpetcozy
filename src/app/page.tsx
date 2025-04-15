@@ -78,9 +78,11 @@ export default function Home() {
             <Image
               src="/images/team.png"
               alt="The CarpetCozy Professional Team"
-              width={600}
-              height={400}
+              width={1200}
+              height={800}
               priority
+              quality={100}
+              loading="eager"
               className="object-cover w-full h-full"
             />
           </div>
