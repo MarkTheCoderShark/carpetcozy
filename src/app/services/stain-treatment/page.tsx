@@ -52,7 +52,7 @@ export default function StainTreatmentServicePage() {
       {/* Hero Section - Standard Structure */}
       <section
         className="hero relative bg-cover bg-center pt-32 pb-24 min-h-[500px]" // Added padding, bg-cover, bg-center
-        style={{ backgroundImage: "url('/hero.png')" }} // Use inline style for background
+        style={{ backgroundImage: "url('/images/deepstain.jpeg')" }} // Use inline style for background
       >
         {/* Overlay */}
         <div className="absolute inset-0 bg-white/70 backdrop-blur-sm z-0"></div>
@@ -97,7 +97,7 @@ export default function StainTreatmentServicePage() {
           </div>
           <div className="relative h-80 rounded-lg overflow-hidden shadow-md order-1 md:order-2">
             <Image 
-              src="/images/about-team.jpg" // Consider a different stain-related image
+              src="/images/deepstain.jpeg"
               alt="Close up of a difficult carpet stain being treated" 
               fill 
               className="object-cover"

@@ -52,7 +52,7 @@ export default function AreaRugServicePage() {
       {/* Hero Section - Standard Structure */}
       <section
         className="hero relative bg-cover bg-center pt-32 pb-24 min-h-[500px]" // Added padding, bg-cover, bg-center
-        style={{ backgroundImage: "url('/hero.png')" }} // Use inline style for background
+        style={{ backgroundImage: "url('/images/arearug.jpg')" }} // Use inline style for background
       >
         {/* Overlay */}
         <div className="absolute inset-0 bg-white/70 backdrop-blur-sm z-0"></div>
@@ -97,7 +97,7 @@ export default function AreaRugServicePage() {
           </div>
           <div className="relative h-80 rounded-lg overflow-hidden shadow-md order-1 md:order-2">
             <Image 
-              src="/images/our-story.jpg" // Consider a different rug-related image
+              src="/images/arearug.jpg"
               alt="Technician inspecting an oriental area rug" 
               fill 
               className="object-cover"

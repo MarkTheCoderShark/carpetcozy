@@ -52,7 +52,7 @@ export default function UpholsteryServicePage() {
       {/* Hero Section - Standard Structure */}
       <section
         className="hero relative bg-cover bg-center pt-32 pb-24 min-h-[500px]" // Added padding, bg-cover, bg-center
-        style={{ backgroundImage: "url('/hero.png')" }} // Use inline style for background
+        style={{ backgroundImage: "url('/images/upholstery.jpg')" }} // Use inline style for background
       >
         {/* Overlay */}
         <div className="absolute inset-0 bg-white/70 backdrop-blur-sm z-0"></div>
@@ -96,7 +96,7 @@ export default function UpholsteryServicePage() {
           </div>
           <div className="relative h-80 rounded-lg overflow-hidden shadow-md">
             <Image 
-              src="/images/team-2.jpg" // Consider a different upholstery-related image
+              src="/images/upholstery.jpg"
               alt="Technician cleaning upholstery on a chair" 
               fill 
               className="object-cover"

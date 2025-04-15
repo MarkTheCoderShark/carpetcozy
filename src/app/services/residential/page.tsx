@@ -55,7 +55,7 @@ export default function ResidentialServicePage() {
       {/* Hero Section - Standard Structure */}
       <section
         className="hero relative bg-cover bg-center pt-32 pb-24 min-h-[500px]" // Added padding, bg-cover, bg-center
-        style={{ backgroundImage: "url('/hero.png')" }} // Use inline style for background
+        style={{ backgroundImage: "url('/images/residential.jpg')" }} // Use inline style for background
       >
         {/* Overlay */}
         <div className="absolute inset-0 bg-white/70 backdrop-blur-sm z-0"></div>
