@@ -36,7 +36,7 @@ export const metadata: Metadata = {
     description: 'Expert carpet cleaning services in Roseville, Folsom, Rocklin, El Dorado Hills & Greater Sacramento. Professional steam cleaning, pet stain removal, and eco-friendly solutions for homes and businesses.',
     images: [
       {
-        url: `${process.env.NEXT_PUBLIC_SITE_URL || 'https://carpetcozy.com'}/carpetcozy.png`,
+        url: `${process.env.NEXT_PUBLIC_SITE_URL || 'https://carpetcozy.com'}/images/upholstery.jpg`,
         width: 1200,
         height: 630,
         alt: 'CarpetCozy Professional Carpet Cleaning',
@@ -47,7 +47,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'CarpetCozy | Professional Carpet Cleaning in Greater Sacramento',
     description: 'Expert carpet cleaning services in Roseville, Folsom, Rocklin, El Dorado Hills & Greater Sacramento.',
-    images: ['/logo.png'], // Updated path
+    images: [`${process.env.NEXT_PUBLIC_SITE_URL || 'https://carpetcozy.com'}/images/upholstery.jpg`], // Updated path
   },
   icons: {
     icon: '/logo.png', // Updated path
