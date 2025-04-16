@@ -62,4 +62,23 @@
   for = "/sitemap.xml"
   [headers.values]
     Content-Type = "application/xml"
-    X-Content-Type-Options = "nosniff" 
+    X-Content-Type-Options = "nosniff"
+
+# Form handling settings
+[forms]
+  [forms."contact"]
+    success_url = "/thank-you"
+
+[forms-notifications.email]
+  [forms-notifications.email.contact]
+    to = "markthecodershark@gmail.com"
+    subject = "New CarpetCozy Contact Form Submission"
+    template = """
+    New contact form submission:
+    
+    Name: {{form.first-name}} {{form.last-name}}
+    Email: {{form.email}}
+    Phone: {{form.phone}}
+    Service: {{form.service}}
+    Message: {{form.message}}
+    """ 

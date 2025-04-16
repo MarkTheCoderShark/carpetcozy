@@ -89,16 +89,18 @@ const ContactForm: React.FC = () => {
 
   return (
     <form
-      name="contact" // Keep name for clarity, but Netlify won't auto-detect
+      name="contact"
       method="POST"
+      data-netlify="true"
+      data-netlify-honeypot="bot-field"
       onSubmit={handleSubmit}
       className="space-y-6"
     >
-      {/* Hidden form name input is now handled in JS */}
+      <input type="hidden" name="form-name" value="contact" />
       {/* Honeypot field - still needed for the JS check */}
       <p className="hidden">
         <label>
-          Don’t fill this out if you’re human: <input name="bot-field" onChange={handleChange} />
+          Don't fill this out if you're human: <input name="bot-field" onChange={handleChange} />
         </label>
       </p>
 

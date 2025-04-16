@@ -71,8 +71,8 @@ export default function ContactPage() {
                   </svg>
                 </div>
                 <div className="ml-4">
-                  <h3 className="text-lg font-semibold mb-1 text-text-primary">Email</h3> {/* Updated color */}
-                  <p className="text-text-primary/80">info@carpetcozy.com</p> {/* Updated color */}
+                  <h3 className="text-lg font-semibold mb-1 text-text-primary">Contact Form</h3> {/* Updated color */}
+                  <p className="text-text-primary/80">Fill out our form and we'll get back to you within 24 hours</p> {/* Updated color */}
                 </div>
               </div>
               
