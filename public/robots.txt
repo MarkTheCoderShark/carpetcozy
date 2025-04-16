@@ -1,13 +1,25 @@
-# Allow all ethical crawlers access to the entire site
+# Allow all crawlers
 User-agent: *
 Allow: /
 
-# Disallow access to Next.js build/internal folders (though usually handled by hosting platform)
-Disallow: /_next/
-Disallow: /api/
+# Sitemap location
+Sitemap: https://carpetcozy.com/sitemap.xml
 
-# Lower crawl delay to allow faster indexing
-Crawl-delay: 0.5
+# Prevent crawling of unnecessary paths
+Disallow: /api/
+Disallow: /_next/
+Disallow: /static/
+
+# Allow crawling of important directories
+Allow: /blog/
+Allow: /services/
+Allow: /areas/
+Allow: /reviews/
+Allow: /gallery/
+Allow: /contact/
+
+# Crawl-delay to prevent server overload
+Crawl-delay: 1
 
 # Explicitly allow Google to crawl everything (overrides any Crawl-delay for Google)
 User-agent: Googlebot
@@ -29,6 +41,3 @@ Allow: /
 # Explicitly allow Bing to crawl images
 User-agent: BingPreview
 Allow: /
-
-# Specify the location of the sitemap
-Sitemap: https://carpetcozy.com/sitemap.xml

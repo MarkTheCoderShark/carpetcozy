@@ -255,6 +255,125 @@ export default function RootLayout({
             })
           }}
         />
+
+        {/* Add detailed service schemas */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify([
+              {
+                "@context": "https://schema.org",
+                "@type": "Service",
+                "name": "Residential Carpet Cleaning",
+                "serviceType": "Carpet Cleaning",
+                "provider": {
+                  "@type": "LocalBusiness",
+                  "name": "CarpetCozy"
+                },
+                "description": "Professional residential carpet cleaning using eco-friendly solutions and advanced steam extraction methods. We remove stains, allergens, and odors.",
+                "areaServed": "Roseville, Folsom, Rocklin, El Dorado Hills & Greater Sacramento area",
+                "hasOfferCatalog": {
+                  "@type": "OfferCatalog",
+                  "name": "Residential Carpet Cleaning Services",
+                  "itemListElement": [
+                    {
+                      "@type": "Offer",
+                      "itemOffered": {
+                        "@type": "Service",
+                        "name": "Deep Steam Cleaning"
+                      }
+                    },
+                    {
+                      "@type": "Offer",
+                      "itemOffered": {
+                        "@type": "Service",
+                        "name": "Pet Stain Removal"
+                      }
+                    },
+                    {
+                      "@type": "Offer",
+                      "itemOffered": {
+                        "@type": "Service",
+                        "name": "Deodorization"
+                      }
+                    }
+                  ]
+                }
+              },
+              {
+                "@context": "https://schema.org",
+                "@type": "Service",
+                "name": "Commercial Carpet Cleaning",
+                "serviceType": "Commercial Cleaning",
+                "provider": {
+                  "@type": "LocalBusiness",
+                  "name": "CarpetCozy"
+                },
+                "description": "Professional commercial carpet cleaning services for businesses, offices, and retail spaces. Regular maintenance programs available.",
+                "areaServed": "Roseville, Folsom, Rocklin, El Dorado Hills & Greater Sacramento area",
+                "hasOfferCatalog": {
+                  "@type": "OfferCatalog",
+                  "name": "Commercial Carpet Cleaning Services",
+                  "itemListElement": [
+                    {
+                      "@type": "Offer",
+                      "itemOffered": {
+                        "@type": "Service",
+                        "name": "Regular Maintenance Programs"
+                      }
+                    },
+                    {
+                      "@type": "Offer",
+                      "itemOffered": {
+                        "@type": "Service",
+                        "name": "Deep Commercial Cleaning"
+                      }
+                    },
+                    {
+                      "@type": "Offer",
+                      "itemOffered": {
+                        "@type": "Service",
+                        "name": "Emergency Cleaning Services"
+                      }
+                    }
+                  ]
+                }
+              },
+              {
+                "@context": "https://schema.org",
+                "@type": "Service",
+                "name": "Pet Stain and Odor Removal",
+                "serviceType": "Carpet Cleaning",
+                "provider": {
+                  "@type": "LocalBusiness",
+                  "name": "CarpetCozy"
+                },
+                "description": "Specialized pet stain and odor removal services using enzyme-based cleaners and advanced extraction methods.",
+                "areaServed": "Roseville, Folsom, Rocklin, El Dorado Hills & Greater Sacramento area",
+                "hasOfferCatalog": {
+                  "@type": "OfferCatalog",
+                  "name": "Pet Stain Services",
+                  "itemListElement": [
+                    {
+                      "@type": "Offer",
+                      "itemOffered": {
+                        "@type": "Service",
+                        "name": "Pet Urine Treatment"
+                      }
+                    },
+                    {
+                      "@type": "Offer",
+                      "itemOffered": {
+                        "@type": "Service",
+                        "name": "Odor Neutralization"
+                      }
+                    }
+                  ]
+                }
+              }
+            ])
+          }}
+        />
       </head>
       <body
         // Apply Poppins and Open Sans font variables and base styles
