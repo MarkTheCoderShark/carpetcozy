@@ -11,7 +11,7 @@ const handler: Handler = async (event) => {
 
   try {
     // Parse the form data
-    const formData = new URLSearchParams(event.body);
+    const formData = new URLSearchParams(event.body || '');
     
     // Validate required fields
     const requiredFields = ['first-name', 'last-name', 'email', 'phone', 'service', 'message'];
@@ -24,13 +24,24 @@ const handler: Handler = async (event) => {
       }
     }
 
-    // Forward the submission to Netlify's form handling service
+    // Create form submission data
+    const submission: Record<string, string> = {
+      'form-name': 'contact',
+      'first-name': formData.get('first-name') as string,
+      'last-name': formData.get('last-name') as string,
+      'email': formData.get('email') as string,
+      'phone': formData.get('phone') as string,
+      'service': formData.get('service') as string,
+      'message': formData.get('message') as string,
+    };
+
+    // Submit to Netlify Forms
     const response = await fetch(process.env.NETLIFY_FORMS_ENDPOINT || '', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/x-www-form-urlencoded',
       },
-      body: event.body,
+      body: new URLSearchParams(submission).toString(),
     });
 
     if (!response.ok) {
