@@ -43,7 +43,7 @@ const ContactForm: React.FC = () => {
         formDataObj.append(key, value);
       });
 
-      const response = await fetch('/.netlify/functions/handle-form', {
+      const response = await fetch('/', {
         method: 'POST',
         body: formDataObj,
       });

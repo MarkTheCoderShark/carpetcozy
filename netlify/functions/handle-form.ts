@@ -1,7 +1,6 @@
-import { Handler } from '@netlify/functions';
+import { HandlerEvent, HandlerContext } from '@netlify/functions';
 
-const handler: Handler = async (event) => {
-  // Only allow POST requests
+export const handler = async (event: HandlerEvent, context: HandlerContext) => {
   if (event.httpMethod !== 'POST') {
     return {
       statusCode: 405,
@@ -10,55 +9,47 @@ const handler: Handler = async (event) => {
   }
 
   try {
-    // Parse the form data
-    const formData = new URLSearchParams(event.body || '');
-    
-    // Validate required fields
+    const formData = JSON.parse(event.body || '{}');
     const requiredFields = ['first-name', 'last-name', 'email', 'phone', 'service', 'message'];
-    for (const field of requiredFields) {
-      if (!formData.get(field)) {
-        return {
-          statusCode: 400,
-          body: JSON.stringify({ error: `Missing required field: ${field}` }),
-        };
-      }
+    const missingFields = requiredFields.filter(field => !formData[field]);
+
+    if (missingFields.length > 0) {
+      return {
+        statusCode: 400,
+        body: JSON.stringify({
+          error: `Missing required fields: ${missingFields.join(', ')}`,
+        }),
+      };
     }
 
-    // Create form submission data
-    const submission: Record<string, string> = {
-      'form-name': 'contact',
-      'first-name': formData.get('first-name') as string,
-      'last-name': formData.get('last-name') as string,
-      'email': formData.get('email') as string,
-      'phone': formData.get('phone') as string,
-      'service': formData.get('service') as string,
-      'message': formData.get('message') as string,
-    };
-
     // Submit to Netlify Forms
-    const response = await fetch(process.env.NETLIFY_FORMS_ENDPOINT || '', {
+    const response = await fetch('https://api.netlify.com/api/v1/forms', {
       method: 'POST',
       headers: {
-        'Content-Type': 'application/x-www-form-urlencoded',
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${process.env.NETLIFY_ACCESS_TOKEN}`,
       },
-      body: new URLSearchParams(submission).toString(),
+      body: JSON.stringify({
+        form_name: 'contact',
+        data: formData,
+      }),
     });
 
     if (!response.ok) {
-      throw new Error('Failed to submit form to Netlify');
+      throw new Error('Failed to submit form to Netlify Forms');
     }
 
     return {
       statusCode: 200,
-      body: JSON.stringify({ message: 'Form submitted successfully' }),
+      body: JSON.stringify({ success: true }),
     };
   } catch (error) {
-    console.error('Form submission error:', error);
+    console.error('Error processing form:', error);
     return {
       statusCode: 500,
-      body: JSON.stringify({ error: 'Internal server error' }),
+      body: JSON.stringify({
+        error: 'An unexpected error occurred while processing your request.',
+      }),
     };
   }
-};
-
-export { handler }; 
+}; 
