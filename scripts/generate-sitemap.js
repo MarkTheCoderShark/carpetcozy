@@ -17,7 +17,21 @@ const blogRoutes = [
   'carpet-vs-hardwood-auburn',
   'carpet-cleaning-air-quality-citrus-heights',
   'area-rug-cleaning-folsom',
-  'post-construction-carpet-cleaning-orangevale'
+  'post-construction-carpet-cleaning-orangevale',
+  'carpet-cleaning-myths-debunked',
+  'eco-friendly-carpet-cleaning-solutions',
+  'carpet-maintenance-tips-rocklin',
+  'carpet-maintenance-tips-roseville',
+  'carpet-maintenance-tips-sacramento',
+  'remove-old-carpet-stains',
+  'carpet-cleaning-specials-sacramento',
+  'deep-carpet-cleaning-roseville',
+  'how-often-clean-carpet-with-pets',
+  'is-professional-carpet-cleaning-worth-it',
+  'pet-carpet-cleaning-tips-folsom',
+  'steam-vs-shampoo-carpet-cleaning-rocklin',
+  'carpet-cleaning-cost-roseville-2025',
+  'top-5-carpet-cleaners-roseville-2025'
 ].map(slug => ({
   url: `${baseUrl}/blog/${slug}`,
   priority: 0.8,
