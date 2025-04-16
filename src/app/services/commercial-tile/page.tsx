@@ -92,11 +92,10 @@ export default function CommercialTileServicePage() {
             <Button href="/services" variant="outline">Back to Services</Button>
           </div>
           <div className="relative h-80 rounded-lg overflow-hidden shadow-md order-1 md:order-2">
-            <Image 
+            <img 
               src="/images/tile.jpg"
               alt="Professional tile cleaning in a commercial space" 
-              fill 
-              className="object-cover"
+              className="object-cover w-full h-full"
             />
           </div>
         </div>
