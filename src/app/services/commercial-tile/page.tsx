@@ -1,4 +1,3 @@
-import Image from "next/image";
 import Link from "next/link";
 import Section from "@/components/ui/Section";
 import Button from "@/components/ui/Button";
@@ -96,6 +95,7 @@ export default function CommercialTileServicePage() {
               src="/images/tile.jpg"
               alt="Professional tile cleaning in a commercial space" 
               className="object-cover w-full h-full"
+              loading="eager"
             />
           </div>
         </div>
