@@ -1,5 +1,5 @@
 [build]
-  command = "npm run build && cp public/sitemap.xml .next/standalone/"
+  command = "npm run build && cp .next/sitemap.xml .next/_static-sitemap.xml || true"
   publish = ".next"
 
 [build.environment]

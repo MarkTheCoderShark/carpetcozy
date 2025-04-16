@@ -5,7 +5,7 @@
   "scripts": {
     "dev": "next dev",
     "generate-sitemap": "node scripts/generate-sitemap.js && node scripts/direct-sitemap.js",
-    "build": "npm run generate-sitemap && node scripts/clean-metadata.js && next build && cp public/sitemap.xml .next/ && cp public/sitemap.xml .next/server/pages/ || true",
+    "build": "npm run generate-sitemap && node scripts/clean-metadata.js && rm -rf public/_next && next build && cp public/sitemap.xml .next/ || true",
     "start": "next start",
     "lint": "next lint"
   },
