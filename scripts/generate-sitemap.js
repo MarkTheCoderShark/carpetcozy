@@ -7,6 +7,23 @@ const serviceAreas = require('../src/app/areas/service-areas.json');
 const baseUrl = 'https://carpetcozy.com';
 const today = new Date().toISOString().split('T')[0]; // For lastmod date
 
+// Blog posts from the array above
+const blogRoutes = [
+  'what-to-expect-carpet-cleaning',
+  'prepare-home-for-carpet-cleaning',
+  'removing-wine-stains-carpets',
+  'fall-carpet-cleaning-el-dorado-hills',
+  'commercial-carpet-cleaning-granite-bay',
+  'carpet-vs-hardwood-auburn',
+  'carpet-cleaning-air-quality-citrus-heights',
+  'area-rug-cleaning-folsom',
+  'post-construction-carpet-cleaning-orangevale'
+].map(slug => ({
+  url: `${baseUrl}/blog/${slug}`,
+  priority: 0.8,
+  changefreq: 'monthly'
+}));
+
 // Assign higher priority to location service pages
 const staticRoutes = [
   { path: '', priority: 1.0 },
@@ -46,9 +63,12 @@ const locationServiceSlugs = [
   { slug: 'carpet', priority: 1.0 },
   { slug: 'commercial-carpet', priority: 0.9 },
   { slug: 'pet-stain-removal', priority: 0.9 },
+  { slug: 'deep-stain', priority: 0.9 },
   { slug: 'steam', priority: 0.9 },
   { slug: 'tile', priority: 0.9 },
+  { slug: 'commercial-tile', priority: 0.9 },
   { slug: 'upholstery', priority: 0.9 },
+  { slug: 'area-rug', priority: 0.9 },
   { slug: 'water-extraction', priority: 0.9 }
 ];
 
@@ -65,6 +85,7 @@ const allUrls = [
   ...serviceRoutes,
   ...areaRoutes,
   ...locationServiceRoutes,
+  ...blogRoutes, // Add blog routes to sitemap
 ];
 
 const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
@@ -84,4 +105,4 @@ if (!fs.existsSync(publicDir)) {
   fs.mkdirSync(publicDir);
 }
 fs.writeFileSync(path.join(publicDir, 'sitemap.xml'), sitemap.trim());
-console.log('Sitemap generated with improved SEO priorities!'); 
+console.log('Sitemap generated with improved SEO priorities and blog posts!'); 
