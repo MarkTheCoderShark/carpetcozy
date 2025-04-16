@@ -32,25 +32,20 @@ const ContactForm: React.FC = () => {
     }));
   };
 
-  const encode = (data: any) => {
-    return Object.keys(data)
-      .map(key => encodeURIComponent(key) + "=" + encodeURIComponent(data[key]))
-      .join("&");
-  }
-
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setStatus('loading');
     setErrorMessage('');
 
     try {
-      const response = await fetch('/', {
+      const formDataObj = new FormData();
+      Object.entries({ ...formData, 'form-name': 'contact' }).forEach(([key, value]) => {
+        formDataObj.append(key, value);
+      });
+
+      const response = await fetch('/.netlify/functions/handle-form', {
         method: 'POST',
-        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-        body: encode({
-          'form-name': 'contact',
-          ...formData
-        })
+        body: formDataObj,
       });
 
       if (response.ok) {
@@ -89,6 +84,7 @@ const ContactForm: React.FC = () => {
         method="POST"
         data-netlify="true"
         data-netlify-honeypot="bot-field"
+        action="/.netlify/functions/handle-form"
         onSubmit={handleSubmit}
         className="space-y-6"
       >

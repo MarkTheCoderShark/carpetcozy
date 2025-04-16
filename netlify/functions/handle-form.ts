@@ -1,14 +1,6 @@
-interface NetlifyEvent {
-  httpMethod: string;
-  body: string | null;
-}
+import { Handler } from '@netlify/functions';
 
-interface NetlifyResponse {
-  statusCode: number;
-  body: string;
-}
-
-const handler = async (event: NetlifyEvent): Promise<NetlifyResponse> => {
+const handler: Handler = async (event) => {
   // Only allow POST requests
   if (event.httpMethod !== 'POST') {
     return {
@@ -18,21 +10,42 @@ const handler = async (event: NetlifyEvent): Promise<NetlifyResponse> => {
   }
 
   try {
-    const payload = JSON.parse(event.body || '{}');
+    // Parse the form data
+    const formData = new URLSearchParams(event.body);
+    
+    // Validate required fields
+    const requiredFields = ['first-name', 'last-name', 'email', 'phone', 'service', 'message'];
+    for (const field of requiredFields) {
+      if (!formData.get(field)) {
+        return {
+          statusCode: 400,
+          body: JSON.stringify({ error: `Missing required field: ${field}` }),
+        };
+      }
+    }
 
-    // Log the form submission (you can see this in Netlify's Functions log)
-    console.log('Form submission received:', payload);
+    // Forward the submission to Netlify's form handling service
+    const response = await fetch(process.env.NETLIFY_FORMS_ENDPOINT || '', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/x-www-form-urlencoded',
+      },
+      body: event.body,
+    });
 
-    // Return success response
+    if (!response.ok) {
+      throw new Error('Failed to submit form to Netlify');
+    }
+
     return {
       statusCode: 200,
-      body: JSON.stringify({ message: 'Form submission successful' }),
+      body: JSON.stringify({ message: 'Form submitted successfully' }),
     };
   } catch (error) {
-    console.error('Error processing form submission:', error);
+    console.error('Form submission error:', error);
     return {
       statusCode: 500,
-      body: JSON.stringify({ message: 'Error processing form submission' }),
+      body: JSON.stringify({ error: 'Internal server error' }),
     };
   }
 };
