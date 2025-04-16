@@ -52,7 +52,7 @@ export default function CommercialTileServicePage() {
       {/* Hero Section */}
       <section
         className="hero relative bg-cover bg-center pt-32 pb-24 min-h-[500px]"
-        style={{ backgroundImage: "url('/images/commercial.jpeg')" }}
+        style={{ backgroundImage: "url('/images/tile.jpg')" }}
       >
         {/* Overlay */}
         <div className="absolute inset-0 bg-white/70 backdrop-blur-sm z-0"></div>
@@ -93,7 +93,7 @@ export default function CommercialTileServicePage() {
           </div>
           <div className="relative h-80 rounded-lg overflow-hidden shadow-md order-1 md:order-2">
             <Image 
-              src="/images/commercial.jpeg"
+              src="/images/tile.jpg"
               alt="Professional tile cleaning in a commercial space" 
               fill 
               className="object-cover"

@@ -55,7 +55,7 @@ export default function ServicesPage() {
           <ServiceCard 
             title="Commercial Tile Cleaning" 
             description="Specialized tile and grout cleaning for restaurants, gyms, and commercial spaces to maintain hygiene and appearance."
-            image="/images/commercial.jpeg"
+            image="/images/tile.jpg"
             href="/services/commercial-tile"
           />
           <ServiceCard 
