@@ -22,18 +22,18 @@ const openSans = Open_Sans({
 
 export const metadata: Metadata = {
   title: {
-    template: '%s | CarpetCozy - Professional Carpet Cleaning in Roseville',
-    default: 'CarpetCozy - Professional Carpet Cleaning in Roseville',
+    template: '%s | CarpetCozy - Professional Carpet Cleaning in Greater Sacramento',
+    default: 'CarpetCozy - Professional Carpet Cleaning in Roseville, Folsom & Greater Sacramento',
   },
-  description: 'Professional carpet cleaning services in Roseville and surrounding areas. Eco-friendly solutions for residential and commercial cleaning needs.',
-  keywords: 'carpet cleaning, professional cleaning, Roseville, eco-friendly, pet stain removal, upholstery cleaning, commercial carpet cleaning',
+  description: 'Expert carpet cleaning services in Roseville, Folsom, Rocklin, El Dorado Hills & Greater Sacramento. Professional steam cleaning, pet stain removal, and eco-friendly solutions for homes and businesses.',
+  keywords: 'carpet cleaning, professional cleaning, Roseville, Folsom, Rocklin, El Dorado Hills, Sacramento, steam cleaning, pet stain removal, upholstery cleaning, commercial carpet cleaning, residential carpet cleaning, eco-friendly cleaning',
   openGraph: {
     type: 'website',
     locale: 'en_US',
     url: process.env.NEXT_PUBLIC_SITE_URL || 'https://carpetcozy.com',
     siteName: 'CarpetCozy',
-    title: 'CarpetCozy - Professional Carpet Cleaning in Roseville',
-    description: 'Professional carpet cleaning services in Roseville and surrounding areas. Eco-friendly solutions for residential and commercial cleaning needs.',
+    title: 'CarpetCozy - Professional Carpet Cleaning in Roseville, Folsom & Greater Sacramento',
+    description: 'Expert carpet cleaning services in Roseville, Folsom, Rocklin, El Dorado Hills & Greater Sacramento. Professional steam cleaning, pet stain removal, and eco-friendly solutions for homes and businesses.',
     images: [
       {
         url: `${process.env.NEXT_PUBLIC_SITE_URL || 'https://carpetcozy.com'}/carpetcozy.png`,
@@ -45,8 +45,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'CarpetCozy | Professional Carpet Cleaning in Roseville & Surrounding Areas',
-    description: 'Professional carpet cleaning services in Roseville and surrounding areas.',
+    title: 'CarpetCozy | Professional Carpet Cleaning in Greater Sacramento',
+    description: 'Expert carpet cleaning services in Roseville, Folsom, Rocklin, El Dorado Hills & Greater Sacramento.',
     images: ['/logo.png'], // Updated path
   },
   icons: {
@@ -133,7 +133,125 @@ export default function RootLayout({
                 "https://www.facebook.com/carpetcozy",
                 "https://www.instagram.com/carpetcozy"
               ],
-              "priceRange": "$$"
+              "priceRange": "$$",
+              "description": "Expert carpet cleaning services in Roseville, Folsom, Rocklin, El Dorado Hills & Greater Sacramento. Professional steam cleaning, pet stain removal, and eco-friendly solutions for homes and businesses.",
+              "areaServed": [
+                {
+                  "@type": "City",
+                  "name": "Roseville"
+                },
+                {
+                  "@type": "City",
+                  "name": "Folsom"
+                },
+                {
+                  "@type": "City",
+                  "name": "Rocklin"
+                },
+                {
+                  "@type": "City",
+                  "name": "El Dorado Hills"
+                },
+                {
+                  "@type": "City",
+                  "name": "Citrus Heights"
+                },
+                {
+                  "@type": "City",
+                  "name": "Granite Bay"
+                },
+                {
+                  "@type": "City",
+                  "name": "Auburn"
+                },
+                {
+                  "@type": "City",
+                  "name": "Grass Valley"
+                },
+                {
+                  "@type": "City",
+                  "name": "Orangevale"
+                },
+                {
+                  "@type": "City",
+                  "name": "Loomis"
+                }
+              ],
+              "serviceType": [
+                "Residential Carpet Cleaning",
+                "Commercial Carpet Cleaning",
+                "Pet Stain Removal",
+                "Steam Cleaning",
+                "Upholstery Cleaning",
+                "Tile and Grout Cleaning",
+                "Water Extraction"
+              ]
+            })
+          }}
+        />
+
+        {/* Add new Service schema markup */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "Service",
+              "serviceType": "Carpet Cleaning",
+              "provider": {
+                "@type": "LocalBusiness",
+                "name": "CarpetCozy"
+              },
+              "areaServed": [
+                {
+                  "@type": "City",
+                  "name": "Roseville, CA"
+                },
+                {
+                  "@type": "City",
+                  "name": "Folsom, CA"
+                },
+                {
+                  "@type": "City",
+                  "name": "Rocklin, CA"
+                },
+                {
+                  "@type": "City",
+                  "name": "El Dorado Hills, CA"
+                },
+                {
+                  "@type": "City",
+                  "name": "Citrus Heights, CA"
+                },
+                {
+                  "@type": "City",
+                  "name": "Granite Bay, CA"
+                },
+                {
+                  "@type": "City",
+                  "name": "Auburn, CA"
+                },
+                {
+                  "@type": "City",
+                  "name": "Grass Valley, CA"
+                },
+                {
+                  "@type": "City",
+                  "name": "Orangevale, CA"
+                },
+                {
+                  "@type": "City",
+                  "name": "Loomis, CA"
+                }
+              ],
+              "description": "Professional carpet cleaning using eco-friendly solutions and advanced steam extraction methods. We remove stains, allergens, and odors while extending the life of your carpets.",
+              "offers": {
+                "@type": "Offer",
+                "priceSpecification": {
+                  "@type": "PriceSpecification",
+                  "priceCurrency": "USD"
+                }
+              }
             })
           }}
         />

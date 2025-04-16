@@ -5,28 +5,58 @@ const path = require('path');
 const serviceAreas = require('../src/app/areas/service-areas.json');
 
 const baseUrl = 'https://carpetcozy.com';
+const today = new Date().toISOString().split('T')[0]; // For lastmod date
 
+// Assign higher priority to location service pages
 const staticRoutes = [
-  '', '/about', '/services', '/areas', '/reviews', '/gallery', '/contact'
-].map(route => `${baseUrl}${route}`);
+  { path: '', priority: 1.0 },
+  { path: '/about', priority: 0.8 },
+  { path: '/services', priority: 0.9 },
+  { path: '/areas', priority: 0.9 },
+  { path: '/reviews', priority: 0.8 },
+  { path: '/gallery', priority: 0.8 },
+  { path: '/contact', priority: 0.8 }
+].map(route => ({ 
+  url: `${baseUrl}${route.path}`, 
+  priority: route.priority,
+  changefreq: 'monthly'
+}));
 
 const serviceRoutes = [
-  '/services/residential',
-  '/services/commercial',
-  '/services/pet-stain-removal',
-  '/services/stain-treatment',
-  '/services/upholstery',
-  '/services/area-rug',
-].map(route => `${baseUrl}${route}`);
+  { path: '/services/residential', priority: 0.9 },
+  { path: '/services/commercial', priority: 0.9 },
+  { path: '/services/pet-stain-removal', priority: 0.9 },
+  { path: '/services/stain-treatment', priority: 0.9 },
+  { path: '/services/upholstery', priority: 0.9 },
+  { path: '/services/area-rug', priority: 0.9 },
+].map(route => ({ 
+  url: `${baseUrl}${route.path}`, 
+  priority: route.priority,
+  changefreq: 'monthly'
+}));
 
-const areaRoutes = serviceAreas.map(area => `${baseUrl}/areas/${area.slug}`);
+const areaRoutes = serviceAreas.map(area => ({
+  url: `${baseUrl}/areas/${area.slug}`,
+  priority: 0.9,
+  changefreq: 'monthly'
+}));
 
 const locationServiceSlugs = [
-  'carpet', 'commercial-carpet', 'pet-stain-removal', 'steam', 'tile', 'upholstery', 'water-extraction'
+  { slug: 'carpet', priority: 1.0 },
+  { slug: 'commercial-carpet', priority: 0.9 },
+  { slug: 'pet-stain-removal', priority: 0.9 },
+  { slug: 'steam', priority: 0.9 },
+  { slug: 'tile', priority: 0.9 },
+  { slug: 'upholstery', priority: 0.9 },
+  { slug: 'water-extraction', priority: 0.9 }
 ];
 
 const locationServiceRoutes = serviceAreas.flatMap(area =>
-  locationServiceSlugs.map(serviceSlug => `${baseUrl}/${area.slug}-${serviceSlug}-cleaning`)
+  locationServiceSlugs.map(service => ({
+    url: `${baseUrl}/${area.slug}-${service.slug}-cleaning`,
+    priority: service.priority,
+    changefreq: 'weekly' // Higher frequency for location pages to signal freshness
+  }))
 );
 
 const allUrls = [
@@ -38,11 +68,12 @@ const allUrls = [
 
 const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  ${allUrls.map(url => `
+  ${allUrls.map(page => `
     <url>
-      <loc>${url}</loc>
-      <changefreq>monthly</changefreq>
-      <priority>0.7</priority>
+      <loc>${page.url}</loc>
+      <lastmod>${today}</lastmod>
+      <changefreq>${page.changefreq}</changefreq>
+      <priority>${page.priority}</priority>
     </url>
   `).join('')}
 </urlset>`;
@@ -52,4 +83,4 @@ if (!fs.existsSync(publicDir)) {
   fs.mkdirSync(publicDir);
 }
 fs.writeFileSync(path.join(publicDir, 'sitemap.xml'), sitemap.trim());
-console.log('Sitemap generated!'); 
+console.log('Sitemap generated with improved SEO priorities!'); 

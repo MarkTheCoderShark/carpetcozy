@@ -6,15 +6,28 @@ Allow: /
 Disallow: /_next/
 Disallow: /api/
 
-# Crawl delay suggestion to prevent server overload
-Crawl-delay: 1
+# Lower crawl delay to allow faster indexing
+Crawl-delay: 0.5
 
 # Explicitly allow Google to crawl everything (overrides any Crawl-delay for Google)
 User-agent: Googlebot
 Allow: /
+# No crawl delay for Google to ensure fastest indexing
+
+# Explicitly allow Google Images to index images
+User-agent: Googlebot-Image
+Allow: /
+
+# Allow Google Mobile to crawl the site
+User-agent: Googlebot-Mobile
+Allow: /
 
 # Explicitly allow Bing to crawl everything
 User-agent: Bingbot
+Allow: /
+
+# Explicitly allow Bing to crawl images
+User-agent: BingPreview
 Allow: /
 
 # Specify the location of the sitemap

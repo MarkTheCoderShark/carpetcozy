@@ -82,19 +82,68 @@ const blogPosts = [
   {
     title: 'The Real Cost of Carpet Cleaning in Roseville, CA (2025 Guide)',
     description: 'Understand what determines carpet cleaning prices in Roseville, from average costs to factors that affect pricing. Get insider tips on finding the best value.',
-    slug: 'carpet-cleaning-cost-roseville',
+    slug: 'carpet-cleaning-cost-roseville-2025',
     date: new Date().toLocaleDateString(),
   },
   {
-    title: 'Top 5 Carpet Cleaning Companies in Roseville (2025 Update)',
+    title: 'Top 5 Carpet Cleaners in Roseville (2025 Update)',
     description: 'Discover the best carpet cleaning services in Roseville with our comprehensive guide. Compare services, prices, and customer satisfaction to find your perfect match.',
-    slug: 'top-carpet-cleaning-companies-roseville',
+    slug: 'top-5-carpet-cleaners-roseville-2025',
     date: new Date().toLocaleDateString(),
   },
   {
     title: 'What to Expect During a CarpetCozy Cleaning Appointment',
     description: 'A complete walkthrough of the CarpetCozy cleaning process from booking to completion. Learn what happens before, during, and after your professional carpet cleaning appointment.',
     slug: 'what-to-expect-carpet-cleaning',
+    date: new Date().toLocaleDateString(),
+  },
+  // New blog posts
+  {
+    title: 'How to Prepare Your Home for Professional Carpet Cleaning',
+    description: 'Make the most of your carpet cleaning service with these easy preparation tips. Learn what to do before the professionals arrive to ensure the best possible results.',
+    slug: 'prepare-home-for-carpet-cleaning',
+    date: new Date().toLocaleDateString(),
+  },
+  {
+    title: 'The Ultimate Guide to Removing Wine Stains from Carpets',
+    description: 'Act fast with our professional tips for removing red wine stains from carpets. Learn immediate steps and long-term solutions from CarpetCozy experts.',
+    slug: 'removing-wine-stains-carpets',
+    date: new Date().toLocaleDateString(),
+  },
+  {
+    title: 'Commercial Carpet Cleaning: What Every Granite Bay Business Owner Should Know',
+    description: 'Discover how professional carpet cleaning can improve your Granite Bay business image, employee health, and customer experience. Learn best practices and maintenance tips.',
+    slug: 'commercial-carpet-cleaning-granite-bay',
+    date: new Date().toLocaleDateString(),
+  },
+  {
+    title: 'Carpet vs. Hardwood: Which Flooring Option Is Best for Auburn Homes?',
+    description: 'Compare the pros and cons of carpet and hardwood flooring for Auburn homes. Consider maintenance, durability, comfort, and cost factors before making your decision.',
+    slug: 'carpet-vs-hardwood-auburn',
+    date: new Date().toLocaleDateString(),
+  },
+  {
+    title: 'Seasonal Carpet Cleaning: Why Fall Is the Perfect Time in El Dorado Hills',
+    description: 'Learn why autumn is an ideal season for deep carpet cleaning in El Dorado Hills homes. Prepare your carpets for winter and holiday gatherings with these professional tips.',
+    slug: 'fall-carpet-cleaning-el-dorado-hills',
+    date: new Date().toLocaleDateString(),
+  },
+  {
+    title: 'How Professional Carpet Cleaning Improves Indoor Air Quality in Citrus Heights',
+    description: 'Discover the connection between clean carpets and healthier air in your Citrus Heights home. Learn how professional cleaning removes allergens, dust mites, and pollutants.',
+    slug: 'carpet-cleaning-air-quality-citrus-heights',
+    date: new Date().toLocaleDateString(),
+  },
+  {
+    title: 'The Complete Guide to Area Rug Cleaning in Folsom Homes',
+    description: 'Protect your investment with proper area rug cleaning techniques for Folsom homes. Learn how to clean different rug types and when to seek professional help.',
+    slug: 'area-rug-cleaning-folsom',
+    date: new Date().toLocaleDateString(),
+  },
+  {
+    title: 'Post-Construction Carpet Cleaning: Essential Steps for New Orangevale Homes',
+    description: 'Ensure your new Orangevale home starts fresh with professional post-construction carpet cleaning. Remove construction dust, debris, and chemicals for a healthier living environment.',
+    slug: 'post-construction-carpet-cleaning-orangevale',
     date: new Date().toLocaleDateString(),
   },
   // Add more blog posts here as they are created
