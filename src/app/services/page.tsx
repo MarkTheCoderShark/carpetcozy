@@ -53,6 +53,12 @@ export default function ServicesPage() {
             href="/services/commercial"
           />
           <ServiceCard 
+            title="Commercial Tile Cleaning" 
+            description="Specialized tile and grout cleaning for restaurants, gyms, and commercial spaces to maintain hygiene and appearance."
+            image="/images/commercial.jpeg"
+            href="/services/commercial-tile"
+          />
+          <ServiceCard 
             title="Pet Stain & Odor Removal" 
             description="Specialized treatments to eliminate tough pet stains and odors, leaving your carpets fresh and clean."
             image="/images/pet.webp"

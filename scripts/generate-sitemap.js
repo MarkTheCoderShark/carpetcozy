@@ -25,6 +25,7 @@ const staticRoutes = [
 const serviceRoutes = [
   { path: '/services/residential', priority: 0.9 },
   { path: '/services/commercial', priority: 0.9 },
+  { path: '/services/commercial-tile', priority: 0.9 },
   { path: '/services/pet-stain-removal', priority: 0.9 },
   { path: '/services/stain-treatment', priority: 0.9 },
   { path: '/services/upholstery', priority: 0.9 },
