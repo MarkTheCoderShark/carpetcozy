@@ -1,5 +1,5 @@
 [build]
-  command = "npm run build && cp .next/sitemap.xml .next/_static-sitemap.xml || true"
+  command = "npm run build"
   publish = ".next"
 
 [build.environment]
@@ -8,11 +8,12 @@
 [[plugins]]
   package = "@netlify/plugin-nextjs"
 
-[[plugins]]
-  package = "@netlify/plugin-sitemap"
-  [plugins.inputs]
-    baseUrl = "https://carpetcozy.com"
-    exclude = ["/api/*"]
+# Disabling the sitemap plugin as we're handling it with Next.js route handler
+# [[plugins]]
+#   package = "@netlify/plugin-sitemap"
+#   [plugins.inputs]
+#     baseUrl = "https://carpetcozy.com"
+#     exclude = ["/api/*"]
 
 [build.processing]
   skip_processing = false
@@ -42,6 +43,13 @@
   to = "/api/:splat"
   status = 200
 
+# Directly serve the static sitemap file
+[[redirects]]
+  from = "/sitemap.xml"
+  to = "/netlify.xml"
+  status = 200
+  force = true
+
 # Fallback for client-side routing
 [[redirects]]
   from = "/*"
@@ -49,14 +57,7 @@
   status = 200
   force = false
 
-# Force Netlify to serve our static sitemap.xml file with highest priority
-[[redirects]]
-  from = "/sitemap.xml"
-  to = "/_static-sitemap.xml"
-  status = 200
-  force = true
-
-# Force Netlify to serve our static sitemap.xml file
+# Headers for sitemap.xml
 [[headers]]
   for = "/sitemap.xml"
   [headers.values]
