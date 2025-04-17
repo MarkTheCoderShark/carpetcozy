@@ -67,7 +67,8 @@ export default function ContactPage() {
           {/* Contact Form */}
           <form
             name="contact"
-            method="POST"
+            method="POST" // Keep POST method
+            action="/thank-you" // Explicitly set the action
             data-netlify="true"
             data-netlify-honeypot="bot-field"
             className="space-y-4"
@@ -180,9 +181,13 @@ export default function ContactPage() {
               ></textarea>
             </div>
             <div>
-              <Button type="submit" className="w-full">
+              {/* Replace custom Button with standard HTML button */}
+              <button
+                type="submit"
+                className="w-full bg-primary text-white py-2 px-4 rounded-md hover:bg-primary/90 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary"
+              >
                 Send Message
-              </Button>
+              </button>
             </div>
           </form>
         </div>
