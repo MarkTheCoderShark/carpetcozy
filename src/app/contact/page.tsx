@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Section from "@/components/ui/Section";
 import Button from "@/components/ui/Button"; // Keep Button if used elsewhere, otherwise remove
+import { useForm } from "react-hook-form";
 
 export const metadata = {
   title: "Contact Us | CarpetCozy - Professional Carpet Cleaning",
@@ -9,6 +10,8 @@ export const metadata = {
 };
 
 export default function ContactPage() {
+  const { register } = useForm();
+
   return (
     <>
       {/* Hero Section */}
@@ -132,14 +135,20 @@ export default function ContactPage() {
                   Service
                 </label>
                 <select
-                  id="service"
                   name="service"
+                  id="service"
+                  {...register("service")}
                   required
                   className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-primary focus:border-primary"
                 >
-                  <option value="">Select a service</option>
+                  <option value="">Select</option>
                   <option value="Residential">Residential</option>
                   <option value="Commercial">Commercial</option>
+                  <option value="Upholstery">Upholstery</option>
+                  <option value="Area Rug">Area Rug</option>
+                  <option value="Tile & Grout">Tile & Grout</option>
+                  <option value="Pet Stain & Odor">Pet Stain & Odor</option>
+                  <option value="Other">Other</option>
                 </select>
               </div>
 
