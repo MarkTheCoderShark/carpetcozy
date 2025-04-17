@@ -11,29 +11,6 @@
 [[plugins]]
   package = "@netlify/plugin-nextjs"
 
-[forms]
-  enableForms = true
-
-  [forms.contact]
-    name = "contact"
-    success_url = "/thank-you"
-    honeypot = "bot-field"
-    enable_recaptcha = false
-
-[forms-notifications.email]
-  [forms-notifications.email.contact]
-    to = "markthecodershark@gmail.com"
-    subject = "New CarpetCozy Contact Form Submission"
-    template = """
-    New contact form submission:
-    
-    Name: {{form.first-name}} {{form.last-name}}
-    Email: {{form.email}}
-    Phone: {{form.phone}}
-    Service: {{form.service}}
-    Message: {{form.message}}
-    """
-
 # Disabling the sitemap plugin as we're handling it with Next.js route handler
 # [[plugins]]
 #   package = "@netlify/plugin-sitemap"
@@ -111,10 +88,3 @@
   from = ".netlify/functions/*"
   to = ".netlify/functions/:splat"
   status = 200
-
-# Netlify helper form redirect
-[[redirects]]
-  from = "/contact-form-detection.html"
-  to = "/netlify-helper.html"
-  status = 200
-  force = true 

@@ -1,8 +1,6 @@
-
 import React from 'react';
 import Section from "@/components/ui/Section";
 import Button from "@/components/ui/Button"; // Keep Button if used elsewhere, otherwise remove
-import ContactForm from "@/components/ContactForm";
 
 export const metadata = {
   title: "Contact Us | CarpetCozy",
@@ -41,7 +39,7 @@ export default function ContactPage() {
       {/* Contact Form Section */}
       <Section bgColor="default"> {/* Updated bgColor */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-          {/* Contact Form */}
+          {/* Contact Info */}
           <div>
             <h2 className="text-2xl md:text-3xl font-bold mb-6 text-text-primary border-b-2 border-primary pb-2">
               Get in Touch
@@ -66,8 +64,11 @@ export default function ContactPage() {
             </div>
           </div>
 
-          {/* Contact Form */}
-          <ContactForm />
+          {/* Contact Form Placeholder */}
+          <div>
+            {/* Contact form removed */}
+            <p>Contact form will be here soon!</p> {/* Optional: Add a placeholder message */}
+          </div>
         </div>
       </Section>
 
@@ -118,7 +119,7 @@ export default function ContactPage() {
           <div className="flex items-start">
             <div className="flex-shrink-0 mt-1">
               <svg className="w-6 h-6 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"> {/* Updated color */}
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 01118 0 9 9 0 0118 0z" />
               </svg>
             </div>
             <div className="ml-4">
@@ -143,61 +144,48 @@ export default function ContactPage() {
             <a href="#" className="text-primary hover:text-primary/80"> {/* Updated color */}
               <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                 <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/>
-147 | 147 | 147 | 147 | 147 | 147 | 147 | 147 | 147 | 147 | 313 |               </svg>
-148 | 148 | 148 | 148 | 148 | 148 | 148 | 148 | 148 | 148 | 314 |             </a>
-149 | 149 | 149 | 149 | 149 | 149 | 149 | 149 | 149 | 149 | 315 |             <a href="#" className="text-primary hover:text-primary/80"> {/* Updated color */}
-150 | 150 | 150 | 150 | 150 | 150 | 150 | 150 | 150 | 150 | 316 |               <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-151 | 151 | 151 | 151 | 151 | 151 | 151 | 151 | 151 | 151 | 317 |                 <path d="M19.589 6.686a4.93 4.93 0 00-3.351-4.128 4.928 4.928 0 00-5.33 1.075 4.935 4.935 0 00-1.345 3.312 4.935 4.935 0 00-1.7-3.042 4.928 4.928 0 00-5.461-.894 4.928 4.928 0 00-2.323 2.397 4.93 4.93 0 001.055 5.452l8.11 8.11 8.345-8.345c.913-.913 2.215-2.205 2.215-3.939 0-.166-.014-.33-.04-.492a4.929 4.929 0 00-.175-.505zM5.5 9a3.5 3.5 0 110-7 3.5 3.5 0 010 7zm13 0a3.5 3.5 0 110-7 3.5 3.5 0 010 7z"/>
-152 | 152 | 152 | 152 | 152 | 152 | 152 | 152 | 152 | 152 | 318 |               </svg>
-153 | 153 | 153 | 153 | 153 | 153 | 153 | 153 | 153 | 153 | 319 |             </a>
-154 | 154 | 154 | 154 | 154 | 154 | 154 | 154 | 154 | 154 | 320 |           </div>
-155 | 155 | 155 | 155 | 155 | 155 | 155 | 155 | 155 | 155 | 321 |         </div>
-156 | 156 | 156 | 156 | 156 | 156 | 156 | 156 | 156 | 156 | 322 |       </div>
-157 | 157 | 157 | 157 | 157 | 157 | 157 | 157 | 157 | 157 | 323 | 
-158 | 158 | 158 | 158 | 158 | 158 | 158 | 158 | 158 | 158 | 324 |       {/* Map Section */}
-159 | 159 | 159 | 159 | 159 | 159 | 159 | 159 | 159 | 159 | 325 |       <section className="h-96 relative">
-160 | 160 | 160 | 160 | 160 | 160 | 160 | 160 | 160 | 160 | 326 |         <div className="absolute inset-0 z-0">
-161 | 161 | 161 | 161 | 161 | 161 | 161 | 161 | 161 | 161 | 327 |           {/* Replace with actual Google Maps embed */}
-162 | 162 | 162 | 162 | 162 | 162 | 162 | 162 | 162 | 162 | 328 |           <div className="w-full h-full bg-gray-200 flex items-center justify-center">
-163 | 163 | 163 | 163 | 163 | 163 | 163 | 163 | 163 | 163 | 329 |             <p className="text-gray-500">Google Maps Embed</p>
-164 | 164 | 164 | 164 | 164 | 164 | 164 | 164 | 164 | 164 | 330 |           </div>
-165 | 165 | 165 | 165 | 165 | 165 | 165 | 165 | 165 | 165 | 331 |         </div>
-166 | 166 | 166 | 166 | 166 | 166 | 166 | 166 | 166 | 166 | 332 |       </section>
-167 | 167 | 167 | 167 | 167 | 167 | 167 | 167 | 167 | 167 | 333 | 
-168 | 168 | 168 | 168 | 168 | 168 | 168 | 168 | 168 | 168 | 334 |       {/* Service Areas Preview */}
-169 | 169 | 169 | 169 | 169 | 169 | 169 | 169 | 169 | 169 | 335 |       <Section bgColor="alt" title="Service Areas" subtitle="We proudly serve Roseville and surrounding communities"> {/* Changed to alt background */}
-170 | 170 | 170 | 170 | 170 | 170 | 170 | 170 | 170 | 170 | 336 |         <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
-171 | 171 | 171 | 171 | 171 | 171 | 171 | 171 | 171 | 171 | 337 |           <div className="bg-background p-4 rounded-lg text-center shadow-subtle"> {/* Updated styles */}
-172 | 172 | 172 | 172 | 172 | 172 | 172 | 172 | 172 | 172 | 338 |             <h3 className="font-bold text-text-primary">Roseville</h3> {/* Updated color */}
-173 | 173 | 173 | 173 | 173 | 173 | 173 | 173 | 173 | 173 | 339 |           </div>
-174 | 174 | 174 | 174 | 174 | 174 | 174 | 174 | 174 | 174 | 340 |           <div className="bg-background p-4 rounded-lg text-center shadow-subtle"> {/* Updated styles */}
-175 | 175 | 175 | 175 | 175 | 175 | 175 | 175 | 175 | 175 | 341 |             <h3 className="font-bold text-text-primary">Rocklin</h3> {/* Updated color */}
-176 | 176 | 176 | 176 | 176 | 176 | 176 | 176 | 176 | 176 | 342 |           </div>
-177 | 177 | 177 | 177 | 177 | 177 | 177 | 177 | 177 | 177 | 343 |           <div className="bg-background p-4 rounded-lg text-center shadow-subtle"> {/* Updated styles */}
-178 | 178 | 178 | 178 | 178 | 178 | 178 | 178 | 178 | 178 | 344 |             <h3 className="font-bold text-text-primary">Loomis</h3> {/* Updated color */}
-179 | 179 | 179 | 179 | 179 | 179 | 179 | 179 | 179 | 179 | 345 |           </div>
-180 | 180 | 180 | 180 | 180 | 180 | 180 | 180 | 180 | 180 | 346 |           <div className="bg-background p-4 rounded-lg text-center shadow-subtle"> {/* Updated styles */}
-181 | 181 | 181 | 181 | 181 | 181 | 181 | 181 | 181 | 181 | 347 |             <h3 className="font-bold text-text-primary">Folsom</h3> {/* Updated color */}
-182 | 182 | 182 | 182 | 182 | 182 | 182 | 182 | 182 | 182 | 348 |           </div>
-183 | 183 | 183 | 183 | 183 | 183 | 183 | 183 | 183 | 183 | 349 |           <div className="bg-background p-4 rounded-lg text-center shadow-subtle"> {/* Updated styles */}
-184 | 184 | 184 | 184 | 184 | 184 | 184 | 184 | 184 | 184 | 350 |             <h3 className="font-bold text-text-primary">Citrus Heights</h3> {/* Updated color */}
-185 | 185 | 185 | 185 | 185 | 185 | 185 | 185 | 185 | 185 | 351 |           </div>
-186 | 186 | 186 | 186 | 186 | 186 | 186 | 186 | 186 | 186 | 352 |           <div className="bg-background p-4 rounded-lg text-center shadow-subtle"> {/* Updated styles */}
-187 | 187 | 187 | 187 | 187 | 187 | 187 | 187 | 187 | 187 | 353 |             <h3 className="font-bold text-text-primary">Granite Bay</h3> {/* Updated color */}
-188 | 188 | 188 | 188 | 188 | 188 | 188 | 188 | 188 | 188 | 354 |           </div>
-189 | 189 | 189 | 189 | 189 | 189 | 189 | 189 | 189 | 189 | 355 |           <div className="bg-background p-4 rounded-lg text-center shadow-subtle"> {/* Updated styles */}
-190 | 190 | 190 | 190 | 190 | 190 | 190 | 190 | 190 | 190 | 356 |             <h3 className="font-bold text-text-primary">Auburn</h3> {/* Updated color */}
-191 | 191 | 191 | 191 | 191 | 191 | 191 | 191 | 191 | 191 | 357 |           </div>
-192 | 192 | 192 | 192 | 192 | 192 | 192 | 192 | 192 | 192 | 358 |           <div className="bg-background p-4 rounded-lg text-center shadow-subtle"> {/* Updated styles */}
-193 | 193 | 193 | 193 | 193 | 193 | 193 | 193 | 193 | 193 | 359 |             <h3 className="font-bold text-text-primary">Grass Valley</h3> {/* Updated color */}
-194 | 194 | 194 | 194 | 194 | 194 | 194 | 194 | 194 | 194 | 360 |           </div>
-195 | 195 | 195 | 195 | 195 | 195 | 195 | 195 | 195 | 195 | 361 |         </div>
-196 | 196 | 196 | 196 | 196 | 196 | 196 | 196 | 196 | 196 | 362 |         <div className="mt-8 text-center">
-197 | 197 | 197 | 197 | 197 | 197 | 197 | 197 | 197 | 197 | 363 |           <Button href="/areas" variant="secondary"> {/* Updated variant */}
-198 | 198 | 198 | 198 | 198 | 198 | 198 | 198 | 198 | 198 | 364 |             View All Service Areas
-199 | 199 | 199 | 199 | 199 | 199 | 199 | 199 | 199 | 199 | 365 |           </Button>
-200 | 200 | 200 | 200 | 200 | 200 | 200 | 200 | 200 | 200 | 366 |         </div>
-201 | 201 | 201 | 201 | 201 | 201 | 201 | 201 | 201 | 201 | 367 |       </Section>
-202 | 202 | 202 | 202 | 202 | 202 | 202 | 202 | 202 | 202 | 368 |     </>
-203 | 203 | 203 | 203 | 203 | 203 | 203 | 203 | 203 | 203 | 369 |   );
-204 | 204 | 204 | 204 | 204 | 204 | 204 | 204 | 204 | 204 | 370 | }
+              </svg>
+            </a>
+            <a href="#" className="text-primary hover:text-primary/80"> {/* Updated color */}
+              <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path d="M19.589 6.686a4.93 4.93 0 00-3.351-4.128 4.928 4.928 0 00-5.33 1.075 4.935 4.935 0 00-1.345 3.312 4.935 4.935 0 00-1.7-3.042 4.928 4.928 0 00-5.461-.894 4.928 4.928 0 00-2.323 2.397 4.93 4.93 0 001.055 5.452l8.11 8.11 8.345-8.345c.913-.913 2.215-2.205 2.215-3.939 0-.166-.014-.33-.04-.492a4.929 4.929 0 00-.175-.505zM5.5 9a3.5 3.5 0 010 7zm13 0a3.5 3.5 0 010 7z"/>
+              </svg>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      {/* Map Section */}
+      <section className="h-96 relative">
+        <div className="absolute inset-0 z-0">
+          {/* Replace with actual Google Maps embed */}
+          <div className="w-full h-full bg-gray-200 flex items-center justify-center">
+            <p className="text-gray-500">Google Maps Embed</p>
+          </div>
+        </div>
+      </section>
+
+      {/* Service Areas Preview */}
+      <Section bgColor="alt" title="Service Areas" subtitle="We proudly serve Roseville and surrounding communities"> {/* Changed to alt background */}
+        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
+          <div className="bg-background p-4 rounded-lg text-center shadow-subtle"> {/* Updated styles */}
+            <h3 className="font-bold text-text-primary">Roseville</h3> {/* Updated color */}
+          </div>
+          <div className="bg-background p-4 rounded-lg text-center shadow-subtle"> {/* Updated styles */}
+            <h3 className="font-bold text-text-primary">Rocklin</h3> {/* Updated color */}
+          </div>
+          <div className="bg-background p-4 rounded-lg text-center shadow-subtle"> {/* Updated styles */}
+            <h3 className="font-bold text-text-primary">Granite Bay</h3> {/* Updated color */}
+          </div>
+          <div className="bg-background p-4 rounded-lg text-center shadow-subtle"> {/* Updated styles */}
+            <h3 className="font-bold text-text-primary">Sacramento</h3> {/* Updated color */}
+          </div>
+          {/* Add more areas as needed */}
+        </div>
+        <div className="text-center mt-8">
+          <Button href="/areas" variant="primary">View All Service Areas</Button> {/* Updated styles */}
+        </div>
+      </Section>
+    </>
+  );
+}
