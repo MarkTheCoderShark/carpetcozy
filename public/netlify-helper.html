@@ -1,15 +1,34 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Netlify Form Detection</title>
+  </head>
   <body>
-    <form name="contact" netlify>
-      <input type="text" name="first-name" />
-      <input type="text" name="last-name" />
-      <input type="email" name="email" />
-      <input type="tel" name="phone" />
-      <select name="service">
-        <option value="residential">Residential</option>
-      </select>
-      <textarea name="message"></textarea>
+    <form
+      name="contact"
+      method="POST"
+      data-netlify="true"
+      data-netlify-honeypot="bot-field"
+      action="/thank-you"
+    >
+      <input type="hidden" name="form-name" value="contact" />
+      <p hidden>
+        <label>Don't fill this out: <input name="bot-field" /></label>
+      </p>
+      <p><input type="text" name="first-name" placeholder="First Name" /></p>
+      <p><input type="text" name="last-name" placeholder="Last Name" /></p>
+      <p><input type="email" name="email" placeholder="Email" /></p>
+      <p><input type="tel" name="phone" placeholder="Phone" /></p>
+      <p>
+        <select name="service">
+          <option value="">Select</option>
+          <option value="residential-carpet-cleaning">Residential</option>
+          <option value="commercial-carpet-cleaning">Commercial</option>
+        </select>
+      </p>
+      <p><textarea name="message" placeholder="Message..."></textarea></p>
+      <p><button type="submit">Submit</button></p>
     </form>
   </body>
 </html> 
