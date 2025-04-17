@@ -1,4 +1,6 @@
 import React from 'react';
+'use client';
+
 import Section from "@/components/ui/Section";
 import Button from "@/components/ui/Button"; // Keep Button if used elsewhere, otherwise remove
 
