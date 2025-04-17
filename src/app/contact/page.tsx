@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Section from "@/components/ui/Section";
 import Button from "@/components/ui/Button"; // Keep Button if used elsewhere, otherwise remove
-import ContactForm from "@/components/ui/ContactForm"; // Import the new form component
+import { ContactForm } from "@/components/ui/ContactForm"; // Updated to use named import
 
 export const metadata = {
   title: "Contact Us | CarpetCozy - Professional Carpet Cleaning",
