@@ -10,6 +10,8 @@
 
 [[plugins]]
   package = "@netlify/plugin-nextjs"
+  [plugins.inputs]
+    forms = true
 
 # Disabling the sitemap plugin as we're handling it with Next.js route handler
 # [[plugins]]
@@ -79,6 +81,7 @@
   [forms.contact]
     name = "contact"
     success_url = "/thank-you"
+    honeypot = "bot-field"
 
 [forms-notifications.email]
   [forms-notifications.email.contact]
@@ -98,7 +101,8 @@
   directory = "netlify/functions"
   node_bundler = "esbuild"
 
+# Handle Netlify Functions
 [[redirects]]
-  from = "/.netlify/functions/*"
-  to = "/.netlify/functions/:splat"
+  from = ".netlify/functions/*"
+  to = ".netlify/functions/:splat"
   status = 200 
