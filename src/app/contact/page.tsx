@@ -67,7 +67,7 @@ export default function ContactPage() {
           <form
             name="contact"
             method="POST" // Keep POST method
-            action="/thank-you" // Explicitly set the action
+            action="" // Explicitly set the action
             data-netlify="true"
             data-netlify-honeypot="bot-field"
             className="space-y-4"
