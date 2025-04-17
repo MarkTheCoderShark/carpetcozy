@@ -3,6 +3,12 @@
   <head>
     <meta charset="UTF-8" />
     <title>Netlify Form Detection</title>
+    <script>
+      fetch("/__netlify/forms")
+        .then(res => res.json())
+        .then(data => console.log("Netlify Forms:", data))
+        .catch(err => console.error("Form Debug Error:", err));
+    </script>
   </head>
   <body>
     <form
