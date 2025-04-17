@@ -3,35 +3,49 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact Form</title>
+    <title>Contact Form Detection</title>
+    <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body>
-    <form name="contact" method="POST" data-netlify="true" data-netlify-honeypot="bot-field">
+<body class="bg-gray-50 min-h-screen flex items-center justify-center p-6">
+    <form
+        name="contact"
+        method="POST"
+        data-netlify="true"
+        action="/thank-you"
+        data-netlify-honeypot="bot-field"
+        class="bg-white p-8 rounded-lg shadow-md w-full max-w-xl space-y-4"
+    >
         <input type="hidden" name="form-name" value="contact" />
         <div class="hidden">
             <label>
-                Don't fill this out if you're human: <input name="bot-field" />
+                Don't fill this out: <input name="bot-field" />
             </label>
         </div>
-        <div>
-            <label for="firstName">First Name</label>
-            <input type="text" id="firstName" name="firstName" required />
+
+        <div class="grid grid-cols-2 gap-4">
+            <div>
+                <label class="block text-sm font-medium">First Name</label>
+                <input name="firstName" required class="w-full border rounded px-3 py-2" />
+            </div>
+            <div>
+                <label class="block text-sm font-medium">Last Name</label>
+                <input name="lastName" required class="w-full border rounded px-3 py-2" />
+            </div>
         </div>
+
         <div>
-            <label for="lastName">Last Name</label>
-            <input type="text" id="lastName" name="lastName" required />
+            <label class="block text-sm font-medium">Email</label>
+            <input name="email" type="email" required class="w-full border rounded px-3 py-2" />
         </div>
+
         <div>
-            <label for="email">Email</label>
-            <input type="email" id="email" name="email" required />
+            <label class="block text-sm font-medium">Phone</label>
+            <input name="phone" type="tel" required class="w-full border rounded px-3 py-2" />
         </div>
+
         <div>
-            <label for="phone">Phone</label>
-            <input type="tel" id="phone" name="phone" required />
-        </div>
-        <div>
-            <label for="service">Service</label>
-            <select id="service" name="service" required>
+            <label class="block text-sm font-medium">Service</label>
+            <select name="service" required class="w-full border rounded px-3 py-2">
                 <option value="">Select</option>
                 <option value="Residential">Residential</option>
                 <option value="Commercial">Commercial</option>
@@ -42,11 +56,15 @@
                 <option value="Other">Other</option>
             </select>
         </div>
+
         <div>
-            <label for="message">Message</label>
-            <textarea id="message" name="message" required></textarea>
+            <label class="block text-sm font-medium">Message</label>
+            <textarea name="message" rows="4" required class="w-full border rounded px-3 py-2"></textarea>
         </div>
-        <button type="submit">Send Message</button>
+
+        <button type="submit" class="w-full bg-primary text-white py-3 px-4 rounded hover:bg-opacity-90">
+            Send Message
+        </button>
     </form>
 </body>
 </html> 
