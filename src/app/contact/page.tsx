@@ -15,12 +15,21 @@ export default function ContactPage() {
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     const form = event.currentTarget;
-    const formData = new FormData(form);
+    const formData = new URLSearchParams();
+    for (const field of Array.from(form.elements)) {
+      if ((field as HTMLInputElement).name) {
+        formData.append(
+          (field as HTMLInputElement).name,
+          encodeURIComponent((field as HTMLInputElement).value || "")
+        );
+      }
+    }
 
     try {
       const response = await fetch("/", {
         method: "POST",
-        body: formData,
+        headers: { "Content-Type": "application/x-www-form-urlencoded" },
+        body: formData.toString(),
       });
 
       if (response.ok) {
