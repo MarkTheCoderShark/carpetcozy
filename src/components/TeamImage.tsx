@@ -14,10 +14,12 @@ export default function TeamImage({ className = '', containerClassName = '' }: T
   return (
     <div className={`relative ${containerClassName}`}>
       {useRegularImg ? (
-        <img
+        <Image
           src="/images/team.png"
           alt="The CarpetCozy Professional Team"
-          className={`object-cover w-full h-full ${className}`}
+          fill
+          style={{ objectFit: "cover" }}
+          className={className}
         />
       ) : (
         <Image

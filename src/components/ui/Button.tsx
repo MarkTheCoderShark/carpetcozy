@@ -54,7 +54,7 @@ const Button: React.FC<ButtonProps> = ({
   // Render as link or button
   if (href) {
     // For links, disable via styles and prevent click if disabled
-    const linkProps = onClick && !disabled ? { onClick: (e: React.MouseEvent<HTMLAnchorElement>) => { e.preventDefault(); onClick(e as any); } } : {};
+  const linkProps = onClick && !disabled ? { onClick: (e: React.MouseEvent<HTMLElement>) => { e.preventDefault(); onClick(e as any); } } : {};
     const linkDisabledClasses = disabled ? 'opacity-50 cursor-not-allowed' : '';
     return (
       <Link
