@@ -66,8 +66,71 @@ export default function ContactPage() {
 
           {/* Contact Form Placeholder */}
           <div>
-            {/* Contact form removed */}
-            <p>Contact form will be here soon!</p> {/* Optional: Add a placeholder message */}
+            <h2 className="text-2xl md:text-3xl font-bold mb-6 text-text-primary border-b-2 border-primary pb-2">
+              Send Us a Message
+            </h2>
+            <form name="contact" method="POST" data-netlify="true" className="space-y-6">
+              {/* Netlify hidden input */}
+              <input type="hidden" name="form-name" value="contact" />
+
+              {/* Name Field */}
+              <div>
+                <label htmlFor="name" className="block text-sm font-medium text-text-primary mb-1">Name</label>
+                <input
+                  type="text"
+                  name="name"
+                  id="name"
+                  required
+                  className="w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-primary focus:border-primary"
+                  placeholder="Your Name"
+                />
+              </div>
+
+              {/* Email Field */}
+              <div>
+                <label htmlFor="email" className="block text-sm font-medium text-text-primary mb-1">Email</label>
+                <input
+                  type="email"
+                  name="email"
+                  id="email"
+                  required
+                  className="w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-primary focus:border-primary"
+                  placeholder="your.email@example.com"
+                />
+              </div>
+
+              {/* Phone Field */}
+              <div>
+                <label htmlFor="phone" className="block text-sm font-medium text-text-primary mb-1">Phone (Optional)</label>
+                <input
+                  type="tel"
+                  name="phone"
+                  id="phone"
+                  className="w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-primary focus:border-primary"
+                  placeholder="(555) 123-4567"
+                />
+              </div>
+
+              {/* Message Field */}
+              <div>
+                <label htmlFor="message" className="block text-sm font-medium text-text-primary mb-1">Message</label>
+                <textarea
+                  name="message"
+                  id="message"
+                  rows={4}
+                  required
+                  className="w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-primary focus:border-primary"
+                  placeholder="How can we help you?"
+                ></textarea>
+              </div>
+
+              {/* Submit Button */}
+              <div>
+                <Button type="submit" variant="primary" className="w-full"> {/* Use Button component */}
+                  Send Message
+                </Button>
+              </div>
+            </form>
           </div>
         </div>
       </Section>
