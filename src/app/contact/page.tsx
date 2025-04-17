@@ -7,7 +7,42 @@ export const metadata = {
     "Get in touch with CarpetCozy for professional carpet cleaning services. Contact us for a free quote and expert advice.",
 };
 
+import { useToast } from "@/components/ui/use-toast";
+
 export default function ContactPage() {
+  const { toast } = useToast();
+
+  const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    const form = event.currentTarget;
+    const formData = new FormData(form);
+
+    try {
+      const response = await fetch("/", {
+        method: "POST",
+        body: formData,
+      });
+
+      if (response.ok) {
+        toast({
+          title: "Success",
+          description: "Your message has been sent!",
+        });
+        form.reset();
+      } else {
+        toast({
+          title: "Error",
+          description: "Something went wrong. Please try again.",
+        });
+      }
+    } catch (error) {
+      toast({
+        title: "Error",
+        description: "Something went wrong. Please try again.",
+      });
+    }
+  };
+
   return (
     <>
       {/* Hero Section */}
@@ -70,6 +105,7 @@ export default function ContactPage() {
             data-netlify="true"
             data-netlify-honeypot="bot-field"
             className="space-y-4"
+            onSubmit={handleSubmit}
           >
             <input type="hidden" name="form-name" value="contact" />
             <div className="hidden">
