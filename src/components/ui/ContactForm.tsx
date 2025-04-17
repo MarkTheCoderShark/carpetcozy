@@ -1,57 +1,19 @@
 "use client";
 
-import { useState } from 'react';
 import Button from './Button';
 import { Input } from './Input';
 import { Textarea } from './Textarea';
 import { Select } from './Select';
 import { Label } from './Label';
-import { useToast } from './use-toast';
 
 export function ContactForm() {
-  const [isSubmitting, setIsSubmitting] = useState(false);
-  const { toast } = useToast();
-
-  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    setIsSubmitting(true);
-
-    const form = e.currentTarget;
-    const formData = new FormData(form);
-
-    try {
-      const response = await fetch('/', {
-        method: 'POST',
-        body: formData,
-      });
-
-      if (response.ok) {
-        toast({
-          title: 'Success!',
-          description: 'Your message has been sent. We will get back to you soon.',
-        });
-        form.reset();
-      } else {
-        throw new Error('Form submission failed');
-      }
-    } catch (error) {
-      toast({
-        title: 'Error',
-        description: 'There was a problem sending your message. Please try again.',
-        variant: 'destructive',
-      });
-    } finally {
-      setIsSubmitting(false);
-    }
-  };
-
   return (
     <form
       name="contact"
       method="POST"
+      action="/thank-you"
       data-netlify="true"
       data-netlify-honeypot="bot-field"
-      onSubmit={handleSubmit}
       className="space-y-6"
     >
       <input type="hidden" name="form-name" value="contact" />
@@ -130,8 +92,8 @@ export function ContactForm() {
         />
       </div>
 
-      <Button type="submit" disabled={isSubmitting} className="w-full">
-        {isSubmitting ? 'Sending...' : 'Send Message'}
+      <Button type="submit" className="w-full">
+        Send Message
       </Button>
     </form>
   );
