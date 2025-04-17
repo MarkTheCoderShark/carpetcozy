@@ -138,12 +138,8 @@ export default function ContactPage() {
                   className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-primary focus:border-primary"
                 >
                   <option value="">Select a service</option>
-                  <option value="residential-carpet-cleaning">Residential Carpet Cleaning</option>
-                  <option value="commercial-carpet-cleaning">Commercial Carpet Cleaning</option>
-                  <option value="area-rug-cleaning">Area Rug Cleaning</option>
-                  <option value="upholstery-cleaning">Upholstery Cleaning</option>
-                  <option value="tile-and-grout-cleaning">Tile & Grout Cleaning</option>
-                  <option value="post-construction-cleaning">Post-Construction Cleaning</option>
+                  <option value="Residential">Residential</option>
+                  <option value="Commercial">Commercial</option>
                 </select>
               </div>
 
