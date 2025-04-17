@@ -82,30 +82,30 @@ export default function ContactPage() {
             <div className="grid grid-cols-2 gap-4">
               <div>
                 <label
-                  htmlFor="firstName"
+                  htmlFor="first-name"
                   className="block text-sm font-medium text-gray-700"
                 >
                   First Name
                 </label>
                 <input
                   type="text"
-                  id="firstName"
-                  name="firstName"
+                  id="first-name"
+                  name="first-name"
                   required
                   className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-primary focus:border-primary"
                 />
               </div>
               <div>
                 <label
-                  htmlFor="lastName"
+                  htmlFor="last-name"
                   className="block text-sm font-medium text-gray-700"
                 >
                   Last Name
                 </label>
                 <input
                   type="text"
-                  id="lastName"
-                  name="lastName"
+                  id="last-name"
+                  name="last-name"
                   required
                   className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-primary focus:border-primary"
                 />

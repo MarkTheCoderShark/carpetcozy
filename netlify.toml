@@ -14,6 +14,26 @@
 [forms]
   enableForms = true
 
+  [forms.contact]
+    name = "contact"
+    success_url = "/thank-you"
+    honeypot = "bot-field"
+    enable_recaptcha = false
+
+[forms-notifications.email]
+  [forms-notifications.email.contact]
+    to = "markthecodershark@gmail.com"
+    subject = "New CarpetCozy Contact Form Submission"
+    template = """
+    New contact form submission:
+    
+    Name: {{form.first-name}} {{form.last-name}}
+    Email: {{form.email}}
+    Phone: {{form.phone}}
+    Service: {{form.service}}
+    Message: {{form.message}}
+    """
+
 # Disabling the sitemap plugin as we're handling it with Next.js route handler
 # [[plugins]]
 #   package = "@netlify/plugin-sitemap"
@@ -63,7 +83,6 @@
   status = 200
   conditions = { Method = ["GET"] }
 
-# Form handling configuration
 [[headers]]
   for = "/*"
   [headers.values]
@@ -78,29 +97,6 @@
     Content-Type = "application/xml"
     X-Content-Type-Options = "nosniff"
 
-# Form handling settings
-[forms]
-  [forms.contact]
-    name = "contact"
-    success_url = "/thank-you"
-    honeypot = "bot-field"
-    enable_recaptcha = false
-
-[forms-notifications.email]
-  [forms-notifications.email.contact]
-    to = "markthecodershark@gmail.com"
-    subject = "New CarpetCozy Contact Form Submission"
-    template = """
-    New contact form submission:
-    
-    Name: {{form.first-name}} {{form.last-name}}
-    Email: {{form.email}}
-    Phone: {{form.phone}}
-    Service: {{form.service}}
-    Message: {{form.message}}
-    """
-
-# Handle form submissions
 [[redirects]]
   from = "/thank-you"
   to = "/thank-you"
@@ -111,7 +107,6 @@
   directory = "netlify/functions"
   node_bundler = "esbuild"
 
-# Handle Netlify Functions
 [[redirects]]
   from = ".netlify/functions/*"
   to = ".netlify/functions/:splat"
