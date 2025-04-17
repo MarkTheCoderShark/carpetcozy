@@ -58,6 +58,7 @@
   from = "/*"
   to = "/index.html"
   status = 200
+  conditions = { Method = ["GET"] }
 
 # Form handling configuration
 [[headers]]
