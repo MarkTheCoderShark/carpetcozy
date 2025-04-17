@@ -1,5 +1,6 @@
-/** @type {import('tailwindcss').Config} */
-module.exports = {
+import type { Config } from 'tailwindcss';
+
+const config: Config = {
   content: [
     "./src/pages/**/*.{js,ts,jsx,tsx,mdx}",
     "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
@@ -51,11 +52,9 @@ module.exports = {
           '100%': { transform: 'translateX(0)', opacity: '1' },
         },
       },
-      backgroundImage: {
-        'hero-gradient': 'linear-gradient(to right, #f8fcff, #e0f2f1)',
-        'section-gradient': 'linear-gradient(to bottom, #ffffff, #f8fafc)',
-      },
     },
   },
   plugins: [],
 };
+
+export default config; 

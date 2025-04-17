@@ -1,62 +1,47 @@
-import Link from 'next/link';
+import Section from "@/components/ui/Section";
+import Button from "@/components/ui/Button";
 
 export const metadata = {
-  title: 'Thank You | CarpetCozy',
-  description: 'Thank you for contacting CarpetCozy. We will get back to you shortly.',
+  title: "Thank You | CarpetCozy",
+  description: "Thank you for contacting CarpetCozy. We'll get back to you soon!",
 };
 
 export default function ThankYouPage() {
   return (
-    <div className="min-h-screen bg-gray-50 pt-32">
-      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-        <div className="bg-white rounded-xl shadow-md p-8 text-center">
-          <div className="mb-8">
-            <svg
-              className="mx-auto h-16 w-16 text-green-500"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 48 48"
-            >
-              <circle cx="24" cy="24" r="22" strokeWidth="2" />
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth="2"
-                d="M16 24l6 6 12-12"
-              />
-            </svg>
-          </div>
-          
-          <h1 className="text-4xl font-bold text-gray-900 mb-4">
-            Thank You for Contacting Us!
+    <>
+      <section className="hero relative bg-cover bg-center pt-32 pb-24 min-h-[500px]">
+        <div className="absolute inset-0 bg-white/70 backdrop-blur-sm z-0"></div>
+        <div className="relative z-10 container mx-auto px-4 text-center max-w-4xl">
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 text-text-primary">
+            Thank You!
           </h1>
-          
-          <p className="text-lg text-gray-600 mb-8">
-            We have received your message and will get back to you as soon as possible.
-            Usually, we respond within 24 hours during business days.
+          <p className="text-xl md:text-2xl mb-8 text-text-primary/80">
+            We&apos;ve received your message and will get back to you shortly.
           </p>
-          
-          <div className="space-y-4">
-            <p className="text-gray-600">
-              While you wait, you might be interested in:
-            </p>
-            <div className="flex flex-wrap justify-center gap-4">
-              <Link
-                href="/services"
-                className="inline-block bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition-colors"
-              >
-                Explore Our Services
-              </Link>
-              <Link
-                href="/blog"
-                className="inline-block bg-white text-blue-600 border border-blue-600 px-6 py-3 rounded-lg hover:bg-blue-50 transition-colors"
-              >
-                Read Our Blog
-              </Link>
-            </div>
+          <Button href="/" variant="primary">
+            Return Home
+          </Button>
+        </div>
+      </section>
+
+      <Section bgColor="default">
+        <div className="max-w-3xl mx-auto text-center">
+          <h2 className="text-2xl md:text-3xl font-bold mb-6 text-text-primary">
+            What&apos;s Next?
+          </h2>
+          <p className="mb-8 text-text-primary/80">
+            Our team will review your message and contact you within 24 hours. In the meantime, feel free to explore our services or check out our blog for helpful tips and information.
+          </p>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <Button href="/services" variant="secondary">
+              View Our Services
+            </Button>
+            <Button href="/blog" variant="secondary">
+              Read Our Blog
+            </Button>
           </div>
         </div>
-      </div>
-    </div>
+      </Section>
+    </>
   );
 } 

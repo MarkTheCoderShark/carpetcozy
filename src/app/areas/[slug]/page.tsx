@@ -1,4 +1,3 @@
-import Image from "next/image";
 import { notFound } from "next/navigation";
 import Section from "@/components/ui/Section";
 import Button from "@/components/ui/Button";
@@ -6,7 +5,6 @@ import TestimonialCard from "@/components/ui/TestimonialCard";
 import { serviceAreas, ServiceArea } from "../data";
 import TeamImage from "@/components/TeamImage";
 import { Metadata } from "next";
-import ServiceCard from "@/components/ui/ServiceCard";
 
 export async function generateStaticParams() {
   return serviceAreas.map((area: ServiceArea) => ({
