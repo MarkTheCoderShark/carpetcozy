@@ -1,17 +1,14 @@
 import Image from "next/image";
 import Section from "@/components/ui/Section";
 import Button from "@/components/ui/Button"; // Keep Button if used elsewhere, otherwise remove
-import { useForm } from "react-hook-form";
 
 export const metadata = {
-  title: "Contact Us | CarpetCozy - Professional Carpet Cleaning",
-  description: "Contact CarpetCozy for professional carpet cleaning services in Roseville and surrounding areas. Get a free quote or schedule a cleaning service today.",
-  keywords: "contact carpet cleaner, carpet cleaning quote, Roseville carpet cleaning service, schedule carpet cleaning, carpet cleaning phone number",
+  title: "Contact Us | CarpetCozy",
+  description:
+    "Get in touch with CarpetCozy for professional carpet cleaning services. Contact us for a free quote and expert advice.",
 };
 
 export default function ContactPage() {
-  const { register } = useForm();
-
   return (
     <>
       {/* Hero Section */}
@@ -45,220 +42,236 @@ export default function ContactPage() {
           {/* Contact Form */}
           <div>
             <h2 className="text-2xl md:text-3xl font-bold mb-6 text-text-primary border-b-2 border-primary pb-2">
-              Send Us a Message
+              Get in Touch
             </h2>
-            <form
-              name="contact"
-              method="POST"
-              data-netlify="true"
-              data-netlify-honeypot="bot-field"
-              action="/thank-you"
-              className="space-y-6"
-            >
-              <input type="hidden" name="form-name" value="contact" />
-              <div className="hidden">
-                <label>
-                  Don't fill this out if you're human: <input name="bot-field" />
-                </label>
+            <p className="mb-6">
+              Have questions about our services? Ready to schedule a cleaning?
+              Fill out the form and we'll get back to you as soon as possible.
+            </p>
+            <div className="space-y-4">
+              <div>
+                <h3 className="font-semibold">Phone</h3>
+                <p>(916) 123-4567</p>
               </div>
-
-              {/* Test submission button */}
-              <div className="bg-yellow-100 p-4 rounded-md mb-4">
-                <p className="text-yellow-800 font-medium">Test Form Submission</p>
-                <button
-                  type="submit"
-                  className="mt-2 bg-yellow-500 text-white py-2 px-4 rounded-md hover:bg-yellow-600"
-                >
-                  Submit Test Form
-                </button>
+              <div>
+                <h3 className="font-semibold">Email</h3>
+                <p>info@carpetcozy.com</p>
               </div>
-
-              <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
-                <div className="space-y-2">
-                  <label htmlFor="first-name" className="block text-sm font-medium text-text-primary">
-                    First Name
-                  </label>
-                  <input
-                    type="text"
-                    id="first-name"
-                    name="first-name"
-                    required
-                    className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-primary focus:border-primary"
-                    placeholder="John"
-                  />
-                </div>
-                <div className="space-y-2">
-                  <label htmlFor="last-name" className="block text-sm font-medium text-text-primary">
-                    Last Name
-                  </label>
-                  <input
-                    type="text"
-                    id="last-name"
-                    name="last-name"
-                    required
-                    className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-primary focus:border-primary"
-                    placeholder="Doe"
-                  />
-                </div>
-              </div>
-
-              <div className="space-y-2">
-                <label htmlFor="email" className="block text-sm font-medium text-text-primary">
-                  Email
-                </label>
-                <input
-                  type="email"
-                  id="email"
-                  name="email"
-                  required
-                  className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-primary focus:border-primary"
-                  placeholder="john@example.com"
-                />
-              </div>
-
-              <div className="space-y-2">
-                <label htmlFor="phone" className="block text-sm font-medium text-text-primary">
-                  Phone
-                </label>
-                <input
-                  type="tel"
-                  id="phone"
-                  name="phone"
-                  required
-                  className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-primary focus:border-primary"
-                  placeholder="(555) 555-5555"
-                />
-              </div>
-
-              <div className="space-y-2">
-                <label htmlFor="service" className="block text-sm font-medium text-text-primary">
-                  Service
-                </label>
-                <select
-                  name="service"
-                  id="service"
-                  {...register("service")}
-                  required
-                  className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-primary focus:border-primary"
-                >
-                  <option value="">Select</option>
-                  <option value="Residential">Residential</option>
-                  <option value="Commercial">Commercial</option>
-                  <option value="Upholstery">Upholstery</option>
-                  <option value="Area Rug">Area Rug</option>
-                  <option value="Tile & Grout">Tile & Grout</option>
-                  <option value="Pet Stain & Odor">Pet Stain & Odor</option>
-                  <option value="Other">Other</option>
-                </select>
-              </div>
-
-              <div className="space-y-2">
-                <label htmlFor="message" className="block text-sm font-medium text-text-primary">
-                  Message
-                </label>
-                <textarea
-                  id="message"
-                  name="message"
-                  required
-                  className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-primary focus:border-primary min-h-[100px]"
-                  placeholder="Tell us about your cleaning needs..."
-                />
-              </div>
-
-              <button
-                type="submit"
-                className="w-full bg-primary text-white py-3 px-4 rounded-md hover:bg-primary/90 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary"
-              >
-                Send Message
-              </button>
-            </form>
-          </div>
-          
-          {/* Contact Information */}
-          <div className="bg-background-alt p-8 rounded-lg shadow-subtle"> {/* Updated styles */}
-            <h2 className="text-2xl md:text-3xl font-bold mb-6 text-text-primary border-b-2 border-primary pb-2">Contact Information</h2> {/* Updated colors */}
-            
-            <div className="space-y-6">
-              <div className="flex items-start">
-                <div className="flex-shrink-0 mt-1">
-                  <svg className="w-6 h-6 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"> {/* Updated color */}
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
-                  </svg>
-                </div>
-                <div className="ml-4">
-                  <h3 className="text-lg font-semibold mb-1 text-text-primary">Phone</h3> {/* Updated color */}
-                  <p className="text-text-primary/80">(555) 123-4567</p> {/* Updated color */}
-                </div>
-              </div>
-              
-              <div className="flex items-start">
-                <div className="flex-shrink-0 mt-1">
-                  <svg className="w-6 h-6 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"> {/* Updated color */}
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-                  </svg>
-                </div>
-                <div className="ml-4">
-                  <h3 className="text-lg font-semibold mb-1 text-text-primary">Contact Form</h3> {/* Updated color */}
-                  <p className="text-text-primary/80">Fill out our form and we'll get back to you within 24 hours</p> {/* Updated color */}
-                </div>
-              </div>
-              
-              <div className="flex items-start">
-                <div className="flex-shrink-0 mt-1">
-                  <svg className="w-6 h-6 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"> {/* Updated color */}
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
-                  </svg>
-                </div>
-                <div className="ml-4">
-                  <h3 className="text-lg font-semibold mb-1 text-text-primary">Address</h3> {/* Updated color */}
-                  <p className="text-text-primary/80"> {/* Updated color */}
-                    123 Carpet Way<br />
-                    Roseville, CA 95678
-                  </p>
-                </div>
-              </div>
-              
-              <div className="flex items-start">
-                <div className="flex-shrink-0 mt-1">
-                  <svg className="w-6 h-6 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"> {/* Updated color */}
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
-                  </svg>
-                </div>
-                <div className="ml-4">
-                  <h3 className="text-lg font-semibold mb-1 text-text-primary">Business Hours</h3> {/* Updated color */}
-                  <p className="text-text-primary/80"> {/* Updated color */}
-                    Monday - Friday: 8:00 AM - 6:00 PM<br />
-                    Saturday: 9:00 AM - 3:00 PM<br />
-                    Sunday: Closed
-                  </p>
-                </div>
+              <div>
+                <h3 className="font-semibold">Service Areas</h3>
+                <p>Sacramento, Roseville, Rocklin, and surrounding areas</p>
               </div>
             </div>
-            
-            <div className="mt-8">
-              <h3 className="text-lg font-semibold mb-4 text-text-primary">Connect With Us</h3> {/* Updated color */}
-              <div className="flex space-x-4">
-                <a href="#" className="text-primary hover:text-primary/80"> {/* Updated color */}
-                  <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
-                  </svg>
-                </a>
-                <a href="#" className="text-primary hover:text-primary/80"> {/* Updated color */}
-                  <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/>
-                  </svg>
-                </a>
-                <a href="#" className="text-primary hover:text-primary/80"> {/* Updated color */}
-                  <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M19.589 6.686a4.93 4.93 0 00-3.351-4.128 4.928 4.928 0 00-5.33 1.075 4.935 4.935 0 00-1.345 3.312 4.935 4.935 0 00-1.7-3.042 4.928 4.928 0 00-5.461-.894 4.928 4.928 0 00-2.323 2.397 4.93 4.93 0 001.055 5.452l8.11 8.11 8.345-8.345c.913-.913 2.215-2.205 2.215-3.939 0-.166-.014-.33-.04-.492a4.929 4.929 0 00-.175-.505zM5.5 9a3.5 3.5 0 110-7 3.5 3.5 0 010 7zm13 0a3.5 3.5 0 110-7 3.5 3.5 0 010 7z"/>
-                  </svg>
-                </a>
+          </div>
+          
+          {/* Contact Form */}
+          <form
+            name="contact"
+            method="POST"
+            data-netlify="true"
+            action="/thank-you"
+            data-netlify-honeypot="bot-field"
+            className="space-y-4"
+          >
+            <input type="hidden" name="form-name" value="contact" />
+            <div className="hidden">
+              <label>
+                Don't fill this out if you're human:{" "}
+                <input name="bot-field" />
+              </label>
+            </div>
+            <div className="grid grid-cols-2 gap-4">
+              <div>
+                <label
+                  htmlFor="firstName"
+                  className="block text-sm font-medium text-gray-700"
+                >
+                  First Name
+                </label>
+                <input
+                  type="text"
+                  id="firstName"
+                  name="firstName"
+                  required
+                  className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-primary focus:border-primary"
+                />
               </div>
+              <div>
+                <label
+                  htmlFor="lastName"
+                  className="block text-sm font-medium text-gray-700"
+                >
+                  Last Name
+                </label>
+                <input
+                  type="text"
+                  id="lastName"
+                  name="lastName"
+                  required
+                  className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-primary focus:border-primary"
+                />
+              </div>
+            </div>
+            <div>
+              <label
+                htmlFor="email"
+                className="block text-sm font-medium text-gray-700"
+              >
+                Email
+              </label>
+              <input
+                type="email"
+                id="email"
+                name="email"
+                required
+                className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-primary focus:border-primary"
+              />
+            </div>
+            <div>
+              <label
+                htmlFor="phone"
+                className="block text-sm font-medium text-gray-700"
+              >
+                Phone
+              </label>
+              <input
+                type="tel"
+                id="phone"
+                name="phone"
+                required
+                className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-primary focus:border-primary"
+              />
+            </div>
+            <div>
+              <label
+                htmlFor="service"
+                className="block text-sm font-medium text-gray-700"
+              >
+                Service
+              </label>
+              <select
+                name="service"
+                id="service"
+                required
+                className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-primary focus:border-primary"
+              >
+                <option value="">Select</option>
+                <option value="Residential">Residential</option>
+                <option value="Commercial">Commercial</option>
+                <option value="Upholstery">Upholstery</option>
+                <option value="Area Rug">Area Rug</option>
+                <option value="Tile & Grout">Tile & Grout</option>
+                <option value="Pet Stain & Odor">Pet Stain & Odor</option>
+                <option value="Other">Other</option>
+              </select>
+            </div>
+            <div>
+              <label
+                htmlFor="message"
+                className="block text-sm font-medium text-gray-700"
+              >
+                Message
+              </label>
+              <textarea
+                id="message"
+                name="message"
+                rows={4}
+                required
+                className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-primary focus:border-primary"
+              ></textarea>
+            </div>
+            <div>
+              <Button type="submit" className="w-full">
+                Send Message
+              </Button>
+            </div>
+          </form>
+        </div>
+      </Section>
+
+      {/* Contact Information */}
+      <div className="bg-background-alt p-8 rounded-lg shadow-subtle"> {/* Updated styles */}
+        <h2 className="text-2xl md:text-3xl font-bold mb-6 text-text-primary border-b-2 border-primary pb-2">Contact Information</h2> {/* Updated colors */}
+        
+        <div className="space-y-6">
+          <div className="flex items-start">
+            <div className="flex-shrink-0 mt-1">
+              <svg className="w-6 h-6 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"> {/* Updated color */}
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+              </svg>
+            </div>
+            <div className="ml-4">
+              <h3 className="text-lg font-semibold mb-1 text-text-primary">Phone</h3> {/* Updated color */}
+              <p className="text-text-primary/80">(555) 123-4567</p> {/* Updated color */}
+            </div>
+          </div>
+          
+          <div className="flex items-start">
+            <div className="flex-shrink-0 mt-1">
+              <svg className="w-6 h-6 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"> {/* Updated color */}
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+              </svg>
+            </div>
+            <div className="ml-4">
+              <h3 className="text-lg font-semibold mb-1 text-text-primary">Contact Form</h3> {/* Updated color */}
+              <p className="text-text-primary/80">Fill out our form and we'll get back to you within 24 hours</p> {/* Updated color */}
+            </div>
+          </div>
+          
+          <div className="flex items-start">
+            <div className="flex-shrink-0 mt-1">
+              <svg className="w-6 h-6 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"> {/* Updated color */}
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+              </svg>
+            </div>
+            <div className="ml-4">
+              <h3 className="text-lg font-semibold mb-1 text-text-primary">Address</h3> {/* Updated color */}
+              <p className="text-text-primary/80"> {/* Updated color */}
+                123 Carpet Way<br />
+                Roseville, CA 95678
+              </p>
+            </div>
+          </div>
+          
+          <div className="flex items-start">
+            <div className="flex-shrink-0 mt-1">
+              <svg className="w-6 h-6 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"> {/* Updated color */}
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+              </svg>
+            </div>
+            <div className="ml-4">
+              <h3 className="text-lg font-semibold mb-1 text-text-primary">Business Hours</h3> {/* Updated color */}
+              <p className="text-text-primary/80"> {/* Updated color */}
+                Monday - Friday: 8:00 AM - 6:00 PM<br />
+                Saturday: 9:00 AM - 3:00 PM<br />
+                Sunday: Closed
+              </p>
             </div>
           </div>
         </div>
-      </Section>
+        
+        <div className="mt-8">
+          <h3 className="text-lg font-semibold mb-4 text-text-primary">Connect With Us</h3> {/* Updated color */}
+          <div className="flex space-x-4">
+            <a href="#" className="text-primary hover:text-primary/80"> {/* Updated color */}
+              <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+              </svg>
+            </a>
+            <a href="#" className="text-primary hover:text-primary/80"> {/* Updated color */}
+              <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/>
+              </svg>
+            </a>
+            <a href="#" className="text-primary hover:text-primary/80"> {/* Updated color */}
+              <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path d="M19.589 6.686a4.93 4.93 0 00-3.351-4.128 4.928 4.928 0 00-5.33 1.075 4.935 4.935 0 00-1.345 3.312 4.935 4.935 0 00-1.7-3.042 4.928 4.928 0 00-5.461-.894 4.928 4.928 0 00-2.323 2.397 4.93 4.93 0 001.055 5.452l8.11 8.11 8.345-8.345c.913-.913 2.215-2.205 2.215-3.939 0-.166-.014-.33-.04-.492a4.929 4.929 0 00-.175-.505zM5.5 9a3.5 3.5 0 110-7 3.5 3.5 0 010 7zm13 0a3.5 3.5 0 110-7 3.5 3.5 0 010 7z"/>
+              </svg>
+            </a>
+          </div>
+        </div>
+      </div>
 
       {/* Map Section */}
       <section className="h-96 relative">
