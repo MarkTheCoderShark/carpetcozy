@@ -49,7 +49,7 @@ export default function ContactPage() {
               method="POST"
               data-netlify="true"
               data-netlify-honeypot="bot-field"
-              action="/thank-you"
+              action="/contact"
               className="space-y-6"
             >
               <input type="hidden" name="form-name" value="contact" />
@@ -57,6 +57,17 @@ export default function ContactPage() {
                 <label>
                   Don't fill this out if you're human: <input name="bot-field" />
                 </label>
+              </div>
+
+              {/* Test submission button */}
+              <div className="bg-yellow-100 p-4 rounded-md mb-4">
+                <p className="text-yellow-800 font-medium">Test Form Submission</p>
+                <button
+                  type="submit"
+                  className="mt-2 bg-yellow-500 text-white py-2 px-4 rounded-md hover:bg-yellow-600"
+                >
+                  Submit Test Form
+                </button>
               </div>
 
               <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">

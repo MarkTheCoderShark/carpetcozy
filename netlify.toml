@@ -79,8 +79,9 @@
 [forms]
   [forms.contact]
     name = "contact"
-    success_url = "/thank-you"
+    success_url = "/contact"
     honeypot = "bot-field"
+    enable_recaptcha = false
 
 [forms-notifications.email]
   [forms-notifications.email.contact]
@@ -95,6 +96,13 @@
     Service: {{form.service}}
     Message: {{form.message}}
     """
+
+# Handle form submissions
+[[redirects]]
+  from = "/contact"
+  to = "/contact"
+  status = 200
+  force = true
 
 [functions]
   directory = "netlify/functions"
