@@ -7,7 +7,19 @@ export const metadata: Metadata = {
   description: 'Expert carpet cleaning tips and insights from CarpetCozy.',
 };
 
-const blogPosts = [
+interface BlogPost {
+  title: string;
+  description: string;
+  slug: string;
+  date: string;
+  sections: {
+    title: string;
+    content: string | string[];
+  }[];
+  callToAction: string;
+}
+
+const blogPosts: BlogPost[] = [
   {
     title: 'What to Expect During a CarpetCozy Cleaning Appointment',
     description: 'Learn exactly what happens during a professional carpet cleaning appointment with CarpetCozy. From preparation to completion, we guide you through every step of the process.',
@@ -22,9 +34,9 @@ const blogPosts = [
         title: 'When We Arrive',
         content: [
           'Our technician will arrive at your scheduled time',
-          'We\'ll perform a thorough inspection of your carpets',
-          'We\'ll discuss any specific concerns or problem areas',
-          'We\'ll explain our cleaning process and answer any questions',
+          'We&apos;ll perform a thorough inspection of your carpets',
+          'We&apos;ll discuss any specific concerns or problem areas',
+          'We&apos;ll explain our cleaning process and answer any questions',
         ],
       },
       {
@@ -39,13 +51,11 @@ const blogPosts = [
       },
       {
         title: 'After Cleaning',
-        content: 'We\'ll provide care instructions and recommendations for maintaining your clean carpets. Most carpets are dry within 4-6 hours, depending on humidity and ventilation.',
+        content: 'We&apos;ll provide care instructions and recommendations for maintaining your clean carpets. Most carpets are dry within 4-6 hours, depending on humidity and ventilation.',
       },
     ],
     callToAction: 'Schedule your professional carpet cleaning appointment today and experience the CarpetCozy difference!',
   },
-  
-  // New blog posts
   {
     title: 'How to Prepare Your Home for Professional Carpet Cleaning',
     description: 'Make the most of your carpet cleaning service with these easy preparation tips. Learn what to do before the professionals arrive to ensure the best possible results.',
@@ -63,7 +73,7 @@ const blogPosts = [
           'Move lightweight furniture when possible',
           'Identify and point out stains that need special attention',
           'Make note of any delicate or valuable items in the cleaning area',
-          'Secure loose items and fragile decor'
+          'Secure loose items and fragile decor',
         ],
       },
       {
@@ -72,12 +82,12 @@ const blogPosts = [
           'Vacuum carpets if possible (not required but helpful)',
           'Secure pets away from the cleaning areas',
           'Clear parking space for the cleaning van',
-          'Provide clear access to all rooms being cleaned'
+          'Provide clear access to all rooms being cleaned',
         ],
       },
       {
         title: 'Post-Cleaning Plans',
-        content: 'Professional carpet cleaning typically requires 4-8 hours of drying time. Plan family activities accordingly and consider which rooms you\'ll need access to immediately.',
+        content: 'Professional carpet cleaning typically requires 4-8 hours of drying time. Plan family activities accordingly and consider which rooms you&apos;ll need access to immediately.',
       },
     ],
     callToAction: 'Schedule your professional carpet cleaning with CarpetCozy and let us help you achieve the best results possible!',
@@ -95,11 +105,11 @@ const blogPosts = [
       {
         title: 'Emergency Response: The First 5 Minutes',
         content: [
-          'Blot, don\'t rub - use clean white towels to absorb as much wine as possible',
+          'Blot, don&apos;t rub - use clean white towels to absorb as much wine as possible',
           'Apply cold water to dilute remaining wine and blot again',
           'Add salt to draw out moisture, then vacuum thoroughly',
           'Never use hot water as it can set the stain permanently',
-          'Act quickly for the best results'
+          'Act quickly for the best results',
         ],
       },
       {
@@ -108,15 +118,15 @@ const blogPosts = [
           'Baking soda and vinegar method',
           'Club soda technique',
           'Hydrogen peroxide and dish soap mixture (for light-colored carpets only)',
-          'Commercial wine stain removers'
+          'Commercial wine stain removers',
         ],
       },
       {
         title: 'When to Call the Professionals',
-        content: 'If DIY methods don\'t work or for valuable carpets, professional cleaners have access to specialized equipment and solutions that can remove even old, set-in wine stains.',
+        content: 'If DIY methods don&apos;t work or for valuable carpets, professional cleaners have access to specialized equipment and solutions that can remove even old, set-in wine stains.',
       },
     ],
-    callToAction: 'Don\'t let wine stains ruin your carpets! Contact CarpetCozy for expert stain removal services that eliminate both stains and odors permanently.',
+    callToAction: 'Don&apos;t let wine stains ruin your carpets! Contact CarpetCozy for expert stain removal services that eliminate both stains and odors permanently.',
   },
   {
     title: 'Seasonal Carpet Cleaning: Why Fall Is the Perfect Time in El Dorado Hills',
@@ -126,16 +136,16 @@ const blogPosts = [
     sections: [
       {
         title: 'Why Fall Is the Ideal Carpet Cleaning Season in El Dorado Hills',
-        content: 'El Dorado Hills experiences moderate temperatures and lower humidity during fall, creating optimal conditions for carpet cleaning and faster drying times. Plus, it\'s perfect timing before holiday entertaining.',
+        content: 'El Dorado Hills experiences moderate temperatures and lower humidity during fall, creating optimal conditions for carpet cleaning and faster drying times. Plus, it&apos;s perfect timing before holiday entertaining.',
       },
       {
-        title: 'Removing Summer\'s Buildup',
+        title: 'Removing Summer&apos;s Buildup',
         content: [
           'Pollen and outdoor allergens that accumulated during summer',
           'Soil and debris from increased outdoor activities',
           'Oils and sweat from bare feet during hotter months',
           'Sunscreen and lotion residues on carpet fibers',
-          'Food particles from summer gatherings'
+          'Food particles from summer gatherings',
         ],
       },
       {
@@ -166,7 +176,7 @@ const blogPosts = [
           'Retail space cleaning for high-traffic areas',
           'Restaurant and hospitality specialized solutions',
           'Medical facility cleaning with sanitation focus',
-          'Educational institution scheduled maintenance'
+          'Educational institution scheduled maintenance',
         ],
       },
       {
@@ -178,7 +188,7 @@ const blogPosts = [
         content: 'We offer customized maintenance plans for Granite Bay businesses based on foot traffic, carpet type, business hours, and budget considerations, helping maintain a consistently professional appearance.',
       },
     ],
-    callToAction: 'Elevate your Granite Bay business image with CarpetCozy\'s professional commercial carpet cleaning services. Contact us today for a free on-site assessment!',
+    callToAction: 'Elevate your Granite Bay business image with CarpetCozy&apos;s professional commercial carpet cleaning services. Contact us today for a free on-site assessment!',
   },
   {
     title: 'Carpet vs. Hardwood: Which Flooring Option Is Best for Auburn Homes?',
@@ -188,15 +198,15 @@ const blogPosts = [
     sections: [
       {
         title: 'Comparing Comfort and Warmth',
-        content: 'Carpet provides natural insulation and a warm, soft surface ideal for Auburn\'s cooler months, while hardwood offers a classic appearance but can feel cold underfoot without area rugs.',
+        content: 'Carpet provides natural insulation and a warm, soft surface ideal for Auburn&apos;s cooler months, while hardwood offers a classic appearance but can feel cold underfoot without area rugs.',
       },
       {
         title: 'Maintenance Considerations for Auburn Homes',
         content: [
           'Carpet requires regular vacuuming and periodic professional cleaning',
           'Hardwood needs sweeping, occasional mopping, and refinishing every 5-10 years',
-          'Auburn\'s seasonal changes can affect both flooring types differently',
-          'Pets and children influence maintenance requirements for both options'
+          'Auburn&apos;s seasonal changes can affect both flooring types differently',
+          'Pets and children influence maintenance requirements for both options',
         ],
       },
       {
@@ -208,7 +218,7 @@ const blogPosts = [
         content: 'Hardwood has a higher upfront cost but can last longer, while carpet is more affordable initially but may need more frequent replacement and professional cleaning.',
       },
     ],
-    callToAction: 'No matter which flooring type you choose, CarpetCozy can help maintain your carpet\'s appearance and extend its life with our professional cleaning services!',
+    callToAction: 'No matter which flooring type you choose, CarpetCozy can help maintain your carpet&apos;s appearance and extend its life with our professional cleaning services!',
   },
   {
     title: 'How Professional Carpet Cleaning Improves Indoor Air Quality in Citrus Heights',
@@ -218,7 +228,7 @@ const blogPosts = [
     sections: [
       {
         title: 'How Carpets Affect Indoor Air Quality',
-        content: 'Carpets act as filters that trap dust, allergens, pet dander, and pollutants, but without regular deep cleaning, they can release these contaminants back into your Citrus Heights home\'s air.',
+        content: 'Carpets act as filters that trap dust, allergens, pet dander, and pollutants, but without regular deep cleaning, they can release these contaminants back into your Citrus Heights home&apos;s air.',
       },
       {
         title: 'Common Indoor Air Pollutants in Citrus Heights Homes',
@@ -227,7 +237,7 @@ const blogPosts = [
           'Pet dander and hair',
           'Pollen and outdoor allergens',
           'Mold spores and bacteria',
-          'VOCs from household products'
+          'VOCs from household products',
         ],
       },
       {
@@ -235,8 +245,8 @@ const blogPosts = [
         content: 'Regular professional cleaning can reduce allergy symptoms, decrease asthma triggers, eliminate harmful bacteria, and create a cleaner living environment, especially beneficial for sensitive individuals.',
       },
       {
-        title: 'CarpetCozy\'s Air Quality-Focused Cleaning Process',
-        content: 'Our hot water extraction method removes up to 98% of allergens and bacteria from carpets, while our HEPA-filtered equipment ensures that removed contaminants aren\'t released back into your home\'s air.',
+        title: 'CarpetCozy&apos;s Air Quality-Focused Cleaning Process',
+        content: 'Our hot water extraction method removes up to 98% of allergens and bacteria from carpets, while our HEPA-filtered equipment ensures that removed contaminants aren&apos;t released back into your home&apos;s air.',
       },
     ],
     callToAction: 'Breathe easier in your Citrus Heights home! Schedule your professional carpet cleaning with CarpetCozy and experience the difference cleaner carpets make to your indoor air quality.',
@@ -248,29 +258,29 @@ const blogPosts = [
     date: new Date().toLocaleDateString(),
     sections: [
       {
-        title: 'Understanding Different Area Rug Types',
-        content: 'Folsom homes feature various rug materials from wool and cotton to silk and synthetic fibers, each requiring specific cleaning approaches to preserve their beauty and integrity.',
+        title: 'Understanding Different Rug Types',
+        content: 'Different rug materials require different cleaning approaches. Wool, silk, synthetic, and natural fiber rugs each have specific care requirements that affect cleaning methods and frequency.',
       },
       {
-        title: 'DIY Area Rug Maintenance',
+        title: 'Regular Maintenance for Folsom Homes',
         content: [
-          'Regular vacuuming (both sides) without the beater bar for delicate rugs',
-          'Immediate spot cleaning for spills using appropriate methods',
-          'Seasonal rotation to prevent uneven wear and sun damage',
-          'Shaking smaller rugs outside to remove surface debris',
-          'Using rug pads to prevent slipping and reduce wear'
+          'Weekly vacuuming with proper attachments',
+          'Immediate spot treatment for spills',
+          'Regular rotation to prevent uneven wear',
+          'Professional cleaning every 12-18 months',
+          'Seasonal deep cleaning before major gatherings',
         ],
       },
       {
-        title: 'When to Call Professional Rug Cleaners',
-        content: 'Professional cleaning is recommended for valuable or antique rugs, stubborn stains, deep soiling, pet accidents, and any rug that hasn\'t been professionally cleaned within 12-18 months.',
+        title: 'When to Call the Professionals',
+        content: 'Professional cleaning is recommended for valuable rugs, delicate materials, large rugs, or when dealing with stubborn stains, pet accidents, or deep-seated dirt.',
       },
       {
-        title: 'CarpetCozy\'s Area Rug Cleaning Process',
-        content: 'We provide specialized cleaning based on rug type, including dust removal, pre-treatment, gentle yet thorough cleaning, and controlled drying to maintain your rug\'s beauty and extend its life.',
+        title: 'CarpetCozy&apos;s Area Rug Cleaning Process',
+        content: 'Our specialized process includes thorough inspection, gentle pre-treatment, careful cleaning with appropriate solutions, proper drying techniques, and final inspection to ensure your rug&apos;s longevity.',
       },
     ],
-    callToAction: 'Protect your valuable area rugs with CarpetCozy\'s professional area rug cleaning services. Contact us today for expert care tailored to your Folsom home\'s specific rug types!',
+    callToAction: 'Protect your investment! Schedule professional area rug cleaning with CarpetCozy and keep your Folsom home&apos;s rugs looking their best for years to come.',
   },
   {
     title: 'Post-Construction Carpet Cleaning: A Guide for Orangevale Homeowners',
