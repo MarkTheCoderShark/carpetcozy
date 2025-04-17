@@ -14,14 +14,14 @@ export default function ContactPage() {
       {/* Hero Section - Styled like homepage */}
       <section
         className="hero relative bg-cover bg-center pt-32 pb-24 min-h-[500px]" // Added padding, bg-cover, bg-center
-        style={{ backgroundImage: "url('/hero.png')" }} // Use inline style for background
+        style={{ backgroundImage: "url('/images/hero.jpeg')" }} // Use inline style for background
       >
         {/* Overlay */}
         <div className="absolute inset-0 bg-white/70 backdrop-blur-sm z-0"></div>
 
         {/* Removed the separate Image component */}
         {/* Content Container */}
-        
+
         {/* Centered the container and text */}
         {/* Added pt-24 (header height) + extra padding */}
         <div className="relative z-10 container mx-auto px-4 text-center max-w-4xl">
@@ -62,12 +62,11 @@ export default function ContactPage() {
               </div>
             </div>
           </div>
-          
+
           {/* Contact Form */}
           <form
             name="contact"
-            method="POST" // Keep POST method
-            action="" // Explicitly set the action
+            method="POST"
             data-netlify="true"
             data-netlify-honeypot="bot-field"
             className="space-y-4"
@@ -75,8 +74,7 @@ export default function ContactPage() {
             <input type="hidden" name="form-name" value="contact" />
             <div className="hidden">
               <label>
-                Don&apos;t fill this out if you&apos;re human:{" "}
-                <input name="bot-field" />
+                Don't fill this out if you're human: <input name="bot-field" />
               </label>
             </div>
             <div className="grid grid-cols-2 gap-4">
@@ -195,7 +193,7 @@ export default function ContactPage() {
       {/* Contact Information */}
       <div className="bg-background-alt p-8 rounded-lg shadow-subtle"> {/* Updated styles */}
         <h2 className="text-2xl md:text-3xl font-bold mb-6 text-text-primary border-b-2 border-primary pb-2">Contact Information</h2> {/* Updated colors */}
-        
+
         <div className="space-y-6">
           <div className="flex items-start">
             <div className="flex-shrink-0 mt-1">
@@ -208,7 +206,7 @@ export default function ContactPage() {
               <p className="text-text-primary/80">(555) 123-4567</p> {/* Updated color */}
             </div>
           </div>
-          
+
           <div className="flex items-start">
             <div className="flex-shrink-0 mt-1">
               <svg className="w-6 h-6 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"> {/* Updated color */}
@@ -220,12 +218,11 @@ export default function ContactPage() {
               <p className="text-text-primary/80">Fill out our form and we'll get back to you within 24 hours</p> {/* Updated color */}
             </div>
           </div>
-          
+
           <div className="flex items-start">
             <div className="flex-shrink-0 mt-1">
               <svg className="w-6 h-6 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"> {/* Updated color */}
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
               </svg>
             </div>
             <div className="ml-4">
@@ -236,7 +233,7 @@ export default function ContactPage() {
               </p>
             </div>
           </div>
-          
+
           <div className="flex items-start">
             <div className="flex-shrink-0 mt-1">
               <svg className="w-6 h-6 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"> {/* Updated color */}
@@ -253,7 +250,7 @@ export default function ContactPage() {
             </div>
           </div>
         </div>
-        
+
         <div className="mt-8">
           <h3 className="text-lg font-semibold mb-4 text-text-primary">Connect With Us</h3> {/* Updated color */}
           <div className="flex space-x-4">
@@ -322,4 +319,4 @@ export default function ContactPage() {
       </Section>
     </>
   );
-} 
+}
