@@ -1,228 +1,138 @@
 "use client";
 
-import React, { useState } from 'react';
+import { useState } from 'react';
 import Button from './Button';
+import { Input } from './Input';
+import { Textarea } from './Textarea';
+import { Select } from './Select';
+import { Label } from './Label';
+import { useToast } from './use-toast';
 
-interface FormData {
-  'first-name': string;
-  'last-name': string;
-  email: string;
-  phone: string;
-  service: string;
-  message: string;
-}
-
-const ContactForm: React.FC = () => {
-  const [formData, setFormData] = useState<FormData>({
-    'first-name': '',
-    'last-name': '',
-    email: '',
-    phone: '',
-    service: '',
-    message: '',
-  });
-  const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle');
-  const [errorMessage, setErrorMessage] = useState('');
-
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => {
-    const { name, value } = e.target;
-    setFormData(prevState => ({
-      ...prevState,
-      [name]: value,
-    }));
-  };
+export function ContactForm() {
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const { toast } = useToast();
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    setStatus('loading');
-    setErrorMessage('');
+    setIsSubmitting(true);
+
+    const form = e.currentTarget;
+    const formData = new FormData(form);
 
     try {
-      const formDataObj = new FormData();
-      Object.entries({ ...formData, 'form-name': 'contact' }).forEach(([key, value]) => {
-        formDataObj.append(key, value);
-      });
-
       const response = await fetch('/', {
         method: 'POST',
-        body: formDataObj,
+        body: formData,
       });
 
       if (response.ok) {
-        setStatus('success');
-        setFormData({
-          'first-name': '',
-          'last-name': '',
-          email: '',
-          phone: '',
-          service: '',
-          message: ''
+        toast({
+          title: 'Success!',
+          description: 'Your message has been sent. We will get back to you soon.',
         });
+        form.reset();
       } else {
         throw new Error('Form submission failed');
       }
     } catch (error) {
-      console.error('Error submitting form:', error);
-      setErrorMessage('An unexpected error occurred. Please try again later or contact us directly.');
-      setStatus('error');
+      toast({
+        title: 'Error',
+        description: 'There was a problem sending your message. Please try again.',
+        variant: 'destructive',
+      });
+    } finally {
+      setIsSubmitting(false);
     }
   };
 
-  if (status === 'success') {
-    return (
-      <div className="bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded-lg relative" role="alert">
-        <strong className="font-bold">Success!</strong>
-        <span className="block sm:inline"> Thank you for your message. We'll be in touch soon!</span>
-      </div>
-    );
-  }
-
   return (
-    <>
-      <form
-        name="contact"
-        method="POST"
-        data-netlify="true"
-        data-netlify-honeypot="bot-field"
-        action="/.netlify/functions/handle-form"
-        onSubmit={handleSubmit}
-        className="space-y-6"
-      >
-        <input type="hidden" name="form-name" value="contact" />
-        <p className="hidden">
-          <label>
-            Don't fill this out if you're human: <input name="bot-field" />
-          </label>
-        </p>
+    <form
+      name="contact"
+      method="POST"
+      data-netlify="true"
+      data-netlify-honeypot="bot-field"
+      onSubmit={handleSubmit}
+      className="space-y-6"
+    >
+      <input type="hidden" name="form-name" value="contact" />
+      <div className="hidden">
+        <label>
+          Don't fill this out if you're human: <input name="bot-field" />
+        </label>
+      </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          <div>
-            <label htmlFor="first-name" className="block text-text-primary/90 font-medium mb-2">
-              First Name *
-            </label>
-            <input
-              type="text"
-              id="first-name"
-              name="first-name"
-              className="w-full px-4 py-2 border border-primary/30 rounded-lg focus:outline-none focus:ring-2 focus:ring-accent bg-background-alt"
-              required
-              value={formData['first-name']}
-              onChange={handleChange}
-              disabled={status === 'loading'}
-            />
-          </div>
-          <div>
-            <label htmlFor="last-name" className="block text-text-primary/90 font-medium mb-2">
-              Last Name *
-            </label>
-            <input
-              type="text"
-              id="last-name"
-              name="last-name"
-              className="w-full px-4 py-2 border border-primary/30 rounded-lg focus:outline-none focus:ring-2 focus:ring-accent bg-background-alt"
-              required
-              value={formData['last-name']}
-              onChange={handleChange}
-              disabled={status === 'loading'}
-            />
-          </div>
-        </div>
-
-        <div>
-          <label htmlFor="email" className="block text-text-primary/90 font-medium mb-2">
-            Email Address *
-          </label>
-          <input
-            type="email"
-            id="email"
-            name="email"
-            className="w-full px-4 py-2 border border-primary/30 rounded-lg focus:outline-none focus:ring-2 focus:ring-accent bg-background-alt"
+      <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
+        <div className="space-y-2">
+          <Label htmlFor="first-name">First Name</Label>
+          <Input
+            id="first-name"
+            name="first-name"
+            type="text"
             required
-            value={formData.email}
-            onChange={handleChange}
-            disabled={status === 'loading'}
+            placeholder="John"
           />
         </div>
-
-        <div>
-          <label htmlFor="phone" className="block text-text-primary/90 font-medium mb-2">
-            Phone Number *
-          </label>
-          <input
-            type="tel"
-            id="phone"
-            name="phone"
-            className="w-full px-4 py-2 border border-primary/30 rounded-lg focus:outline-none focus:ring-2 focus:ring-accent bg-background-alt"
+        <div className="space-y-2">
+          <Label htmlFor="last-name">Last Name</Label>
+          <Input
+            id="last-name"
+            name="last-name"
+            type="text"
             required
-            value={formData.phone}
-            onChange={handleChange}
-            disabled={status === 'loading'}
+            placeholder="Doe"
           />
         </div>
+      </div>
 
-        <div>
-          <label htmlFor="service" className="block text-text-primary/90 font-medium mb-2">
-            Service Interested In
-          </label>
-          <select
-            id="service"
-            name="service"
-            className="w-full px-4 py-2 border border-primary/30 rounded-lg focus:outline-none focus:ring-2 focus:ring-accent bg-background-alt"
-            value={formData.service}
-            onChange={handleChange}
-            disabled={status === 'loading'}
-          >
-            <option value="">Select a Service</option>
-            <option value="residential">Residential Carpet Cleaning</option>
-            <option value="commercial">Commercial Carpet Cleaning</option>
-            <option value="pet-stain">Pet Stain & Odor Removal</option>
-            <option value="stain-treatment">Deep Stain Treatment</option>
-            <option value="upholstery">Upholstery Cleaning</option>
-            <option value="area-rug">Area Rug Cleaning</option>
-            <option value="other">Other</option>
-          </select>
-        </div>
+      <div className="space-y-2">
+        <Label htmlFor="email">Email</Label>
+        <Input
+          id="email"
+          name="email"
+          type="email"
+          required
+          placeholder="john@example.com"
+        />
+      </div>
 
-        <div>
-          <label htmlFor="message" className="block text-text-primary/90 font-medium mb-2">
-            Message
-          </label>
-          <textarea
-            id="message"
-            name="message"
-            rows={5}
-            className="w-full px-4 py-2 border border-primary/30 rounded-lg focus:outline-none focus:ring-2 focus:ring-accent bg-background-alt"
-            placeholder="Tell us about your needs or ask any questions..."
-            value={formData.message}
-            onChange={handleChange}
-            disabled={status === 'loading'}
-          ></textarea>
-        </div>
+      <div className="space-y-2">
+        <Label htmlFor="phone">Phone</Label>
+        <Input
+          id="phone"
+          name="phone"
+          type="tel"
+          required
+          placeholder="(555) 555-5555"
+        />
+      </div>
 
-        <div>
-          <Button type="submit" variant="primary" size="lg" disabled={status === 'loading'}>
-            {status === 'loading' ? 'Submitting...' : 'Submit Message'}
-          </Button>
-        </div>
+      <div className="space-y-2">
+        <Label htmlFor="service">Service</Label>
+        <Select id="service" name="service" required>
+          <option value="">Select a service</option>
+          <option value="residential-carpet-cleaning">Residential Carpet Cleaning</option>
+          <option value="commercial-carpet-cleaning">Commercial Carpet Cleaning</option>
+          <option value="area-rug-cleaning">Area Rug Cleaning</option>
+          <option value="upholstery-cleaning">Upholstery Cleaning</option>
+          <option value="tile-and-grout-cleaning">Tile & Grout Cleaning</option>
+          <option value="post-construction-cleaning">Post-Construction Cleaning</option>
+        </Select>
+      </div>
 
-        {status === 'error' && (
-          <div className="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded-lg relative mt-4" role="alert">
-            <strong className="font-bold">Error!</strong>
-            <span className="block sm:inline"> {errorMessage}</span>
-          </div>
-        )}
-      </form>
+      <div className="space-y-2">
+        <Label htmlFor="message">Message</Label>
+        <Textarea
+          id="message"
+          name="message"
+          required
+          placeholder="Tell us about your cleaning needs..."
+          className="min-h-[100px]"
+        />
+      </div>
 
-      <form name="contact" data-netlify="true" data-netlify-honeypot="bot-field" hidden>
-        <input type="text" name="first-name" />
-        <input type="text" name="last-name" />
-        <input type="email" name="email" />
-        <input type="tel" name="phone" />
-        <select name="service"></select>
-        <textarea name="message"></textarea>
-      </form>
-    </>
+      <Button type="submit" disabled={isSubmitting} className="w-full">
+        {isSubmitting ? 'Sending...' : 'Send Message'}
+      </Button>
+    </form>
   );
-};
-
-export default ContactForm;
+}
