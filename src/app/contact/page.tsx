@@ -1,7 +1,6 @@
 import Image from "next/image";
 import Section from "@/components/ui/Section";
 import Button from "@/components/ui/Button"; // Keep Button if used elsewhere, otherwise remove
-import { ContactForm } from "@/components/ui/ContactForm"; // Updated to use named import
 
 export const metadata = {
   title: "Contact Us | CarpetCozy - Professional Carpet Cleaning",
@@ -42,9 +41,121 @@ export default function ContactPage() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
           {/* Contact Form */}
           <div>
-            <h2 className="text-2xl md:text-3xl font-bold mb-6 text-text-primary border-b-2 border-primary pb-2">Send Us a Message</h2> {/* Updated colors */}
-            {/* Replace the old form with the new client component */}
-            <ContactForm />
+            <h2 className="text-2xl md:text-3xl font-bold mb-6 text-text-primary border-b-2 border-primary pb-2">
+              Send Us a Message
+            </h2>
+            <form
+              name="contact"
+              method="POST"
+              data-netlify="true"
+              data-netlify-honeypot="bot-field"
+              action="/thank-you"
+              className="space-y-6"
+            >
+              <input type="hidden" name="form-name" value="contact" />
+              <div className="hidden">
+                <label>
+                  Don't fill this out if you're human: <input name="bot-field" />
+                </label>
+              </div>
+
+              <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
+                <div className="space-y-2">
+                  <label htmlFor="first-name" className="block text-sm font-medium text-text-primary">
+                    First Name
+                  </label>
+                  <input
+                    type="text"
+                    id="first-name"
+                    name="first-name"
+                    required
+                    className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-primary focus:border-primary"
+                    placeholder="John"
+                  />
+                </div>
+                <div className="space-y-2">
+                  <label htmlFor="last-name" className="block text-sm font-medium text-text-primary">
+                    Last Name
+                  </label>
+                  <input
+                    type="text"
+                    id="last-name"
+                    name="last-name"
+                    required
+                    className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-primary focus:border-primary"
+                    placeholder="Doe"
+                  />
+                </div>
+              </div>
+
+              <div className="space-y-2">
+                <label htmlFor="email" className="block text-sm font-medium text-text-primary">
+                  Email
+                </label>
+                <input
+                  type="email"
+                  id="email"
+                  name="email"
+                  required
+                  className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-primary focus:border-primary"
+                  placeholder="john@example.com"
+                />
+              </div>
+
+              <div className="space-y-2">
+                <label htmlFor="phone" className="block text-sm font-medium text-text-primary">
+                  Phone
+                </label>
+                <input
+                  type="tel"
+                  id="phone"
+                  name="phone"
+                  required
+                  className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-primary focus:border-primary"
+                  placeholder="(555) 555-5555"
+                />
+              </div>
+
+              <div className="space-y-2">
+                <label htmlFor="service" className="block text-sm font-medium text-text-primary">
+                  Service
+                </label>
+                <select
+                  id="service"
+                  name="service"
+                  required
+                  className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-primary focus:border-primary"
+                >
+                  <option value="">Select a service</option>
+                  <option value="residential-carpet-cleaning">Residential Carpet Cleaning</option>
+                  <option value="commercial-carpet-cleaning">Commercial Carpet Cleaning</option>
+                  <option value="area-rug-cleaning">Area Rug Cleaning</option>
+                  <option value="upholstery-cleaning">Upholstery Cleaning</option>
+                  <option value="tile-and-grout-cleaning">Tile & Grout Cleaning</option>
+                  <option value="post-construction-cleaning">Post-Construction Cleaning</option>
+                </select>
+              </div>
+
+              <div className="space-y-2">
+                <label htmlFor="message" className="block text-sm font-medium text-text-primary">
+                  Message
+                </label>
+                <textarea
+                  id="message"
+                  name="message"
+                  required
+                  className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-primary focus:border-primary min-h-[100px]"
+                  placeholder="Tell us about your cleaning needs..."
+                />
+              </div>
+
+              <button
+                type="submit"
+                className="w-full bg-primary text-white py-3 px-4 rounded-md hover:bg-primary/90 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary"
+              >
+                Send Message
+              </button>
+            </form>
           </div>
           
           {/* Contact Information */}
