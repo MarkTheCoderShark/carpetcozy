@@ -11,6 +11,9 @@
 [[plugins]]
   package = "@netlify/plugin-nextjs"
 
+[forms]
+  enableForms = true
+
 # Disabling the sitemap plugin as we're handling it with Next.js route handler
 # [[plugins]]
 #   package = "@netlify/plugin-sitemap"
