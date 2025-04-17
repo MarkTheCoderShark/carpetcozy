@@ -79,7 +79,7 @@
 [forms]
   [forms.contact]
     name = "contact"
-    success_url = "/contact"
+    success_url = "/thank-you"
     honeypot = "bot-field"
     enable_recaptcha = false
 
@@ -99,8 +99,8 @@
 
 # Handle form submissions
 [[redirects]]
-  from = "/contact"
-  to = "/contact"
+  from = "/thank-you"
+  to = "/thank-you"
   status = 200
   force = true
 
