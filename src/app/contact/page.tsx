@@ -31,7 +31,7 @@ export default function ContactPage() {
       // Post back to the root path - Netlify intercepts based on form-name
       const response = await fetch("/", { // Reverted endpoint to /
         method: "POST",
-        headers: { "Content-Type": "application/x-www-form-urlencoded" },
+        headers: { "Content-Type": "application/x-www-form-urlencoded" }, // Re-add header
         // Use URLSearchParams directly with FormData
         body: new URLSearchParams(formData as any).toString()
       });
@@ -116,10 +116,13 @@ export default function ContactPage() {
             <form
               onSubmit={handleSubmit}
               className="space-y-6"
-              // data-netlify="true" // Reverted
+              data-netlify="true"
+              data-netlify-honeypot="bot-field"
             >
               {/* Keep this hidden input for FormData and Netlify */}
               <input type="hidden" name="form-name" value="contact" />
+              {/* Add hidden honeypot field */}
+              <input type="hidden" name="bot-field" />
               {/* Name Field */}
               <div>
                 <label htmlFor="name" className="block text-sm font-medium text-text-primary mb-1">Name</label>
