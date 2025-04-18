@@ -88,17 +88,24 @@ export default function ContactPage() {
                 const form = e.target as HTMLFormElement;
                 const formData = new FormData(form);
                 
+                // Add form-name to the form data
+                formData.append('form-name', 'contact');
+                
                 try {
+                  console.log('Submitting form with data:', Object.fromEntries(formData));
+                  
                   const response = await fetch('/', {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
                     body: new URLSearchParams(formData as any).toString(),
                   });
                   
+                  console.log('Form submission response:', response.status, response.statusText);
+                  
                   if (response.ok) {
                     window.location.href = '/thank-you';
                   } else {
-                    console.error('Form submission failed');
+                    console.error('Form submission failed:', await response.text());
                   }
                 } catch (error) {
                   console.error('Error submitting form:', error);
