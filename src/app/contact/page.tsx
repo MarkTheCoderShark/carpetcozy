@@ -19,13 +19,6 @@ export default function ContactPage() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState(''); // To show success/error messages
 
-  // Helper function to URL-encode form data
-  const encode = (data: { [key: string]: any }) => {
-    return Object.keys(data)
-      .map(key => encodeURIComponent(key) + "=" + encodeURIComponent(data[key]))
-      .join("&");
-  }
-
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault(); // Prevent default browser submission
     setIsSubmitting(true);
@@ -40,7 +33,8 @@ export default function ContactPage() {
       const response = await fetch("/contact", { // Changed endpoint to /contact
         method: "POST",
         headers: { "Content-Type": "application/x-www-form-urlencoded" },
-        body: encode(dataObject) // Simplified encoding - FormData includes form-name
+        // Use URLSearchParams for standard encoding
+        body: new URLSearchParams(dataObject as any).toString()
       });
 
       if (response.ok) {
