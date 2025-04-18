@@ -119,12 +119,11 @@ export default function ContactPage() {
               onSubmit={handleSubmit}
               className="space-y-6"
               data-netlify="true"
-              data-netlify-honeypot="bot-field"
+              // data-netlify-honeypot removed
             >
               {/* Keep this hidden input for FormData and Netlify */}
               <input type="hidden" name="form-name" value="contact" />
-              {/* Add hidden honeypot field */}
-              <input type="hidden" name="bot-field" />
+              {/* Honeypot field removed */}
               {/* Name Field */}
               <div>
                 <label htmlFor="name" className="block text-sm font-medium text-text-primary mb-1">Name</label>
