@@ -88,3 +88,7 @@
   from = ".netlify/functions/*"
   to = ".netlify/functions/:splat"
   status = 200
+
+[[forms]]
+  name = "contact"
+  success_url = "/thank-you"

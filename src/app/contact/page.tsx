@@ -1,7 +1,6 @@
 "use client";
 
-import React, { useState } from 'react'; // Import useState
-import { useRouter } from 'next/navigation'; // Import useRouter
+import React from 'react';
 import Section from "@/components/ui/Section";
 import Button from "@/components/ui/Button";
 
@@ -15,43 +14,7 @@ import Button from "@/components/ui/Button";
 // };
 
 export default function ContactPage() {
-  const router = useRouter(); // Initialize router
-  const [isSubmitting, setIsSubmitting] = useState(false);
-  const [submitStatus, setSubmitStatus] = useState(''); // To show success/error messages
-
-  const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
-    event.preventDefault(); // Prevent default browser submission
-    setIsSubmitting(true);
-    setSubmitStatus('');
-
-    const formData = new FormData(event.target as HTMLFormElement);
-    // Remove dataObject creation
-
-    try {
-      // Post back to the root path - Netlify intercepts based on form-name
-      const response = await fetch("/", { // Reverted endpoint to /
-        method: "POST",
-        headers: { "Content-Type": "application/x-www-form-urlencoded" }, // Re-add header
-        // Use URLSearchParams directly with FormData
-        body: new URLSearchParams(formData as any).toString()
-      });
-
-      if (response.ok) {
-        router.push('/thank-you'); // Programmatic redirect on success
-      } else {
-        // Try to get error details from response if possible
-        const errorText = await response.text();
-        console.error("Netlify form submission error response:", errorText);
-        throw new Error(`Form submission failed: ${response.status} ${response.statusText}`);
-      }
-    } catch (error: any) {
-      console.error("Form submission error:", error);
-      setSubmitStatus(`Error: ${error.message || 'Could not submit form. Please try again.'}`);
-    } finally {
-      setIsSubmitting(false);
-    }
-  };
-
+  // Removed state and handleSubmit function
 
   return (
     <>
@@ -116,7 +79,7 @@ export default function ContactPage() {
             <form
               name="contact"
               method="POST"
-              onSubmit={handleSubmit}
+              action="/thank-you" // Add action for Netlify redirect
               className="space-y-6"
               data-netlify="true"
               data-netlify-honeypot="bot-field"
@@ -179,12 +142,12 @@ export default function ContactPage() {
               {/* Submit Button */}
               <div>
                 {/* Update button state */}
-                <Button type="submit" variant="primary" className="w-full" disabled={isSubmitting}>
-                  {isSubmitting ? 'Sending...' : 'Send Message'}
+                {/* Revert button to simple submit */}
+                <Button type="submit" variant="primary" className="w-full">
+                  Send Message
                 </Button>
               </div>
-              {/* Display submission status message */}
-              {submitStatus && <p className={`mt-4 ${submitStatus.startsWith('Error') ? 'text-red-600' : 'text-green-600'}`}>{submitStatus}</p>}
+              {/* Removed status message display */}
             </form>
           </div>
         </div>
