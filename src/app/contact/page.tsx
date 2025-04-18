@@ -1,20 +1,68 @@
 "use client";
 
-import React from 'react';
+import React, { useState } from 'react'; // Import useState
+import { useRouter } from 'next/navigation'; // Import useRouter
 import Section from "@/components/ui/Section";
-import Button from "@/components/ui/Button"; // Keep Button if used elsewhere, otherwise remove
+import Button from "@/components/ui/Button";
 
-export const metadata = {
-  title: "Contact Us | CarpetCozy",
-  description:
-    "Get in touch with CarpetCozy for professional carpet cleaning services. Contact us for a free quote and expert advice.",
-};
+// Metadata should ideally be static for Server Components,
+// but since we marked this as "use client", it's okay here for now.
+// Consider moving metadata if refactoring later.
+// export const metadata = {
+//   title: "Contact Us | CarpetCozy",
+//   description:
+//     "Get in touch with CarpetCozy for professional carpet cleaning services. Contact us for a free quote and expert advice.",
+// };
 
 export default function ContactPage() {
+  const router = useRouter(); // Initialize router
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState(''); // To show success/error messages
+
+  // Helper function to URL-encode form data
+  const encode = (data: { [key: string]: any }) => {
+    return Object.keys(data)
+      .map(key => encodeURIComponent(key) + "=" + encodeURIComponent(data[key]))
+      .join("&");
+  }
+
+  const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault(); // Prevent default browser submission
+    setIsSubmitting(true);
+    setSubmitStatus('');
+
+    const formData = new FormData(event.target as HTMLFormElement);
+    const dataObject: { [key: string]: any } = {};
+    formData.forEach((value, key) => { dataObject[key] = value });
+
+    try {
+      // Post to the root path - Netlify intercepts based on form-name
+      const response = await fetch("/", {
+        method: "POST",
+        headers: { "Content-Type": "application/x-www-form-urlencoded" },
+        body: encode({ "form-name": "contact", ...dataObject }) // Ensure form-name is included
+      });
+
+      if (response.ok) {
+        router.push('/thank-you'); // Programmatic redirect on success
+      } else {
+        // Try to get error details from response if possible
+        const errorText = await response.text();
+        console.error("Netlify form submission error response:", errorText);
+        throw new Error(`Form submission failed: ${response.status} ${response.statusText}`);
+      }
+    } catch (error: any) {
+      console.error("Form submission error:", error);
+      setSubmitStatus(`Error: ${error.message || 'Could not submit form. Please try again.'}`);
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
+
+
   return (
     <>
       {/* Hero Section */}
-      {/* Hero Section - Styled like homepage */}
       <section
         className="hero relative bg-cover bg-center pt-32 pb-24 min-h-[500px]" // Added padding, bg-cover, bg-center
         style={{ backgroundImage: "url('/images/hero.jpeg')" }} // Use inline style for background
@@ -71,8 +119,13 @@ export default function ContactPage() {
             <h2 className="text-2xl md:text-3xl font-bold mb-6 text-text-primary border-b-2 border-primary pb-2">
               Send Us a Message
             </h2>
-            <form name="contact" method="POST" action="/thank-you" className="space-y-6">
-              {/* Netlify hidden input - handled by public/netlify-form.html */}
+            {/* Ensure onSubmit is present, method/action are removed */}
+            <form
+              name="contact"
+              onSubmit={handleSubmit}
+              className="space-y-6"
+            >
+              {/* Keep this hidden input for FormData and Netlify */}
               <input type="hidden" name="form-name" value="contact" />
 
               {/* Name Field */}
@@ -128,10 +181,13 @@ export default function ContactPage() {
 
               {/* Submit Button */}
               <div>
-                <Button type="submit" variant="primary" className="w-full"> {/* Use Button component */}
-                  Send Message
+                {/* Update button state */}
+                <Button type="submit" variant="primary" className="w-full" disabled={isSubmitting}>
+                  {isSubmitting ? 'Sending...' : 'Send Message'}
                 </Button>
               </div>
+              {/* Display submission status message */}
+              {submitStatus && <p className={`mt-4 ${submitStatus.startsWith('Error') ? 'text-red-600' : 'text-green-600'}`}>{submitStatus}</p>}
             </form>
           </div>
         </div>
