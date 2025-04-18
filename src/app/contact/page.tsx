@@ -36,11 +36,11 @@ export default function ContactPage() {
     formData.forEach((value, key) => { dataObject[key] = value });
 
     try {
-      // Post to the root path - Netlify intercepts based on form-name
-      const response = await fetch("/", {
+      // Post to the page's path - Netlify intercepts based on form-name
+      const response = await fetch("/contact", { // Changed endpoint to /contact
         method: "POST",
         headers: { "Content-Type": "application/x-www-form-urlencoded" },
-        body: encode({ "form-name": "contact", ...dataObject }) // Ensure form-name is included
+        body: encode(dataObject) // Simplified encoding - FormData includes form-name
       });
 
       if (response.ok) {
@@ -127,6 +127,8 @@ export default function ContactPage() {
             >
               {/* Keep this hidden input for FormData and Netlify */}
               <input type="hidden" name="form-name" value="contact" />
+              {/* Add honeypot field matching the static HTML form */}
+              <input name="bot-field" style={{ display: 'none' }} /> {/* Honeypot field */}
 
               {/* Name Field */}
               <div>
