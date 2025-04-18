@@ -69,8 +69,8 @@ export default function ContactPage() {
             <h2 className="text-2xl md:text-3xl font-bold mb-6 text-text-primary border-b-2 border-primary pb-2">
               Send Us a Message
             </h2>
-            <form name="contact" method="POST" data-netlify="true" className="space-y-6">
-              {/* Netlify hidden input */}
+            <form name="contact" method="POST" className="space-y-6">
+              {/* Netlify hidden input - handled by public/netlify-form.html */}
               <input type="hidden" name="form-name" value="contact" />
 
               {/* Name Field */}
