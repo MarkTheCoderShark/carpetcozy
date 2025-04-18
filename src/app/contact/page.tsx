@@ -25,16 +25,15 @@ export default function ContactPage() {
     setSubmitStatus('');
 
     const formData = new FormData(event.target as HTMLFormElement);
-    const dataObject: { [key: string]: any } = {};
-    formData.forEach((value, key) => { dataObject[key] = value });
+    // Remove dataObject creation
 
     try {
       // Post back to the root path - Netlify intercepts based on form-name
       const response = await fetch("/", { // Reverted endpoint to /
         method: "POST",
         headers: { "Content-Type": "application/x-www-form-urlencoded" },
-        // Use URLSearchParams for standard encoding
-        body: new URLSearchParams(dataObject as any).toString()
+        // Use URLSearchParams directly with FormData
+        body: new URLSearchParams(formData as any).toString()
       });
 
       if (response.ok) {
@@ -115,9 +114,9 @@ export default function ContactPage() {
             </h2>
             {/* Ensure onSubmit is present, method/action are removed */}
             <form
-              {/* name="contact" removed - relying on hidden input */}
               onSubmit={handleSubmit}
               className="space-y-6"
+              // data-netlify="true" // Reverted
             >
               {/* Keep this hidden input for FormData and Netlify */}
               <input type="hidden" name="form-name" value="contact" />
