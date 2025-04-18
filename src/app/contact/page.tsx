@@ -1,6 +1,6 @@
 "use client";
 
-import React from 'react';
+import React, { FormEvent } from 'react';
 import Section from "@/components/ui/Section";
 import Button from "@/components/ui/Button";
 
@@ -79,13 +79,40 @@ export default function ContactPage() {
             <form
               name="contact"
               method="POST"
-              action="/thank-you" // Add action for Netlify redirect
+              action="/thank-you"
               className="space-y-6"
-              data-netlify="true" // Correct attribute for React/TS
-              // data-netlify-honeypot removed
+              data-netlify="true"
+              data-netlify-honeypot="bot-field"
+              onSubmit={async (e: FormEvent<HTMLFormElement>) => {
+                e.preventDefault();
+                const form = e.target as HTMLFormElement;
+                const formData = new FormData(form);
+                
+                try {
+                  const response = await fetch('/', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+                    body: new URLSearchParams(formData as any).toString(),
+                  });
+                  
+                  if (response.ok) {
+                    window.location.href = '/thank-you';
+                  } else {
+                    console.error('Form submission failed');
+                  }
+                } catch (error) {
+                  console.error('Error submitting form:', error);
+                }
+              }}
             >
               {/* Required hidden input for Netlify */}
               <input type="hidden" name="form-name" value="contact" />
+              {/* Honeypot field */}
+              <div className="hidden">
+                <label>
+                  Don't fill this out if you're human: <input name="bot-field" />
+                </label>
+              </div>
               {/* Name Field */}
               <div>
                 <label htmlFor="name" className="block text-sm font-medium text-text-primary mb-1">Name</label>
