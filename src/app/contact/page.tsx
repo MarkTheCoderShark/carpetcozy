@@ -127,9 +127,6 @@ export default function ContactPage() {
             >
               {/* Keep this hidden input for FormData and Netlify */}
               <input type="hidden" name="form-name" value="contact" />
-              {/* Add honeypot field matching the static HTML form */}
-              <input name="bot-field" style={{ display: 'none' }} /> {/* Honeypot field */}
-
               {/* Name Field */}
               <div>
                 <label htmlFor="name" className="block text-sm font-medium text-text-primary mb-1">Name</label>
