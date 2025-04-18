@@ -29,8 +29,8 @@ export default function ContactPage() {
     formData.forEach((value, key) => { dataObject[key] = value });
 
     try {
-      // Post to the page's path - Netlify intercepts based on form-name
-      const response = await fetch("/contact", { // Changed endpoint to /contact
+      // Post back to the root path - Netlify intercepts based on form-name
+      const response = await fetch("/", { // Reverted endpoint to /
         method: "POST",
         headers: { "Content-Type": "application/x-www-form-urlencoded" },
         // Use URLSearchParams for standard encoding
@@ -115,7 +115,7 @@ export default function ContactPage() {
             </h2>
             {/* Ensure onSubmit is present, method/action are removed */}
             <form
-              name="contact"
+              {/* name="contact" removed - relying on hidden input */}
               onSubmit={handleSubmit}
               className="space-y-6"
             >
