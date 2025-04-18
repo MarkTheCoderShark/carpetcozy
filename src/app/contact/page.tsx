@@ -114,6 +114,8 @@ export default function ContactPage() {
             </h2>
             {/* Ensure onSubmit is present, method/action are removed */}
             <form
+              name="contact"
+              method="POST"
               onSubmit={handleSubmit}
               className="space-y-6"
               data-netlify="true"
