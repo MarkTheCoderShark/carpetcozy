@@ -84,7 +84,8 @@ export default function ContactPage() {
               data-netlify="true" // Correct attribute for React/TS
               // data-netlify-honeypot removed
             >
-              {/* form-name and bot-field hidden inputs removed */}
+              {/* Required hidden input for Netlify */}
+              <input type="hidden" name="form-name" value="contact" />
               {/* Name Field */}
               <div>
                 <label htmlFor="name" className="block text-sm font-medium text-text-primary mb-1">Name</label>
