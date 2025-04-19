@@ -81,6 +81,7 @@ export default function ContactPage() {
               method="POST"
               data-netlify="true"
               netlify-honeypot="bot-field"
+              action="/thank-you" // Explicitly add action for Netlify
               className="space-y-6"
             >
               {/* Netlify form detection */}
