@@ -1,6 +1,7 @@
 "use client";
 
-import React from 'react';
+import React, { useState } from 'react'; // Import useState
+import { useRouter } from 'next/navigation'; // Import useRouter
 import Section from "@/components/ui/Section";
 import Button from "@/components/ui/Button";
 
@@ -14,7 +15,52 @@ import Button from "@/components/ui/Button";
 // };
 
 export default function ContactPage() {
-  // Removed state and handleSubmit function
+  const router = useRouter();
+  const [status, setStatus] = useState<{ type: 'success' | 'error'; message: string } | null>(null);
+  const [isLoading, setIsLoading] = useState(false);
+
+  const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    setIsLoading(true);
+    setStatus(null);
+
+    const formData = new FormData(event.currentTarget);
+    const data: { [key: string]: string } = {};
+    formData.forEach((value, key) => {
+      data[key] = value as string;
+    });
+
+    // Remove the form-name field if it exists, as the function handles it
+    delete data['form-name'];
+
+    try {
+      const response = await fetch('/.netlify/functions/submit-contact-form', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(data),
+      });
+
+      if (!response.ok) {
+        const errorData = await response.json();
+        throw new Error(errorData.error || 'Submission failed');
+      }
+
+      // Success
+      setStatus({ type: 'success', message: 'Message sent successfully!' });
+      // Redirect after a short delay
+      setTimeout(() => {
+        router.push('/thank-you');
+      }, 1500);
+
+    } catch (error) {
+      console.error('Form submission error:', error);
+      setStatus({ type: 'error', message: error instanceof Error ? error.message : 'An unknown error occurred.' });
+      setIsLoading(false); // Stop loading on error
+    }
+    // Don't set isLoading false on success immediately because we redirect
+  };
 
   return (
     <>
@@ -75,19 +121,15 @@ export default function ContactPage() {
             <h2 className="text-2xl md:text-3xl font-bold mb-6 text-text-primary border-b-2 border-primary pb-2">
               Send Us a Message
             </h2>
-            {/* Ensure onSubmit is present, method/action are removed */}
+            {/* Removed Netlify attributes, added onSubmit */}
             <form
-              name="contact-page-form" // Renamed form
-              method="POST"
-              data-netlify="true"
-              // netlify-honeypot="bot-field" // Temporarily removed
-              action="/thank-you" // Explicitly add action for Netlify
+              name="contact-page-form" // Keep name for potential future reference
+              onSubmit={handleSubmit}
               className="space-y-6"
             >
-              {/* Netlify form detection */}
-              <input type="hidden" name="form-name" value="contact-page-form" /> {/* Updated value */}
+              {/* Removed hidden form-name input */}
               
-              {/* Bot field honeypot temporarily removed */}
+              {/* Honeypot field is not needed for JS submission */}
               {/*
               <p className="hidden">
                 <label>
@@ -147,12 +189,22 @@ export default function ContactPage() {
                 ></textarea>
               </div>
 
-              {/* Submit Button */}
+              {/* Submit Button & Status Message */}
               <div>
-                <Button type="submit" variant="primary" className="w-full">
-                  Send Message
+                <Button
+                  type="submit"
+                  variant="primary"
+                  className="w-full"
+                  disabled={isLoading} // Disable button when loading
+                >
+                  {isLoading ? 'Sending...' : 'Send Message'}
                 </Button>
               </div>
+              {status && (
+                <div className={`mt-4 text-center p-2 rounded ${status.type === 'success' ? 'bg-green-100 text-green-700' : 'bg-red-100 text-red-700'}`}>
+                  {status.message}
+                </div>
+              )}
             </form>
           </div>
         </div>

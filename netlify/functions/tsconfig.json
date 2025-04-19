@@ -11,6 +11,7 @@
     "resolveJsonModule": true,
     "isolatedModules": true,
     "incremental": true,
+    "allowJs": true, // Allow JavaScript files
     "types": ["@netlify/functions"]
   },
   "include": ["**/*.ts"],
