@@ -79,13 +79,20 @@ export default function ContactPage() {
             <form
               name="contact"
               method="POST"
-              action="/thank-you" // Add action for Netlify redirect
+              data-netlify="true"
+              netlify-honeypot="bot-field"
               className="space-y-6"
-              data-netlify="true" // Correct attribute for React/TS
-              // data-netlify-honeypot removed
             >
-              {/* Required hidden input for Netlify */}
+              {/* Netlify form detection */}
               <input type="hidden" name="form-name" value="contact" />
+              
+              {/* Bot field honeypot */}
+              <p className="hidden">
+                <label>
+                  Don't fill this out if you're human: <input name="bot-field" />
+                </label>
+              </p>
+              
               {/* Name Field */}
               <div>
                 <label htmlFor="name" className="block text-sm font-medium text-text-primary mb-1">Name</label>
@@ -139,13 +146,10 @@ export default function ContactPage() {
 
               {/* Submit Button */}
               <div>
-                {/* Update button state */}
-                {/* Revert button to simple submit */}
                 <Button type="submit" variant="primary" className="w-full">
                   Send Message
                 </Button>
               </div>
-              {/* Removed status message display */}
             </form>
           </div>
         </div>
