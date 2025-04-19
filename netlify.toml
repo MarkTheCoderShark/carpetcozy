@@ -53,13 +53,6 @@
   status = 200
   force = true
 
-# Handle all other routes
-[[redirects]]
-  from = "/*"
-  to = "/index.html"
-  status = 200
-  conditions = { Method = ["GET"] }
-
 [[headers]]
   for = "/*"
   [headers.values]
@@ -73,12 +66,6 @@
   [headers.values]
     Content-Type = "application/xml"
     X-Content-Type-Options = "nosniff"
-
-[[redirects]]
-  from = "/thank-you"
-  to = "/thank-you"
-  status = 200
-  force = true
 
 [functions]
   directory = "netlify/functions"
