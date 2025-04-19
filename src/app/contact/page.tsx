@@ -77,7 +77,7 @@ export default function ContactPage() {
             </h2>
             {/* Ensure onSubmit is present, method/action are removed */}
             <form
-              name="contact"
+              name="contact-page-form" // Renamed form
               method="POST"
               data-netlify="true"
               netlify-honeypot="bot-field"
@@ -85,7 +85,7 @@ export default function ContactPage() {
               className="space-y-6"
             >
               {/* Netlify form detection */}
-              <input type="hidden" name="form-name" value="contact" />
+              <input type="hidden" name="form-name" value="contact-page-form" /> {/* Updated value */}
               
               {/* Bot field honeypot */}
               <p className="hidden">
