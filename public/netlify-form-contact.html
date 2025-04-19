@@ -1,6 +1,6 @@
-<form name="contact-page-form" method="POST" netlify hidden> {/* Renamed form, removed honeypot */}
+<form name="contact-page-form" method="POST" netlify netlify-honeypot="bot-field" hidden> {/* Re-added honeypot */}
   <input type="hidden" name="form-name" value="contact-page-form" /> {/* Updated value */}
-  {/* <input type="hidden" name="bot-field" /> */} {/* Honeypot field removed */}
+  <input type="hidden" name="bot-field" /> {/* Re-added honeypot field */}
   <input type="text" name="name" />
   <input type="email" name="email" />
   <input type="tel" name="phone" />
