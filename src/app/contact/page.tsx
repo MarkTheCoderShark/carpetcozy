@@ -80,19 +80,21 @@ export default function ContactPage() {
               name="contact-page-form" // Renamed form
               method="POST"
               data-netlify="true"
-              netlify-honeypot="bot-field"
+              // netlify-honeypot="bot-field" // Temporarily removed
               action="/thank-you" // Explicitly add action for Netlify
               className="space-y-6"
             >
               {/* Netlify form detection */}
               <input type="hidden" name="form-name" value="contact-page-form" /> {/* Updated value */}
               
-              {/* Bot field honeypot */}
+              {/* Bot field honeypot temporarily removed */}
+              {/*
               <p className="hidden">
                 <label>
                   Don't fill this out if you're human: <input name="bot-field" />
                 </label>
               </p>
+              */}
               
               {/* Name Field */}
               <div>
