@@ -83,6 +83,7 @@ export default function ContactPage() {
               data-netlify="true"
               netlify-honeypot="bot-field" // Re-added honeypot
               action="/thank-you" // Keep action for redirect
+              encType="multipart/form-data" // Added based on working example
               className="space-y-6"
             >
               {/* Re-added hidden form-name input */}
