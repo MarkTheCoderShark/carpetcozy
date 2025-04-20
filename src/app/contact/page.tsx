@@ -31,8 +31,8 @@ export default function ContactPage() {
     formData.append('form-name', form.name);
 
     try {
-      // POST to '/__forms.html' as required by Netlify Runtime v5 docs
-      const response = await fetch('/__forms.html', {
+      // POST to the current page path. Netlify intercepts based on form-name.
+      const response = await fetch(window.location.pathname, { // Use current path explicitly
         method: 'POST',
         headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
         body: new URLSearchParams(formData as any).toString(), // Encode FormData
@@ -56,7 +56,7 @@ export default function ContactPage() {
       setStatus({ type: 'success', message: 'Message sent successfully!' });
       // Redirect after a short delay to the thank-you page
       setTimeout(() => {
-        router.push('/thank-you');
+        router.push('/thank-you'); // Manually specify redirect target
       }, 1500);
 
     } catch (error) {
@@ -130,9 +130,9 @@ export default function ContactPage() {
             <form
               name="contact-page-form" // Used by JS to set form-name
               onSubmit={handleSubmit}
-              // action="/thank-you" // Action is handled by JS redirect now
+              // Removed action attribute
               className="space-y-6"
-              // Removed Netlify attributes (data-netlify, netlify-honeypot, method, encType, action)
+              // Removed Netlify attributes (data-netlify, netlify-honeypot, method, encType)
             >
               {/* Removed hidden form-name input */}
               
