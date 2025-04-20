@@ -1,7 +1,7 @@
 "use client";
 
-import React from 'react'; // Removed useState
-// Removed useRouter
+import React, { useState } from 'react'; // Import useState
+import { useRouter } from 'next/navigation'; // Import useRouter
 import Section from "@/components/ui/Section";
 import Button from "@/components/ui/Button";
 
@@ -15,7 +15,57 @@ import Button from "@/components/ui/Button";
 // };
 
 export default function ContactPage() {
-  // Removed state and handleSubmit
+  const router = useRouter();
+  const [status, setStatus] = useState<{ type: 'success' | 'error'; message: string } | null>(null);
+  const [isLoading, setIsLoading] = useState(false);
+
+  const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    setIsLoading(true);
+    setStatus(null);
+
+    const form = event.currentTarget;
+    const formData = new FormData(form);
+    
+    // Add the form-name to the FormData object
+    formData.append('form-name', form.name);
+
+    try {
+      // POST to '/__forms.html' as required by Netlify Runtime v5 docs
+      const response = await fetch('/__forms.html', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: new URLSearchParams(formData as any).toString(), // Encode FormData
+      });
+
+      if (!response.ok) {
+         // Try to get error message, but default if parsing fails
+         let errorMessage = `Submission failed: ${response.status}`;
+         try {
+           // Netlify often returns HTML on success/redirect, not JSON on error here
+           // We rely on the status code primarily
+           console.warn(`Netlify form submission POST to /__forms.html failed with status: ${response.status}`);
+         } catch (e) {
+            console.warn("Could not parse error response.");
+         }
+        throw new Error(errorMessage);
+      }
+
+      // Success - Netlify handles the redirect specified in __forms.html or dashboard
+      // We just need to show a success message locally if desired, or redirect manually
+      setStatus({ type: 'success', message: 'Message sent successfully!' });
+      // Redirect after a short delay to the thank-you page
+      setTimeout(() => {
+        router.push('/thank-you');
+      }, 1500);
+
+    } catch (error) {
+      console.error('Form submission error:', error);
+      setStatus({ type: 'error', message: error instanceof Error ? error.message : 'An unknown error occurred.' });
+      setIsLoading(false); // Stop loading on error
+    }
+    // Don't set isLoading false on success immediately because we redirect
+  };
 
   return (
     <>
@@ -76,20 +126,17 @@ export default function ContactPage() {
             <h2 className="text-2xl md:text-3xl font-bold mb-6 text-text-primary border-b-2 border-primary pb-2">
               Send Us a Message
             </h2>
-            {/* Reverted to Netlify HTML attributes */}
+            {/* Configured for AJAX submission to /__forms.html */}
             <form
-              name="contact-page-form"
-              method="POST"
-              data-netlify="true"
-              netlify-honeypot="bot-field" // Re-added honeypot
-              action="/thank-you" // Keep action for redirect
-              encType="multipart/form-data" // Added based on working example
+              name="contact-page-form" // Used by JS to set form-name
+              onSubmit={handleSubmit}
+              // action="/thank-you" // Action is handled by JS redirect now
               className="space-y-6"
+              // Removed Netlify attributes (data-netlify, netlify-honeypot, method, encType, action)
             >
-              {/* Re-added hidden form-name input */}
-              <input type="hidden" name="form-name" value="contact-page-form" />
+              {/* Removed hidden form-name input */}
               
-              {/* Re-added honeypot field */}
+              {/* Honeypot field for non-JS fallback (optional but good practice) */}
               <p className="hidden">
                 <label>
                   Don't fill this out if you're human: <input name="bot-field" />
@@ -154,18 +201,22 @@ export default function ContactPage() {
                 ></textarea>
               </div>
 
-              {/* Submit Button */}
+              {/* Submit Button & Status Message */}
               <div>
                 <Button
                   type="submit"
                   variant="primary"
                   className="w-full"
-                  // Removed disabled state
+                  disabled={isLoading} // Disable button when loading
                 >
-                  Send Message
+                  {isLoading ? 'Sending...' : 'Send Message'}
                 </Button>
               </div>
-              {/* Removed status message */}
+              {status && (
+                <div className={`mt-4 text-center p-2 rounded ${status.type === 'success' ? 'bg-green-100 text-green-700' : 'bg-red-100 text-red-700'}`}>
+                  {status.message}
+                </div>
+              )}
             </form>
           </div>
         </div>
