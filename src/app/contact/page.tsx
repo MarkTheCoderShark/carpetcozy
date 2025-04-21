@@ -31,8 +31,8 @@ export default function ContactPage() {
     formData.append('form-name', form.name);
 
     try {
-      // POST to the current page path. Netlify intercepts based on form-name.
-      const response = await fetch(window.location.pathname, { // Use current path explicitly
+      // POST to '/__forms.html' as required by Netlify Runtime v5 docs
+      const response = await fetch('/__forms.html', {
         method: 'POST',
         headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
         body: new URLSearchParams(formData as any).toString(), // Encode FormData
