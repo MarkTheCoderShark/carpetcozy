@@ -8,6 +8,36 @@ export const metadata: Metadata = {
 
 const blogPosts = [
   {
+    title: "CarpetCozy Partners with Property Managers & Service Providers",
+    description: "Discover how CarpetCozy collaborates with property managers and trusted service providers like Sacramento Gutter Guard to deliver comprehensive property maintenance solutions.",
+    slug: "carpetcozy-partners-with-property-managers",
+    date: new Date().toLocaleDateString(),
+  },
+  {
+    title: "Complete Property Maintenance Guide for Sacramento",
+    description: "Comprehensive property maintenance guide for Sacramento homeowners and property managers. Find trusted vendors for carpet cleaning, gutter services, and more.",
+    slug: "property-maintenance-guide-sacramento",
+    date: new Date().toLocaleDateString(),
+  },
+  {
+    title: "Complete Property Maintenance Guide for Roseville",
+    description: "Comprehensive property maintenance guide for Roseville homeowners and property managers. Find trusted vendors for carpet cleaning, gutter services, and more.",
+    slug: "property-maintenance-guide-roseville",
+    date: new Date().toLocaleDateString(),
+  },
+  {
+    title: "Complete Property Maintenance Guide for Rocklin",
+    description: "Comprehensive property maintenance guide for Rocklin homeowners and property managers. Find trusted vendors for carpet cleaning, gutter services, and more.",
+    slug: "property-maintenance-guide-rocklin",
+    date: new Date().toLocaleDateString(),
+  },
+  {
+    title: "Complete Property Maintenance Guide for Granite Bay",
+    description: "Comprehensive property maintenance guide for Granite Bay homeowners and property managers. Find trusted vendors for carpet cleaning, gutter services, and more.",
+    slug: "property-maintenance-guide-granite-bay",
+    date: new Date().toLocaleDateString(),
+  },
+  {
     title: "Carpet Cleaning Myths Debunked: What Really Works in 2025",
     description: "Separate fact from fiction with this expert guide to common carpet cleaning myths. Get the truth about what works and what doesn't from CarpetCozy's professionals.",
     slug: "carpet-cleaning-myths-debunked",
