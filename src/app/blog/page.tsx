@@ -38,6 +38,30 @@ const blogPosts = [
     date: new Date().toLocaleDateString(),
   },
   {
+    title: "Complete Property Maintenance Guide for Auburn",
+    description: "Comprehensive property maintenance guide for Auburn homeowners and property managers. Find trusted vendors for carpet cleaning, gutter services, and more.",
+    slug: "property-maintenance-guide-auburn",
+    date: new Date().toLocaleDateString(),
+  },
+  {
+    title: "Complete Property Maintenance Guide for Lincoln",
+    description: "Comprehensive property maintenance guide for Lincoln homeowners and property managers. Find trusted vendors for carpet cleaning, gutter services, and more.",
+    slug: "property-maintenance-guide-lincoln",
+    date: new Date().toLocaleDateString(),
+  },
+  {
+    title: "Complete Property Maintenance Guide for Citrus Heights",
+    description: "Comprehensive property maintenance guide for Citrus Heights homeowners and property managers. Find trusted vendors for carpet cleaning, gutter services, and more.",
+    slug: "property-maintenance-guide-citrus-heights",
+    date: new Date().toLocaleDateString(),
+  },
+  {
+    title: "Complete Property Maintenance Guide for Folsom",
+    description: "Comprehensive property maintenance guide for Folsom homeowners and property managers. Find trusted vendors for carpet cleaning, gutter services, and more.",
+    slug: "property-maintenance-guide-folsom",
+    date: new Date().toLocaleDateString(),
+  },
+  {
     title: "Carpet Cleaning Myths Debunked: What Really Works in 2025",
     description: "Separate fact from fiction with this expert guide to common carpet cleaning myths. Get the truth about what works and what doesn't from CarpetCozy's professionals.",
     slug: "carpet-cleaning-myths-debunked",
